@@ -7,18 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A3BCC3DA6FF7EA701C999121 /* Pods_PulsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7E8E08117A48842EEB6361 /* Pods_PulsApp.framework */; };
+		FA22B6582B88E0350071E256 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA22B6572B88E0350071E256 /* SFProDisplay-Bold.ttf */; };
 		FA9709BD2B877CB90060BFBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9709BC2B877CB90060BFBA /* AppDelegate.swift */; };
 		FA9709BF2B877CB90060BFBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9709BE2B877CB90060BFBA /* SceneDelegate.swift */; };
-		FA9709C12B877CB90060BFBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9709C02B877CB90060BFBA /* ViewController.swift */; };
+		FA9709C12B877CB90060BFBA /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9709C02B877CB90060BFBA /* AboutMeViewController.swift */; };
 		FA9709C62B877CBA0060BFBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9709C52B877CBA0060BFBA /* Assets.xcassets */; };
 		FA9709C92B877CBA0060BFBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9709C72B877CBA0060BFBA /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		96824881C32335C2E0F71CE3 /* Pods-PulsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulsApp.release.xcconfig"; path = "Target Support Files/Pods-PulsApp/Pods-PulsApp.release.xcconfig"; sourceTree = "<group>"; };
+		CD7E8E08117A48842EEB6361 /* Pods_PulsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PulsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F312A057ED68AA723BFC2FEB /* Pods-PulsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulsApp.debug.xcconfig"; path = "Target Support Files/Pods-PulsApp/Pods-PulsApp.debug.xcconfig"; sourceTree = "<group>"; };
+		FA22B6572B88E0350071E256 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		FA9709B92B877CB90060BFBA /* PulsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9709BC2B877CB90060BFBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA9709BE2B877CB90060BFBA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FA9709C02B877CB90060BFBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FA9709C02B877CB90060BFBA /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 		FA9709C52B877CBA0060BFBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA9709C82B877CBA0060BFBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA9709CA2B877CBA0060BFBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,17 +35,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3BCC3DA6FF7EA701C999121 /* Pods_PulsApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140090DFFDD4432265FE34C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD7E8E08117A48842EEB6361 /* Pods_PulsApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60D544E7224A92A7072170D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F312A057ED68AA723BFC2FEB /* Pods-PulsApp.debug.xcconfig */,
+				96824881C32335C2E0F71CE3 /* Pods-PulsApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FA6F6E2C2B88CF720086C77D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FA22B6572B88E0350071E256 /* SFProDisplay-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		FA9709B02B877CB90060BFBA = {
 			isa = PBXGroup;
 			children = (
 				FA9709BB2B877CB90060BFBA /* PulsApp */,
 				FA9709BA2B877CB90060BFBA /* Products */,
+				60D544E7224A92A7072170D2 /* Pods */,
+				140090DFFDD4432265FE34C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,10 +90,11 @@
 			children = (
 				FA9709BC2B877CB90060BFBA /* AppDelegate.swift */,
 				FA9709BE2B877CB90060BFBA /* SceneDelegate.swift */,
-				FA9709C02B877CB90060BFBA /* ViewController.swift */,
+				FA9709C02B877CB90060BFBA /* AboutMeViewController.swift */,
 				FA9709C52B877CBA0060BFBA /* Assets.xcassets */,
 				FA9709C72B877CBA0060BFBA /* LaunchScreen.storyboard */,
 				FA9709CA2B877CBA0060BFBA /* Info.plist */,
+				FA6F6E2C2B88CF720086C77D /* Fonts */,
 			);
 			path = PulsApp;
 			sourceTree = "<group>";
@@ -71,9 +106,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA9709CD2B877CBA0060BFBA /* Build configuration list for PBXNativeTarget "PulsApp" */;
 			buildPhases = (
+				2FC844856621F9A8EB916689 /* [CP] Check Pods Manifest.lock */,
 				FA9709B52B877CB90060BFBA /* Sources */,
 				FA9709B62B877CB90060BFBA /* Frameworks */,
 				FA9709B72B877CB90060BFBA /* Resources */,
+				D8233B8E4A43BCD053B04F0A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,17 +161,60 @@
 			files = (
 				FA9709C92B877CBA0060BFBA /* LaunchScreen.storyboard in Resources */,
 				FA9709C62B877CBA0060BFBA /* Assets.xcassets in Resources */,
+				FA22B6582B88E0350071E256 /* SFProDisplay-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2FC844856621F9A8EB916689 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PulsApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8233B8E4A43BCD053B04F0A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PulsApp/Pods-PulsApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PulsApp/Pods-PulsApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PulsApp/Pods-PulsApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA9709B52B877CB90060BFBA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA9709C12B877CB90060BFBA /* ViewController.swift in Sources */,
+				FA9709C12B877CB90060BFBA /* AboutMeViewController.swift in Sources */,
 				FA9709BD2B877CB90060BFBA /* AppDelegate.swift in Sources */,
 				FA9709BF2B877CB90060BFBA /* SceneDelegate.swift in Sources */,
 			);
@@ -275,12 +355,14 @@
 		};
 		FA9709CE2B877CBA0060BFBA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F312A057ED68AA723BFC2FEB /* Pods-PulsApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3D79N279KQ;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PulsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -302,12 +384,14 @@
 		};
 		FA9709CF2B877CBA0060BFBA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96824881C32335C2E0F71CE3 /* Pods-PulsApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3D79N279KQ;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PulsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
