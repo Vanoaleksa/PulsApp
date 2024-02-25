@@ -14,6 +14,7 @@
 		FA9709C12B877CB90060BFBA /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9709C02B877CB90060BFBA /* AboutMeViewController.swift */; };
 		FA9709C62B877CBA0060BFBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9709C52B877CBA0060BFBA /* Assets.xcassets */; };
 		FA9709C92B877CBA0060BFBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9709C72B877CBA0060BFBA /* LaunchScreen.storyboard */; };
+		FAABD57C2B8B5DE6008CB3D4 /* CustomGenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABD57B2B8B5DE6008CB3D4 /* CustomGenderCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FA9709C52B877CBA0060BFBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA9709C82B877CBA0060BFBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA9709CA2B877CBA0060BFBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAABD57B2B8B5DE6008CB3D4 /* CustomGenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGenderCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				FA9709BC2B877CB90060BFBA /* AppDelegate.swift */,
 				FA9709BE2B877CB90060BFBA /* SceneDelegate.swift */,
 				FA9709C02B877CB90060BFBA /* AboutMeViewController.swift */,
+				FAABD57B2B8B5DE6008CB3D4 /* CustomGenderCell.swift */,
 				FA9709C52B877CBA0060BFBA /* Assets.xcassets */,
 				FA9709C72B877CBA0060BFBA /* LaunchScreen.storyboard */,
 				FA9709CA2B877CBA0060BFBA /* Info.plist */,
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA9709C12B877CB90060BFBA /* AboutMeViewController.swift in Sources */,
+				FAABD57C2B8B5DE6008CB3D4 /* CustomGenderCell.swift in Sources */,
 				FA9709BD2B877CB90060BFBA /* AppDelegate.swift in Sources */,
 				FA9709BF2B877CB90060BFBA /* SceneDelegate.swift in Sources */,
 			);

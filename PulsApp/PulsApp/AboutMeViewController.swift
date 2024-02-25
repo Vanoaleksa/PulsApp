@@ -35,6 +35,7 @@ class AboutMeViewController: UIViewController {
         button.addTarget(self, action: #selector(europeanMesasuringButtonAction), for: .touchUpInside)
         button.isSelected = true
         
+        
         button.backgroundColor = UIColor(red: 102/255, green: 118/255, blue: 250/255, alpha: 1)
 
         view.addSubview(button)
@@ -64,6 +65,7 @@ class AboutMeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        createTableView()
         setupLayout()
     }
     
@@ -75,9 +77,21 @@ class AboutMeViewController: UIViewController {
         imageView.image = UIImage(named: "bg")
         imageView.contentMode = .scaleAspectFill
         view.addSubview(imageView)
-        view.sendSubviewToBack(imageView)
+//        view.sendSubviewToBack(imageView)
         view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.8)
         
+        tableViewController.tableView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
+        
+        
+    }
+    
+//MARK: - Создание tableView
+    private func createTableView() {
+        tableViewController.tableView.register(CustomGenderCell.self, forCellReuseIdentifier: "GenderCell")
+        tableViewController.tableView.delegate = self
+        tableViewController.tableView.dataSource = self
+        
+        view.addSubview(tableViewController.tableView)
     }
     
     @objc func europeanMesasuringButtonAction() {
@@ -94,6 +108,47 @@ class AboutMeViewController: UIViewController {
         americanMesasuringButton.backgroundColor = UIColor(red: 102/255, green: 118/255, blue: 250/255, alpha: 1)
         europeanMesasuringButton.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
     }
+    
+    
+}
+
+extension AboutMeViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.row == 0 {
+            let genderCell = tableView.dequeueReusableCell(withIdentifier: "GenderCell", for: indexPath)
+            genderCell.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
+            genderCell.selectionStyle = .none
+            
+//            genderCell.contentView.frame = genderCell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1))
+            
+            return genderCell
+        } else {
+            let genderCell = tableView.dequeueReusableCell(withIdentifier: "GenderCell", for: indexPath)
+            
+//            genderCell.contentView.frame = genderCell.contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 0, bottom: 5, right:0))
+            
+            return genderCell
+        }
+        
+        
+    }
+    
+    
+}
+
+extension AboutMeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 51.0
+    }
+    
+  
 }
 
 
@@ -119,6 +174,13 @@ extension AboutMeViewController {
             make.left.equalTo(195)
             make.height.equalTo(31)
             make.width.equalTo(94)
+        }
+        
+        tableViewController.tableView.snp.makeConstraints { make in
+            make.top.equalTo(187)
+            make.left.equalTo(18)
+            make.right.equalTo(-18)
+            make.height.equalTo(250)
         }
     }
 }
