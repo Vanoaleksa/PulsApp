@@ -10,14 +10,21 @@ import SnapKit
 
 class CustomGenderCell: UITableViewCell {
     
+    lazy var mainView: UIView = {
+        var view = UIView()
+        
+        contentView.addSubview(view)
+        
+        return view
+    }()
+    
     lazy var genderLabel: UILabel = {
         var label = UILabel()
         label.text = "Gender"
         label.font = .systemFont(ofSize: 16)
         label.textColor = UIColor(red: 29/255, green: 29/255, blue: 37/255, alpha: 1)
-        label.textAlignment = .center
         
-        contentView.addSubview(label)
+        mainView.addSubview(label)
         
         return label
     }()
@@ -30,7 +37,7 @@ class CustomGenderCell: UITableViewCell {
         label.textColor = UIColor(red: 29/255, green: 29/255, blue: 37/255, alpha: 1)
         label.textAlignment = .center
         
-        contentView.addSubview(label)
+        mainView.addSubview(label)
         
         return label
     }()
@@ -42,7 +49,7 @@ class CustomGenderCell: UITableViewCell {
         label.textColor = UIColor(red: 29/255, green: 29/255, blue: 37/255, alpha: 1)
         label.textAlignment = .center
         
-        contentView.addSubview(label)
+        mainView.addSubview(label)
         
         return label
     }()
@@ -53,7 +60,7 @@ class CustomGenderCell: UITableViewCell {
         button.setImage(UIImage(named: "checkboxSelected"), for: .selected)
         button.addTarget(self, action: #selector(maleCheckboxAction), for: .touchUpInside)
         
-        contentView.addSubview(button)
+        mainView.addSubview(button)
         
         return button
     }()
@@ -64,7 +71,7 @@ class CustomGenderCell: UITableViewCell {
         button.setImage(UIImage(named: "checkboxSelected"), for: .selected)
         button.addTarget(self, action: #selector(femaleCheckboxAction), for: .touchUpInside)
         
-        contentView.addSubview(button)
+        mainView.addSubview(button)
         
         return button
     }()
@@ -82,11 +89,12 @@ class CustomGenderCell: UITableViewCell {
     
     func configUI() {
         self.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
+        contentView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
 
-        contentView.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 249/255, alpha: 0.6)
-        contentView.layer.borderWidth = 1
-        contentView.layer.borderColor = CGColor(red: 235/255, green: 233/255, blue: 240/255, alpha: 1)
-        contentView.layer.cornerRadius = 12
+        mainView.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 249/255, alpha: 0.6)
+        mainView.layer.borderWidth = 2
+        mainView.layer.borderColor = CGColor(red: 235/255, green: 233/255, blue: 240/255, alpha: 1)
+        mainView.layer.cornerRadius = 12
         
     }
     
@@ -108,34 +116,48 @@ class CustomGenderCell: UITableViewCell {
 extension CustomGenderCell {
     
     func setupLayout() {
+        
+        mainView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+            make.bottom.equalTo(-10)
+        }
+        
         genderLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.left.equalTo(20)
         }
         
-        maleCheckBox.snp.makeConstraints { make in
+        femaleLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalTo(185)
+            make.right.equalTo(mainView).offset(-20)
+        }
+        
+        femaleCheckBox.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.right.equalTo(femaleLabel.snp.left).offset(-4)
             make.height.equalTo(20)
             make.width.equalTo(20)
         }
         
         maleLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalTo(maleCheckBox.snp.right).offset(4)
+            make.right.equalTo(femaleCheckBox.snp.left).offset(-23)
             
         }
         
-        femaleCheckBox.snp.makeConstraints { make in
+        maleCheckBox.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalTo(maleLabel.snp.right).offset(23)
+            make.right.equalTo(maleLabel.snp.left).offset(-4)
             make.height.equalTo(20)
             make.width.equalTo(20)
         }
         
-        femaleLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.left.equalTo(femaleCheckBox.snp.right).offset(4)
-        }
+       
+        
+       
+        
+        
     }
 }

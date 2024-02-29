@@ -14,6 +14,7 @@
 		FA9709C12B877CB90060BFBA /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9709C02B877CB90060BFBA /* AboutMeViewController.swift */; };
 		FA9709C62B877CBA0060BFBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9709C52B877CBA0060BFBA /* Assets.xcassets */; };
 		FA9709C92B877CBA0060BFBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9709C72B877CBA0060BFBA /* LaunchScreen.storyboard */; };
+		FAA031362B8DE7F400DBBA63 /* CustomParametersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA031352B8DE7F400DBBA63 /* CustomParametersCell.swift */; };
 		FAABD57C2B8B5DE6008CB3D4 /* CustomGenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABD57B2B8B5DE6008CB3D4 /* CustomGenderCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		FA9709C52B877CBA0060BFBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA9709C82B877CBA0060BFBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA9709CA2B877CBA0060BFBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA031352B8DE7F400DBBA63 /* CustomParametersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomParametersCell.swift; sourceTree = "<group>"; };
 		FAABD57B2B8B5DE6008CB3D4 /* CustomGenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGenderCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 				FA9709BE2B877CB90060BFBA /* SceneDelegate.swift */,
 				FA9709C02B877CB90060BFBA /* AboutMeViewController.swift */,
 				FAABD57B2B8B5DE6008CB3D4 /* CustomGenderCell.swift */,
+				FAA031352B8DE7F400DBBA63 /* CustomParametersCell.swift */,
 				FA9709C52B877CBA0060BFBA /* Assets.xcassets */,
 				FA9709C72B877CBA0060BFBA /* LaunchScreen.storyboard */,
 				FA9709CA2B877CBA0060BFBA /* Info.plist */,
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA9709C12B877CB90060BFBA /* AboutMeViewController.swift in Sources */,
+				FAA031362B8DE7F400DBBA63 /* CustomParametersCell.swift in Sources */,
 				FAABD57C2B8B5DE6008CB3D4 /* CustomGenderCell.swift in Sources */,
 				FA9709BD2B877CB90060BFBA /* AppDelegate.swift in Sources */,
 				FA9709BF2B877CB90060BFBA /* SceneDelegate.swift in Sources */,
@@ -290,7 +294,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -347,7 +351,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

@@ -34,12 +34,10 @@ class AboutMeViewController: UIViewController {
         button.titleLabel?.font = .systemFont(ofSize: 14)
         button.addTarget(self, action: #selector(europeanMesasuringButtonAction), for: .touchUpInside)
         button.isSelected = true
-        
-        
         button.backgroundColor = UIColor(red: 102/255, green: 118/255, blue: 250/255, alpha: 1)
-
+        
         view.addSubview(button)
-
+        
         return button
     }()
     
@@ -54,14 +52,27 @@ class AboutMeViewController: UIViewController {
         button.titleLabel?.font = .systemFont(ofSize: 14)
         button.addTarget(self, action: #selector(americanMesasuringButtonAction), for: .touchUpInside)
         button.isSelected = false
-        
         button.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
-
+        
         view.addSubview(button)
-
+        
         return button
     }()
-
+    
+    lazy var continueButton: UIButton = {
+        var button = UIButton()
+        button.setTitle("Continue", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 32
+        button.titleLabel?.font = .systemFont(ofSize: 18)
+        button.backgroundColor = UIColor(red: 102/255, green: 118/255, blue: 250/255, alpha: 1)
+        button.addTarget(self, action: #selector(continueButtonAction), for: .touchUpInside)
+        
+        view.addSubview(button)
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
@@ -69,7 +80,7 @@ class AboutMeViewController: UIViewController {
         setupLayout()
     }
     
-//MARK: - Setup UI
+    //MARK: - Setup UI
     func configUI() {
         
         //Установка фонового изображения
@@ -77,19 +88,20 @@ class AboutMeViewController: UIViewController {
         imageView.image = UIImage(named: "bg")
         imageView.contentMode = .scaleAspectFill
         view.addSubview(imageView)
-//        view.sendSubviewToBack(imageView)
-        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.8)
+        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.9)
         
         tableViewController.tableView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
         
         
     }
     
-//MARK: - Создание tableView
+    //MARK: - Создание tableView
     private func createTableView() {
         tableViewController.tableView.register(CustomGenderCell.self, forCellReuseIdentifier: "GenderCell")
+        tableViewController.tableView.register(CustomParametersCell.self, forCellReuseIdentifier: "CustomParametersCell")
         tableViewController.tableView.delegate = self
         tableViewController.tableView.dataSource = self
+        tableViewController.tableView.separatorStyle = .none
         
         view.addSubview(tableViewController.tableView)
     }
@@ -109,13 +121,27 @@ class AboutMeViewController: UIViewController {
         europeanMesasuringButton.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
     }
     
-    
+    @objc func continueButtonAction() {
+        
+        for row in 1...3 {
+            if let cell = tableViewController.tableView.cellForRow(at: IndexPath(row: row, section: 0)) as? CustomParametersCell {
+                if cell.paramTextField.text?.isEmpty == true {
+                    cell.isEmpty = true
+                } else {
+                    print("Else")
+                }
+            }
+        }
+        
+    }
 }
 
+
+//MARK: - UITableViewDataSource
 extension AboutMeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -124,34 +150,48 @@ extension AboutMeViewController: UITableViewDataSource {
             let genderCell = tableView.dequeueReusableCell(withIdentifier: "GenderCell", for: indexPath)
             genderCell.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
             genderCell.selectionStyle = .none
-            
-//            genderCell.contentView.frame = genderCell.contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1))
-            
-            return genderCell
-        } else {
-            let genderCell = tableView.dequeueReusableCell(withIdentifier: "GenderCell", for: indexPath)
-            
-//            genderCell.contentView.frame = genderCell.contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 0, bottom: 5, right:0))
-            
+     
             return genderCell
         }
         
+        if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CustomParametersCell", for: indexPath) as! CustomParametersCell
+            cell.typeLabel.text = "Height"
+            cell.warningLabel.text = "Please enter a valid value for:  \(cell.typeLabel.text!)"
+            cell.selectionStyle = .none
+
+            return cell
+        }
         
+        if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CustomParametersCell", for: indexPath) as! CustomParametersCell
+            cell.typeLabel.text = "Weight"
+            cell.warningLabel.text = "Please enter a valid value for:  \(cell.typeLabel.text!)"
+            cell.selectionStyle = .none
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CustomParametersCell", for: indexPath) as! CustomParametersCell
+            cell.typeLabel.text = "Age"
+            cell.warningLabel.text = "Please enter a valid value for:  \(cell.typeLabel.text!)"
+            cell.selectionStyle = .none
+            
+            return cell
+        }
     }
-    
-    
 }
 
+//MARK: - UITableViewDelegate
 extension AboutMeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 51.0
+        return 61
     }
     
-  
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.endEditing(true)
+    }
 }
-
-
 
 //MARK: - Setup constraints
 extension AboutMeViewController {
@@ -163,15 +203,17 @@ extension AboutMeViewController {
         }
         
         europeanMesasuringButton.snp.makeConstraints { make in
-            make.top.equalTo(138)
-            make.left.equalTo(87)
+
+            make.bottom.equalTo(tableViewController.tableView.snp.top).offset(-20)
+            make.centerX.equalToSuperview().offset(-55)
             make.width.equalTo(94)
             make.height.equalTo(31)
         }
         
         americanMesasuringButton.snp.makeConstraints { make in
-            make.top.equalTo(138)
-            make.left.equalTo(195)
+
+            make.bottom.equalTo(tableViewController.tableView.snp.top).offset(-20)
+            make.centerX.equalToSuperview().offset(55)
             make.height.equalTo(31)
             make.width.equalTo(94)
         }
@@ -180,7 +222,15 @@ extension AboutMeViewController {
             make.top.equalTo(187)
             make.left.equalTo(18)
             make.right.equalTo(-18)
-            make.height.equalTo(250)
+            make.bottom.equalToSuperview().offset(-200)
+        }
+        
+        continueButton.snp.makeConstraints { make in
+            make.top.equalTo(tableViewController.tableView.snp.bottom).offset(50)
+            make.height.equalTo(75)
+            make.left.equalToSuperview().offset(40)
+            make.right.equalToSuperview().offset(-40)
+            make.centerX.equalToSuperview()
         }
     }
 }
