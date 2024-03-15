@@ -82,7 +82,6 @@ class AboutMeViewController: UIViewController {
     
     //MARK: - Setup UI
     func configUI() {
-        
         //Установка фонового изображения
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "bg")
@@ -91,8 +90,6 @@ class AboutMeViewController: UIViewController {
         view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.9)
         
         tableViewController.tableView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
-        
-        
     }
     
     //MARK: - Создание tableView
@@ -135,7 +132,6 @@ class AboutMeViewController: UIViewController {
         
     }
 }
-
 
 //MARK: - UITableViewDataSource
 extension AboutMeViewController: UITableViewDataSource {
