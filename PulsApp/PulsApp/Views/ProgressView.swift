@@ -86,10 +86,15 @@ class ProgressView: UIView {
     func startAniamation() {
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.toValue = 1
-        basicAnimation.duration = 10.0
+        basicAnimation.duration = 25
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
-        basicAnimation.isRemovedOnCompletion = false
+        basicAnimation.isRemovedOnCompletion = true
         self.shapeLayer.add(basicAnimation, forKey: "animation")
+    }
+    
+    func deleteAnimations() {
+        shapeLayer.removeAllAnimations()
+        trackLayer.removeAllAnimations()
     }
 }
 

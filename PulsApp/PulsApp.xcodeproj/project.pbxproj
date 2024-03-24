@@ -17,8 +17,26 @@
 		FA9709C92B877CBA0060BFBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9709C72B877CBA0060BFBA /* LaunchScreen.storyboard */; };
 		FA9C7F882B9C870F002CC469 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9C7F872B9C870F002CC469 /* CustomTabBarController.swift */; };
 		FAA031362B8DE7F400DBBA63 /* CustomParametersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA031352B8DE7F400DBBA63 /* CustomParametersCell.swift */; };
+		FAA64F472BAC73E700DE40CA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA64F462BAC73E700DE40CA /* Extension.swift */; };
 		FAABD57C2B8B5DE6008CB3D4 /* CustomGenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABD57B2B8B5DE6008CB3D4 /* CustomGenderCell.swift */; };
+		FAB777502BB060FD00EE193E /* SizeFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7774F2BB060FD00EE193E /* SizeFactor.swift */; };
+		FABB5EC62BA9D3CE0037A41C /* ReusableAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB5EC52BA9D3CE0037A41C /* ReusableAlertView.swift */; };
+		FAC0A6142BA862B0001F82C4 /* ManagerHeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0A60C2BA862B0001F82C4 /* ManagerHeartRate.swift */; };
+		FAC0A6152BA862B0001F82C4 /* FilterHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0A60E2BA862B0001F82C4 /* FilterHeart.swift */; };
+		FAC0A6162BA862B0001F82C4 /* PulseDetectorHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0A60F2BA862B0001F82C4 /* PulseDetectorHeart.swift */; };
+		FAC0A6172BA862B0001F82C4 /* AVDeviceCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0A6112BA862B0001F82C4 /* AVDeviceCapture.swift */; };
+		FAC0A6182BA862B0001F82C4 /* ColorUtilitesHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0A6132BA862B0001F82C4 /* ColorUtilitesHeart.swift */; };
+		FAC0A6222BA87219001F82C4 /* HeartRateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0A6212BA87219001F82C4 /* HeartRateViewModel.swift */; };
 		FAE136652B91E960006861A4 /* HeartRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE136642B91E960006861A4 /* HeartRateViewController.swift */; };
+		FAE507D52BA5F3CB007EEA18 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = FAE507D42BA5F3CB007EEA18 /* Realm */; };
+		FAE507D72BA5F3CB007EEA18 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FAE507D62BA5F3CB007EEA18 /* RealmSwift */; };
+		FAE507DA2BA5FC47007EEA18 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE507D92BA5FC46007EEA18 /* QueueManager.swift */; };
+		FAE507DF2BA5FEFB007EEA18 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE507DD2BA5FEFB007EEA18 /* UserManager.swift */; };
+		FAE507E02BA5FEFB007EEA18 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE507DE2BA5FEFB007EEA18 /* UserModel.swift */; };
+		FAE507E42BA5FF0D007EEA18 /* BPMUserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE507E22BA5FF0D007EEA18 /* BPMUserSettings.swift */; };
+		FAE507E52BA5FF0D007EEA18 /* BPMUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE507E32BA5FF0D007EEA18 /* BPMUserManager.swift */; };
+		FAE507E82BA60201007EEA18 /* DefiningPulseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE507E72BA60201007EEA18 /* DefiningPulseType.swift */; };
+		FAF376DB2BADB13F00F311E8 /* GlobalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF376DA2BADB13F00F311E8 /* GlobalButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,11 +51,27 @@
 		FA9709C02B877CB90060BFBA /* AboutMeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 		FA9709C52B877CBA0060BFBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA9709C82B877CBA0060BFBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FA9709CA2B877CBA0060BFBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA9709CA2B877CBA0060BFBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = PulsApp/Other/Info.plist; sourceTree = SOURCE_ROOT; };
 		FA9C7F872B9C870F002CC469 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		FAA031352B8DE7F400DBBA63 /* CustomParametersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomParametersCell.swift; sourceTree = "<group>"; };
+		FAA64F462BAC73E700DE40CA /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		FAABD57B2B8B5DE6008CB3D4 /* CustomGenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGenderCell.swift; sourceTree = "<group>"; };
+		FAB7774F2BB060FD00EE193E /* SizeFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeFactor.swift; sourceTree = "<group>"; };
+		FABB5EC52BA9D3CE0037A41C /* ReusableAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableAlertView.swift; sourceTree = "<group>"; };
+		FAC0A60C2BA862B0001F82C4 /* ManagerHeartRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerHeartRate.swift; sourceTree = "<group>"; };
+		FAC0A60E2BA862B0001F82C4 /* FilterHeart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterHeart.swift; sourceTree = "<group>"; };
+		FAC0A60F2BA862B0001F82C4 /* PulseDetectorHeart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseDetectorHeart.swift; sourceTree = "<group>"; };
+		FAC0A6112BA862B0001F82C4 /* AVDeviceCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVDeviceCapture.swift; sourceTree = "<group>"; };
+		FAC0A6132BA862B0001F82C4 /* ColorUtilitesHeart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtilitesHeart.swift; sourceTree = "<group>"; };
+		FAC0A6212BA87219001F82C4 /* HeartRateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateViewModel.swift; sourceTree = "<group>"; };
 		FAE136642B91E960006861A4 /* HeartRateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateViewController.swift; sourceTree = "<group>"; };
+		FAE507D92BA5FC46007EEA18 /* QueueManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
+		FAE507DD2BA5FEFB007EEA18 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		FAE507DE2BA5FEFB007EEA18 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		FAE507E22BA5FF0D007EEA18 /* BPMUserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BPMUserSettings.swift; sourceTree = "<group>"; };
+		FAE507E32BA5FF0D007EEA18 /* BPMUserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BPMUserManager.swift; sourceTree = "<group>"; };
+		FAE507E72BA60201007EEA18 /* DefiningPulseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefiningPulseType.swift; sourceTree = "<group>"; };
+		FAF376DA2BADB13F00F311E8 /* GlobalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE507D72BA5F3CB007EEA18 /* RealmSwift in Frameworks */,
+				FAE507D52BA5F3CB007EEA18 /* Realm in Frameworks */,
 				A3BCC3DA6FF7EA701C999121 /* Pods_PulsApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,20 +134,164 @@
 		FA9709BB2B877CB90060BFBA /* PulsApp */ = {
 			isa = PBXGroup;
 			children = (
-				FA9709BC2B877CB90060BFBA /* AppDelegate.swift */,
-				FA9709BE2B877CB90060BFBA /* SceneDelegate.swift */,
-				FA9C7F872B9C870F002CC469 /* CustomTabBarController.swift */,
-				FA9709C02B877CB90060BFBA /* AboutMeViewController.swift */,
+				FAC0A6092BA8622F001F82C4 /* Views */,
+				FAC0A6202BA87219001F82C4 /* ViewModel */,
+				FAC0A6082BA86215001F82C4 /* Controllers */,
+				FAE507DB2BA5FEE6007EEA18 /* Realm */,
+				FAE507D82BA5FC46007EEA18 /* QueueManager */,
+				FAE507E62BA60201007EEA18 /* DefiningPulseType */,
+				FAC0A60A2BA862B0001F82C4 /* Helpers */,
+				FA6F6E2C2B88CF720086C77D /* Fonts */,
+				FAC0A61A2BA866E6001F82C4 /* Other */,
+			);
+			path = PulsApp;
+			sourceTree = "<group>";
+		};
+		FAA64F452BAC73E700DE40CA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FAA64F462BAC73E700DE40CA /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FAB7774E2BB060E300EE193E /* SizeFactor */ = {
+			isa = PBXGroup;
+			children = (
+				FAB7774F2BB060FD00EE193E /* SizeFactor.swift */,
+			);
+			path = SizeFactor;
+			sourceTree = "<group>";
+		};
+		FAC0A6082BA86215001F82C4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				FAE136642B91E960006861A4 /* HeartRateViewController.swift */,
+				FAA64F452BAC73E700DE40CA /* Extension */,
+				FA9709C02B877CB90060BFBA /* AboutMeViewController.swift */,
+				FA9C7F872B9C870F002CC469 /* CustomTabBarController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FAC0A6092BA8622F001F82C4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				FA9227C02B99F4290065408B /* ProgressView.swift */,
 				FAABD57B2B8B5DE6008CB3D4 /* CustomGenderCell.swift */,
 				FAA031352B8DE7F400DBBA63 /* CustomParametersCell.swift */,
+				FABB5EC52BA9D3CE0037A41C /* ReusableAlertView.swift */,
+				FAF376DA2BADB13F00F311E8 /* GlobalButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FAC0A60A2BA862B0001F82C4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FAB7774E2BB060E300EE193E /* SizeFactor */,
+				FAC0A60B2BA862B0001F82C4 /* ManagerHeart */,
+				FAC0A60D2BA862B0001F82C4 /* Detector Helpers */,
+				FAC0A6102BA862B0001F82C4 /* ExtensionHeart */,
+				FAC0A6122BA862B0001F82C4 /* UtilitesHeart */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FAC0A60B2BA862B0001F82C4 /* ManagerHeart */ = {
+			isa = PBXGroup;
+			children = (
+				FAC0A60C2BA862B0001F82C4 /* ManagerHeartRate.swift */,
+			);
+			path = ManagerHeart;
+			sourceTree = "<group>";
+		};
+		FAC0A60D2BA862B0001F82C4 /* Detector Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FAC0A60E2BA862B0001F82C4 /* FilterHeart.swift */,
+				FAC0A60F2BA862B0001F82C4 /* PulseDetectorHeart.swift */,
+			);
+			path = "Detector Helpers";
+			sourceTree = "<group>";
+		};
+		FAC0A6102BA862B0001F82C4 /* ExtensionHeart */ = {
+			isa = PBXGroup;
+			children = (
+				FAC0A6112BA862B0001F82C4 /* AVDeviceCapture.swift */,
+			);
+			path = ExtensionHeart;
+			sourceTree = "<group>";
+		};
+		FAC0A6122BA862B0001F82C4 /* UtilitesHeart */ = {
+			isa = PBXGroup;
+			children = (
+				FAC0A6132BA862B0001F82C4 /* ColorUtilitesHeart.swift */,
+			);
+			path = UtilitesHeart;
+			sourceTree = "<group>";
+		};
+		FAC0A61A2BA866E6001F82C4 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				FA9709BC2B877CB90060BFBA /* AppDelegate.swift */,
+				FA9709BE2B877CB90060BFBA /* SceneDelegate.swift */,
 				FA9709C52B877CBA0060BFBA /* Assets.xcassets */,
 				FA9709C72B877CBA0060BFBA /* LaunchScreen.storyboard */,
 				FA9709CA2B877CBA0060BFBA /* Info.plist */,
-				FA6F6E2C2B88CF720086C77D /* Fonts */,
 			);
-			path = PulsApp;
+			path = Other;
+			sourceTree = "<group>";
+		};
+		FAC0A6202BA87219001F82C4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FAC0A6212BA87219001F82C4 /* HeartRateViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FAE507D82BA5FC46007EEA18 /* QueueManager */ = {
+			isa = PBXGroup;
+			children = (
+				FAE507D92BA5FC46007EEA18 /* QueueManager.swift */,
+			);
+			path = QueueManager;
+			sourceTree = "<group>";
+		};
+		FAE507DB2BA5FEE6007EEA18 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				FAE507E12BA5FF0D007EEA18 /* BPM */,
+				FAE507DC2BA5FEFB007EEA18 /* Model */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		FAE507DC2BA5FEFB007EEA18 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAE507DD2BA5FEFB007EEA18 /* UserManager.swift */,
+				FAE507DE2BA5FEFB007EEA18 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FAE507E12BA5FF0D007EEA18 /* BPM */ = {
+			isa = PBXGroup;
+			children = (
+				FAE507E22BA5FF0D007EEA18 /* BPMUserSettings.swift */,
+				FAE507E32BA5FF0D007EEA18 /* BPMUserManager.swift */,
+			);
+			path = BPM;
+			sourceTree = "<group>";
+		};
+		FAE507E62BA60201007EEA18 /* DefiningPulseType */ = {
+			isa = PBXGroup;
+			children = (
+				FAE507E72BA60201007EEA18 /* DefiningPulseType.swift */,
+			);
+			path = DefiningPulseType;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,6 +312,10 @@
 			dependencies = (
 			);
 			name = PulsApp;
+			packageProductDependencies = (
+				FAE507D42BA5F3CB007EEA18 /* Realm */,
+				FAE507D62BA5F3CB007EEA18 /* RealmSwift */,
+			);
 			productName = PulsApp;
 			productReference = FA9709B92B877CB90060BFBA /* PulsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -160,6 +344,9 @@
 				Base,
 			);
 			mainGroup = FA9709B02B877CB90060BFBA;
+			packageReferences = (
+				FAE507D32BA5F3CB007EEA18 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = FA9709BA2B877CB90060BFBA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -229,14 +416,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE507DA2BA5FC47007EEA18 /* QueueManager.swift in Sources */,
 				FA9709C12B877CB90060BFBA /* AboutMeViewController.swift in Sources */,
+				FAC0A6142BA862B0001F82C4 /* ManagerHeartRate.swift in Sources */,
+				FAC0A6172BA862B0001F82C4 /* AVDeviceCapture.swift in Sources */,
 				FAA031362B8DE7F400DBBA63 /* CustomParametersCell.swift in Sources */,
+				FAC0A6182BA862B0001F82C4 /* ColorUtilitesHeart.swift in Sources */,
+				FAE507E52BA5FF0D007EEA18 /* BPMUserManager.swift in Sources */,
 				FA9C7F882B9C870F002CC469 /* CustomTabBarController.swift in Sources */,
+				FAC0A6152BA862B0001F82C4 /* FilterHeart.swift in Sources */,
+				FAE507E82BA60201007EEA18 /* DefiningPulseType.swift in Sources */,
 				FAABD57C2B8B5DE6008CB3D4 /* CustomGenderCell.swift in Sources */,
+				FAC0A6222BA87219001F82C4 /* HeartRateViewModel.swift in Sources */,
 				FAE136652B91E960006861A4 /* HeartRateViewController.swift in Sources */,
+				FAB777502BB060FD00EE193E /* SizeFactor.swift in Sources */,
+				FAC0A6162BA862B0001F82C4 /* PulseDetectorHeart.swift in Sources */,
 				FA9227C12B99F4290065408B /* ProgressView.swift in Sources */,
+				FAA64F472BAC73E700DE40CA /* Extension.swift in Sources */,
 				FA9709BD2B877CB90060BFBA /* AppDelegate.swift in Sources */,
+				FAE507DF2BA5FEFB007EEA18 /* UserManager.swift in Sources */,
+				FABB5EC62BA9D3CE0037A41C /* ReusableAlertView.swift in Sources */,
 				FA9709BF2B877CB90060BFBA /* SceneDelegate.swift in Sources */,
+				FAF376DB2BADB13F00F311E8 /* GlobalButton.swift in Sources */,
+				FAE507E02BA5FEFB007EEA18 /* UserModel.swift in Sources */,
+				FAE507E42BA5FF0D007EEA18 /* BPMUserSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,10 +584,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 3D79N279KQ;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PulsApp/Info.plist;
+				INFOPLIST_FILE = /Users/macbook/Desktop/Apps/PulsApp/PulsApp/PulsApp/Other/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -410,10 +614,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 3D79N279KQ;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PulsApp/Info.plist;
+				INFOPLIST_FILE = /Users/macbook/Desktop/Apps/PulsApp/PulsApp/PulsApp/Other/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -453,6 +658,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FAE507D32BA5F3CB007EEA18 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.48.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FAE507D42BA5F3CB007EEA18 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAE507D32BA5F3CB007EEA18 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		FAE507D62BA5F3CB007EEA18 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAE507D32BA5F3CB007EEA18 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA9709B12B877CB90060BFBA /* Project object */;
 }

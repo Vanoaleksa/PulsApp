@@ -17,9 +17,6 @@ class CustomTabBarController: UITabBarController {
         setupLayout()
     }
 
-    
-    
-    
     private func createTabBar() {
         
         let mainVC = HeartRateViewController()
@@ -70,14 +67,14 @@ class CustomTabBarController: UITabBarController {
         self.tabBar.isTranslucent = true
         self.tabBar.backgroundColor = .white
         self.tabBar.tintColor = UIColor(red: 255/255, green: 134/255, blue: 56/255, alpha: 1)
-        self.tabBar.layer.cornerRadius = 20
+        self.tabBar.layer.cornerRadius = 10
+        //        self.tabBar.layer.cornerRadius = self.accessibilityFrame.height / 2
     }
 }
 
 extension CustomTabBarController {
     
     private func setupLayout() {
-       
     }
 }
 
