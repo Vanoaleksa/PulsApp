@@ -2,10 +2,11 @@
 import UIKit
 import SnapKit
 import AVFoundation
+import RealmSwift
 
 class HeartRateViewController: UIViewController {
     
-    var progressView = ProgressView(frame: CGRect(x: 0, y: 0, width: 220.adjusted, height: 220.adjusted))
+    var progressView = ProgressView(frame: CGRect(x: 0, y: 0, width: 214.adjusted, height: 214.adjusted))
     var heartViewModel: BindWithHeartControllerProtocol?
     var reusableView = ReusableAlertView(alertType: .camera)
     var heartRateManager: HeartRateManager!
@@ -15,7 +16,6 @@ class HeartRateViewController: UIViewController {
     var timerTwo = Timer()
     var measurementStartedFlag = false
     var darkView: UIVisualEffectView?
-    var userInfo = UserModel()    
 
     // detection alghoritm
     var pulseDetector = PulseDetector()
@@ -92,6 +92,24 @@ class HeartRateViewController: UIViewController {
         return tutorialImage
     }()
     
+    lazy var leftNumbersImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "left-numbers")
+        
+        view.addSubview(imageView)
+        
+        return imageView
+    }()
+    
+    lazy var scheduleLineImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "scheduleLineImage")
+        
+        view.addSubview(imageView)
+        
+        return imageView
+    }()
+    
     func heartBeatAnimation(){
         let pulse = CASpringAnimation(keyPath: "transform.scale")
         pulse.duration = 0.4
@@ -119,7 +137,6 @@ class HeartRateViewController: UIViewController {
         configUI()
         setupLayout()
         heartViewModel = HeartRateViewModel()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -128,10 +145,8 @@ class HeartRateViewController: UIViewController {
         tutorialImage.isHidden = true
         startButton.isHidden = false
         bpmImage.isHidden = false
-//        crookedLineImage.isHidden = false
-        bpmImage.isHidden = false
-//        rightNumbers.isHidden = true
-//        scheduleLineImage.isHidden = true
+        leftNumbersImage.isHidden = true
+        scheduleLineImage.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -160,6 +175,10 @@ class HeartRateViewController: UIViewController {
     
     @objc func startPulsHeartRate() {
         
+        if UserManager.getUser()?.aboutMeWasShow == false {
+                        heartViewModel?.showAboutMeViewController(heartController: self)
+        }
+        
         if AVCaptureDevice.authorizationStatus(for: AVMediaType.video) == AVAuthorizationStatus.authorized{
             DispatchQueue.main.async {[weak self] in
                 guard let self = self else {return}
@@ -174,31 +193,27 @@ class HeartRateViewController: UIViewController {
     func startPulseAnimation(){
         DispatchQueue.main.async {[weak self] in
             guard let self = self else {return}
-//            rightNumbers.isHidden = false
+            leftNumbersImage.isHidden = false
             clueLabel.text = "Testing, keep your finger steady"
             clueLabel.isHidden = false
             tutorialImage.isHidden = true
             bpmImage.isHidden = true
-//            scheduleLineImage.isHidden = false
-//            progressView.miniProgressLayer.isHidden = false
-//            progressView.miniCircleContainerLayer.isHidden = false
+            scheduleLineImage.isHidden = false
             progressView.shapeLayer.isHidden = false
             startButton.isHidden = true
-//            crookedLineImage.isHidden = true
         }
     }
     
     func stopPulseAnimation(){
         DispatchQueue.main.async {[weak self] in
             guard let self = self else {return}
-//            rightNumbers.isHidden = true
+            leftNumbersImage.isHidden = true
             clueLabel.text = "Place your finger on the back camera and flashlight"
             clueLabel.isHidden = false
             tutorialImage.isHidden = false
             bpmImage.isHidden = true
-//            scheduleLineImage.isHidden = true
+            scheduleLineImage.isHidden = true
             startButton.isHidden = true
-//            crookedLineImage.isHidden = true
         }
     }
     
@@ -226,8 +241,6 @@ extension HeartRateViewController: AlertViewDelegate {
                         self.fingersLabel.isHidden = false
                         self.startButton.isHidden = true
                         self.tutorialImage.isHidden = false
-//                        self.scheduleLineImage.isHidden = true
-//                        self.crookedLineImage.isHidden = true
                         self.clueLabel.isHidden = false
                     }
                     self.initStartPulse()
@@ -237,6 +250,9 @@ extension HeartRateViewController: AlertViewDelegate {
     }
     
     func completedAboutMeStage() {
+        let userInfo = UserModel()
+        
+
         if userInfo.showCameraAccess != true {
             showCameraAccessView()
         } else {

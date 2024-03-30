@@ -23,7 +23,7 @@ class ReusableAlertView: UIView {
 
     lazy var titleLabel: UILabel = {
         var label = UILabel()
-        label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.font = .systemFont(ofSize: 20.adjusted, weight: .medium)
         
         self.addSubview(label)
         
@@ -69,12 +69,12 @@ class ReusableAlertView: UIView {
             titleLabel.text = "Camera Access"
             descriptionLabel.text = "Pulse would like to access your camera to measure heart rate by collecting the light changes on your finger surface."
             globalButton.setTitle("OK", for: .normal)
+            
         case .preview:
             titleLabel.text = "Welcome to Pulse"
             descriptionLabel.text = "By clicking 'Accept and Continue', you confirm that you have read and accept our Privacy Policy Terms of Service"
             globalButton.setTitle("Accept and Continue", for: .normal)
             delegate?.tappedActionInPrivacyView(forType: .preview)
-
         }
     }
     

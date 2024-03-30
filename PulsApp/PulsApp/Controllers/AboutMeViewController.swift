@@ -7,10 +7,33 @@
 
 import UIKit
 import SnapKit
+import RealmSwift
+
+protocol UnitsDelegate: AnyObject{
+    func chooseUnits(units: Units)
+}
 
 class AboutMeViewController: UIViewController {
-    
+   
     var tableViewController = UITableViewController(style: .plain)
+    private var stackView: UIStackView!
+    private var cmKgView: UnitsView!
+    private var inLbsView: UnitsView!
+    private var unitsIsSelected: Units = .cmKg{
+        didSet{
+            if unitsIsSelected == .cmKg{
+                cmKgView.unitsChangeStateSelected(isSelected: true)
+                cmKgView.changeColor(isSelected: true)
+                inLbsView.unitsChangeStateSelected(isSelected: false)
+                inLbsView.changeColor(isSelected: false)
+            }else{
+                cmKgView.unitsChangeStateSelected(isSelected: false)
+                cmKgView.changeColor(isSelected: false)
+                inLbsView.unitsChangeStateSelected(isSelected: true)
+                inLbsView.changeColor(isSelected: true)
+            }
+        }
+    }
     
     lazy var titleLabel: UILabel = {
         var label = UILabel()
@@ -23,49 +46,9 @@ class AboutMeViewController: UIViewController {
         return label
     }()
     
-    lazy var europeanMesasuringButton: UIButton = {
-        var button = UIButton()
-        button.setTitle("Cm, Kg", for: .normal)
-        button.setTitleColor(UIColor(red: 102/255, green: 118/255, blue: 250/255, alpha: 1), for: .normal)
-        button.setTitleColor(.white, for: .selected)
-        button.layer.borderColor = CGColor(red: 102/255, green: 118/255, blue: 250/255, alpha: 1)
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 16
-        button.titleLabel?.font = .systemFont(ofSize: 14)
-        button.addTarget(self, action: #selector(europeanMesasuringButtonAction), for: .touchUpInside)
-        button.isSelected = true
-        button.backgroundColor = UIColor(red: 102/255, green: 118/255, blue: 250/255, alpha: 1)
-        
-        view.addSubview(button)
-        
-        return button
-    }()
-    
-    lazy var americanMesasuringButton: UIButton = {
-        var button = UIButton()
-        button.setTitle("In, Lbs", for: .normal)
-        button.setTitleColor(UIColor(red: 102/255, green: 118/255, blue: 250/255, alpha: 1), for: .normal)
-        button.setTitleColor(.white, for: .selected)
-        button.layer.borderColor = CGColor(red: 102/255, green: 118/255, blue: 250/255, alpha: 1)
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 16
-        button.titleLabel?.font = .systemFont(ofSize: 14)
-        button.addTarget(self, action: #selector(americanMesasuringButtonAction), for: .touchUpInside)
-        button.isSelected = false
-        button.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
-        
-        view.addSubview(button)
-        
-        return button
-    }()
-    
-    lazy var continueButton: UIButton = {
-        var button = UIButton()
+    lazy var continueButton: GlobalButton = {
+        var button = GlobalButton()
         button.setTitle("Continue", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 32
-        button.titleLabel?.font = .systemFont(ofSize: 18)
-        button.backgroundColor = UIColor(red: 102/255, green: 118/255, blue: 250/255, alpha: 1)
         button.addTarget(self, action: #selector(continueButtonAction), for: .touchUpInside)
         
         view.addSubview(button)
@@ -77,7 +60,28 @@ class AboutMeViewController: UIViewController {
         super.viewDidLoad()
         configUI()
         createTableView()
+        configStackView()
         setupLayout()
+    }
+    
+    private func configStackView(){
+        stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.distribution = .fillEqually
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        cmKgView = UnitsView(units: .cmKg)
+        inLbsView = UnitsView(units: .inLbs)
+        
+        cmKgView.unitsDelegate = self
+        inLbsView.unitsDelegate = self
+        
+        unitsIsSelected = .cmKg
+        
+        view.addSubview(stackView)
+        stackView.addArrangedSubview(cmKgView)
+        stackView.addArrangedSubview(inLbsView)
     }
     
     //MARK: - Setup UI
@@ -92,6 +96,9 @@ class AboutMeViewController: UIViewController {
         tableViewController.tableView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
     }
     
+
+
+    
     //MARK: - Создание tableView
     private func createTableView() {
         tableViewController.tableView.register(CustomGenderCell.self, forCellReuseIdentifier: "GenderCell")
@@ -103,33 +110,68 @@ class AboutMeViewController: UIViewController {
         view.addSubview(tableViewController.tableView)
     }
     
-    @objc func europeanMesasuringButtonAction() {
-        europeanMesasuringButton.isSelected = true
-        americanMesasuringButton.isSelected = false
-        europeanMesasuringButton.backgroundColor = UIColor(red: 102/255, green: 118/255, blue: 250/255, alpha: 1)
-        americanMesasuringButton.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
-        
-    }
-    
-    @objc func americanMesasuringButtonAction() {
-        americanMesasuringButton.isSelected = true
-        europeanMesasuringButton.isSelected = false
-        americanMesasuringButton.backgroundColor = UIColor(red: 102/255, green: 118/255, blue: 250/255, alpha: 1)
-        europeanMesasuringButton.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
-    }
-    
     @objc func continueButtonAction() {
+        // Меняем состояние кнопок, если они пустые
         
         for row in 1...3 {
             if let cell = tableViewController.tableView.cellForRow(at: IndexPath(row: row, section: 0)) as? CustomParametersCell {
                 if cell.paramTextField.text?.isEmpty == true {
                     cell.isEmpty = true
-                } else {
-                    print("Else")
                 }
             }
         }
         
+        // Проверяем на заполненность ячейки
+        
+        let cells = tableViewController.tableView.visibleCells.filter { currentCell in
+            return currentCell.isKind(of: CustomParametersCell.self)
+        }
+        
+        let allCellsFilled = cells.filter { currentCell in
+            guard let field = currentCell as? CustomParametersCell else {return false}
+            return field.paramTextField.text?.isEmpty == true
+        }
+        
+        if allCellsFilled.isEmpty {
+            print("allfilled")
+            
+            let user = UserModel()
+            print("user - ", user)
+            
+            let visibleCells = tableViewController.tableView.visibleCells
+            
+            // Начало записи в базу данных Realm
+            
+            let realm = try! Realm()
+
+            try! realm.write({
+                visibleCells.forEach { currentCell in
+                    if let genderCell = currentCell as? CustomGenderCell {
+                        user.gender = genderCell.genderIsSelected
+                    } else if let paramCell = currentCell as? CustomParametersCell {
+                        let fieldType = paramCell.typeLabel.text
+                        let fieldValue = paramCell.paramTextField.text
+                        
+                        switch fieldType{
+                        case "Height":
+                            user.height = Double(fieldValue ?? "") ?? 0.0
+                        case "Weight":
+                            user.weight = Double(fieldValue ?? "") ?? 0.0
+                        case "Age":
+                            user.age = Int(fieldValue ?? "") ?? 0
+                        default:
+                            break
+                        }
+                    }
+                }
+                
+                user.units = unitsIsSelected
+                user.aboutMeWasShow = false
+
+                realm.add(user)
+            })
+            self.dismiss(animated: true)
+        }
     }
 }
 
@@ -198,20 +240,9 @@ extension AboutMeViewController {
             make.top.equalToSuperview().offset(74)
         }
         
-        europeanMesasuringButton.snp.makeConstraints { make in
-
+        stackView.snp.makeConstraints { make in
             make.bottom.equalTo(tableViewController.tableView.snp.top).offset(-20)
-            make.centerX.equalToSuperview().offset(-55)
-            make.width.equalTo(94)
-            make.height.equalTo(31)
-        }
-        
-        americanMesasuringButton.snp.makeConstraints { make in
-
-            make.bottom.equalTo(tableViewController.tableView.snp.top).offset(-20)
-            make.centerX.equalToSuperview().offset(55)
-            make.height.equalTo(31)
-            make.width.equalTo(94)
+            make.centerX.equalToSuperview()
         }
         
         tableViewController.tableView.snp.makeConstraints { make in
@@ -228,6 +259,15 @@ extension AboutMeViewController {
             make.right.equalToSuperview().offset(-40)
             make.centerX.equalToSuperview()
         }
+    }
+}
+
+
+//MARK: - UnitsDelegate
+extension AboutMeViewController: UnitsDelegate{
+    
+    func chooseUnits(units: Units) {
+        self.unitsIsSelected = units
     }
 }
 

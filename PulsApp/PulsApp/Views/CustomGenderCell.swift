@@ -8,7 +8,26 @@
 import UIKit
 import SnapKit
 
+protocol GenderCellDelegate: AnyObject{
+    func tapOnChooseGenderField(gender: Gender)
+}
+
 class CustomGenderCell: UITableViewCell {
+    
+    private var gendersStack: UIStackView!
+    private var maleView: GenderFieldView!
+    private var femaleView: GenderFieldView!
+    public var genderIsSelected: Gender = .male{
+        didSet{
+            if genderIsSelected == .male{
+                maleView.changeStateSelected(isSelected: true)
+                femaleView.changeStateSelected(isSelected: false)
+            }else{
+                maleView.changeStateSelected(isSelected: false)
+                femaleView.changeStateSelected(isSelected: true)
+            }
+        }
+    }
     
     lazy var mainView: UIView = {
         var view = UIView()
@@ -27,53 +46,6 @@ class CustomGenderCell: UITableViewCell {
         mainView.addSubview(label)
         
         return label
-    }()
-    
-    lazy var maleLabel: UILabel = {
-        var label = UILabel()
-        label.text = "Male"
-//        label.font = UIFont(name: "SFProDisplay", size: 5)
-        label.font = .systemFont(ofSize: 14)
-        label.textColor = UIColor(red: 29/255, green: 29/255, blue: 37/255, alpha: 1)
-        label.textAlignment = .center
-        
-        mainView.addSubview(label)
-        
-        return label
-    }()
-    
-    lazy var femaleLabel: UILabel = {
-        var label = UILabel()
-        label.text = "Female"
-        label.font = .systemFont(ofSize: 14)
-        label.textColor = UIColor(red: 29/255, green: 29/255, blue: 37/255, alpha: 1)
-        label.textAlignment = .center
-        
-        mainView.addSubview(label)
-        
-        return label
-    }()
-    
-    lazy var maleCheckBox: UIButton = {
-        var button = UIButton()
-        button.setImage(UIImage(named: "checkboxUnselected"), for: .normal)
-        button.setImage(UIImage(named: "checkboxSelected"), for: .selected)
-        button.addTarget(self, action: #selector(maleCheckboxAction), for: .touchUpInside)
-        
-        mainView.addSubview(button)
-        
-        return button
-    }()
-    
-    lazy var femaleCheckBox: UIButton = {
-        var button = UIButton()
-        button.setImage(UIImage(named: "checkboxUnselected"), for: .normal)
-        button.setImage(UIImage(named: "checkboxSelected"), for: .selected)
-        button.addTarget(self, action: #selector(femaleCheckboxAction), for: .touchUpInside)
-        
-        mainView.addSubview(button)
-        
-        return button
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -96,20 +68,22 @@ class CustomGenderCell: UITableViewCell {
         mainView.layer.borderColor = CGColor(red: 235/255, green: 233/255, blue: 240/255, alpha: 1)
         mainView.layer.cornerRadius = 12
         
-    }
-    
-    @objc func maleCheckboxAction() {
-        maleCheckBox.isSelected = true
-        femaleCheckBox.isSelected = false
-        maleLabel.textColor = UIColor(red: 113/255, green: 102/255, blue: 249/255, alpha: 1)
-        femaleLabel.textColor = UIColor(red: 29/255, green: 29/255, blue: 37/255, alpha: 1)
-    }
-    
-    @objc func femaleCheckboxAction() {
-        maleCheckBox.isSelected = false
-        femaleCheckBox.isSelected = true
-        femaleLabel.textColor = UIColor(red: 113/255, green: 102/255, blue: 249/255, alpha: 1)
-        maleLabel.textColor = UIColor(red: 29/255, green: 29/255, blue: 37/255, alpha: 1)
+        gendersStack = UIStackView()
+        gendersStack.spacing = 14
+        gendersStack.translatesAutoresizingMaskIntoConstraints = false
+        
+        maleView = GenderFieldView(gender: .male)
+        femaleView = GenderFieldView(gender: .female)
+        
+        maleView.delegate = self
+        femaleView.delegate = self
+        
+        genderIsSelected = .male
+        
+        mainView.addSubview(gendersStack)
+        gendersStack.addArrangedSubview(maleView)
+        gendersStack.addArrangedSubview(femaleView)
+        
     }
 }
 
@@ -129,35 +103,17 @@ extension CustomGenderCell {
             make.left.equalTo(20)
         }
         
-        femaleLabel.snp.makeConstraints { make in
+        gendersStack.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.right.equalTo(mainView).offset(-20)
+            make.trailing.equalTo(-14.adjusted)
         }
-        
-        femaleCheckBox.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.right.equalTo(femaleLabel.snp.left).offset(-4)
-            make.height.equalTo(20)
-            make.width.equalTo(20)
-        }
-        
-        maleLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.right.equalTo(femaleCheckBox.snp.left).offset(-23)
-            
-        }
-        
-        maleCheckBox.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.right.equalTo(maleLabel.snp.left).offset(-4)
-            make.height.equalTo(20)
-            make.width.equalTo(20)
-        }
-        
-       
-        
-       
-        
-        
+    }
+}
+
+extension CustomGenderCell: GenderCellDelegate{
+    
+    func tapOnChooseGenderField(gender: Gender) {
+        self.genderIsSelected = gender
+        print(gender.rawValue)
     }
 }

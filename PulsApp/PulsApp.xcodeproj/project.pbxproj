@@ -36,6 +36,8 @@
 		FAE507E42BA5FF0D007EEA18 /* BPMUserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE507E22BA5FF0D007EEA18 /* BPMUserSettings.swift */; };
 		FAE507E52BA5FF0D007EEA18 /* BPMUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE507E32BA5FF0D007EEA18 /* BPMUserManager.swift */; };
 		FAE507E82BA60201007EEA18 /* DefiningPulseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE507E72BA60201007EEA18 /* DefiningPulseType.swift */; };
+		FAE661A62BB43C84000890D3 /* UnitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE661A52BB43C84000890D3 /* UnitsView.swift */; };
+		FAE661A82BB44A0E000890D3 /* GenderFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE661A72BB44A0E000890D3 /* GenderFieldView.swift */; };
 		FAF376DB2BADB13F00F311E8 /* GlobalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF376DA2BADB13F00F311E8 /* GlobalButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,8 @@
 		FAE507E22BA5FF0D007EEA18 /* BPMUserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BPMUserSettings.swift; sourceTree = "<group>"; };
 		FAE507E32BA5FF0D007EEA18 /* BPMUserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BPMUserManager.swift; sourceTree = "<group>"; };
 		FAE507E72BA60201007EEA18 /* DefiningPulseType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefiningPulseType.swift; sourceTree = "<group>"; };
+		FAE661A52BB43C84000890D3 /* UnitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsView.swift; sourceTree = "<group>"; };
+		FAE661A72BB44A0E000890D3 /* GenderFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderFieldView.swift; sourceTree = "<group>"; };
 		FAF376DA2BADB13F00F311E8 /* GlobalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +186,8 @@
 				FAA031352B8DE7F400DBBA63 /* CustomParametersCell.swift */,
 				FABB5EC52BA9D3CE0037A41C /* ReusableAlertView.swift */,
 				FAF376DA2BADB13F00F311E8 /* GlobalButton.swift */,
+				FAE661A52BB43C84000890D3 /* UnitsView.swift */,
+				FAE661A72BB44A0E000890D3 /* GenderFieldView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -423,10 +429,12 @@
 				FAA031362B8DE7F400DBBA63 /* CustomParametersCell.swift in Sources */,
 				FAC0A6182BA862B0001F82C4 /* ColorUtilitesHeart.swift in Sources */,
 				FAE507E52BA5FF0D007EEA18 /* BPMUserManager.swift in Sources */,
+				FAE661A62BB43C84000890D3 /* UnitsView.swift in Sources */,
 				FA9C7F882B9C870F002CC469 /* CustomTabBarController.swift in Sources */,
 				FAC0A6152BA862B0001F82C4 /* FilterHeart.swift in Sources */,
 				FAE507E82BA60201007EEA18 /* DefiningPulseType.swift in Sources */,
 				FAABD57C2B8B5DE6008CB3D4 /* CustomGenderCell.swift in Sources */,
+				FAE661A82BB44A0E000890D3 /* GenderFieldView.swift in Sources */,
 				FAC0A6222BA87219001F82C4 /* HeartRateViewModel.swift in Sources */,
 				FAE136652B91E960006861A4 /* HeartRateViewController.swift in Sources */,
 				FAB777502BB060FD00EE193E /* SizeFactor.swift in Sources */,

@@ -27,13 +27,13 @@ class HeartRateViewModel: BindWithHeartControllerProtocol{
         let aboutMeVC = AboutMeViewController()
         aboutMeVC.modalPresentationStyle = .fullScreen
         heartController.present(aboutMeVC, animated: true)
-//        UserDefaults.standard.setValue(true, forKey: keyShowAboutMe)
         
-//                    if let user = UserManager.getUser(){
-//                        try! realm.write {
-//                            user.aboutMeWasShow = true
-//                        }
-//                    }
+        if let user = UserManager.getUser(){
+            print("heartviewmodel")
+            try! realm.write {
+                user.aboutMeWasShow = true
+            }
+        }
     }
     
     func calculateAndSaveBPMDataToDB(pulse: [Int]) {
@@ -42,6 +42,7 @@ class HeartRateViewModel: BindWithHeartControllerProtocol{
         _ = pulse.map {sumPulse += $0}
         let averagePulse = sumPulse / pulse.count
         userBPMSettings.bpm = averagePulse
+        print("After save bpm ----------- ", userBPMSettings.bpm)
     }
     
     func showAnalyzeVC(heartController: HeartRateViewController) {

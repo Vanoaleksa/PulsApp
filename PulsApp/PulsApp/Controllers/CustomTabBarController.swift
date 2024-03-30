@@ -1,9 +1,3 @@
-//
-//  CustomTabBarController.swift
-//  PulsApp
-//
-//  Created by MacBook on 9.03.24.
-//
 
 import UIKit
 import SnapKit
@@ -67,8 +61,7 @@ class CustomTabBarController: UITabBarController {
         self.tabBar.isTranslucent = true
         self.tabBar.backgroundColor = .white
         self.tabBar.tintColor = UIColor(red: 255/255, green: 134/255, blue: 56/255, alpha: 1)
-        self.tabBar.layer.cornerRadius = 10
-        //        self.tabBar.layer.cornerRadius = self.accessibilityFrame.height / 2
+        self.tabBar.layer.cornerRadius = 10.adjusted
     }
 }
 

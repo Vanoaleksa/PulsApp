@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class CustomParametersCell: UITableViewCell {
-    
+        
     var isEmpty: Bool = false {
         didSet {
             updateAppearance()
@@ -149,9 +149,6 @@ extension CustomParametersCell: UITextFieldDelegate {
         }
         self.paramTextField.resignFirstResponder()
     }
-    
-    
-
 }
 
 extension CustomParametersCell {

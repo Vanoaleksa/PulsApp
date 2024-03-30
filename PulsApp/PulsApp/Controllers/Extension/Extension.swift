@@ -32,11 +32,10 @@ extension HeartRateViewController{
     
     func startMeasurement(){
         DispatchQueue.main.async {
-//            self.bpmForCalculating.removeAll()
+            self.bpmForCalculating.removeAll()
             self.toggleTorch(status: true)
             self.startPulseAnimation()
             self.progressView.startAniamation()
-//            self.progressView.animation(duration: 20)
             var count = 20
             
             self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] (timer) in //создаем таймер, который будет запускаться каждую секунду и выполнять блок кода
@@ -56,6 +55,7 @@ extension HeartRateViewController{
                     }
                 }else{
                     if self.bpmForCalculating != [] {
+                        print("if self.bpmForCalculating != []")
                         self.heartViewModel?.calculateAndSaveBPMDataToDB(pulse: self.bpmForCalculating)
                         self.heartViewModel?.showAnalyzeVC(heartController: self)
                     }
@@ -69,20 +69,17 @@ extension HeartRateViewController{
         print("defaultstate")
         fingersLabel.isHidden = true
         fingersLabel.text = "No Fingers"
-//        crookedLineImage.isHidden = false
         tutorialImage.isHidden = true
         startButton.isHidden = false
         progressView.pulseLabel.text = "00"
         clueLabel.isHidden = true
         toggleTorch(status: false)
-//        self.progressBar.deleteAnimation()
-        self.heartRateManager?.stopCapture()
-        self.stopHeartBeatAnimation()
-        self.progressView.deleteAnimations()
+        heartRateManager?.stopCapture()
+        stopHeartBeatAnimation()
+        progressView.deleteAnimations()
         bpmImage.isHidden = false
-//        self.scheduleLineImage.isHidden = true
-//        progressBar.miniProgressLayer.isHidden = true
-//        progressBar.miniCircleContainerLayer.isHidden = true
+        scheduleLineImage.isHidden = true
+        leftNumbersImage.isHidden = true
         timer.invalidate()
     }
     
@@ -161,8 +158,6 @@ extension HeartRateViewController{
     func showWelcomeView(){
         setupDarkView()
         reusableView = ReusableAlertView(alertType: .preview)
-//        reusableView.delegate = self
-//        reusableView.darkView = self.darkView  //передача закрытия darkView через слабую ссылку
         self.tabBarController?.view.addSubview(reusableView)
         
         let height = 335
@@ -178,7 +173,6 @@ extension HeartRateViewController{
         setupDarkView()
         reusableView = ReusableAlertView(alertType: .camera)
         reusableView.delegate = self
-//        reusableView.darkView = self.darkView // передача закрытия darkView через слабую ссылку
         self.tabBarController?.view.addSubview(reusableView)
         
         let height = 335
@@ -230,8 +224,8 @@ extension HeartRateViewController{
         
         progressView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.width.equalTo(220.adjusted)
-            make.height.equalTo(220.adjusted)
+            make.width.equalTo(214.adjusted)
+            make.height.equalTo(214.adjusted)
             make.bottom.equalTo(view.snp.centerY).offset(13)
         }
         
@@ -242,7 +236,6 @@ extension HeartRateViewController{
         }
         
         startButton.snp.makeConstraints { make in
-//            make.height.equalTo(70.adjusted)
             make.bottom.equalTo(view.snp.bottomMargin).offset(-50.adjusted)
             make.left.equalToSuperview().offset(40.adjusted)
             make.right.equalToSuperview().offset(-40.adjusted)
@@ -258,6 +251,18 @@ extension HeartRateViewController{
         tutorialImage.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalTo(-160.adjusted)
+        }
+        
+        leftNumbersImage.snp.makeConstraints { make in
+            make.left.equalTo(16.adjusted)
+            make.top.equalTo(clueLabel.snp.bottom).offset(7.adjusted)
+            make.width.equalTo(20.adjusted)
+        }
+        
+        scheduleLineImage.snp.makeConstraints { make in
+            make.left.equalTo(leftNumbersImage.snp.right).offset(7.adjusted)
+            make.centerY.equalTo(leftNumbersImage.snp.centerY)
+            make.width.equalTo(138.adjusted)
         }
     }
 }
