@@ -46,14 +46,16 @@ class HeartRateViewModel: BindWithHeartControllerProtocol{
     }
     
     func showAnalyzeVC(heartController: HeartRateViewController) {
-//        let analyzVC = AnalyzViewController()
+        let analyzVC = AnalyzViewController()
 //        analyzVC.delegate = heartController
-//        analyzVC.modalPresentationStyle = .fullScreen
-//        heartController.present(analyzVC, animated: true)
+        analyzVC.modalPresentationStyle = .fullScreen
+        heartController.present(analyzVC, animated: true)
     }
     
     func handleAnalyzeType(type: AnalyzeTypes) {
         self.userBPMSettings.analyzeResult = type
+        print("handleAnalyzeType --- ", type)
+        print("analyzeResult -----",self.userBPMSettings.analyzeResult.typesString)
         let dateInterval = Date().timeIntervalSince1970
         self.userBPMSettings.date = dateInterval
     }

@@ -39,6 +39,8 @@
 		FAE661A62BB43C84000890D3 /* UnitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE661A52BB43C84000890D3 /* UnitsView.swift */; };
 		FAE661A82BB44A0E000890D3 /* GenderFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE661A72BB44A0E000890D3 /* GenderFieldView.swift */; };
 		FAF376DB2BADB13F00F311E8 /* GlobalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF376DA2BADB13F00F311E8 /* GlobalButton.swift */; };
+		FAFD914C2BB850DB00A5B651 /* AnalyzViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD914B2BB850DB00A5B651 /* AnalyzViewController.swift */; };
+		FAFD914E2BB85EE200A5B651 /* TypesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFD914D2BB85EE200A5B651 /* TypesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		FAE661A52BB43C84000890D3 /* UnitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsView.swift; sourceTree = "<group>"; };
 		FAE661A72BB44A0E000890D3 /* GenderFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderFieldView.swift; sourceTree = "<group>"; };
 		FAF376DA2BADB13F00F311E8 /* GlobalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalButton.swift; sourceTree = "<group>"; };
+		FAFD914B2BB850DB00A5B651 /* AnalyzViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzViewController.swift; sourceTree = "<group>"; };
+		FAFD914D2BB85EE200A5B651 /* TypesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +178,7 @@
 				FAA64F452BAC73E700DE40CA /* Extension */,
 				FA9709C02B877CB90060BFBA /* AboutMeViewController.swift */,
 				FA9C7F872B9C870F002CC469 /* CustomTabBarController.swift */,
+				FAFD914B2BB850DB00A5B651 /* AnalyzViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 				FABB5EC52BA9D3CE0037A41C /* ReusableAlertView.swift */,
 				FAF376DA2BADB13F00F311E8 /* GlobalButton.swift */,
 				FAE661A52BB43C84000890D3 /* UnitsView.swift */,
+				FAFD914D2BB85EE200A5B651 /* TypesView.swift */,
 				FAE661A72BB44A0E000890D3 /* GenderFieldView.swift */,
 			);
 			path = Views;
@@ -444,6 +450,8 @@
 				FA9709BD2B877CB90060BFBA /* AppDelegate.swift in Sources */,
 				FAE507DF2BA5FEFB007EEA18 /* UserManager.swift in Sources */,
 				FABB5EC62BA9D3CE0037A41C /* ReusableAlertView.swift in Sources */,
+				FAFD914E2BB85EE200A5B651 /* TypesView.swift in Sources */,
+				FAFD914C2BB850DB00A5B651 /* AnalyzViewController.swift in Sources */,
 				FA9709BF2B877CB90060BFBA /* SceneDelegate.swift in Sources */,
 				FAF376DB2BADB13F00F311E8 /* GlobalButton.swift in Sources */,
 				FAE507E02BA5FEFB007EEA18 /* UserModel.swift in Sources */,

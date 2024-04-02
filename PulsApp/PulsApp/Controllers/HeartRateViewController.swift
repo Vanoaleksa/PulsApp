@@ -223,17 +223,15 @@ class HeartRateViewController: UIViewController {
     }
 }
 
-extension HeartRateViewController: AlertViewDelegate {
-   
+extension HeartRateViewController: AlertViewDelegate, TypesDelegate {
+    
     func tappedActionInPrivacyView(forType type: ALertType) {
-        print("testtapped")
+        print("tappedActionInPrivacyView")
         switch type {
         case .preview:
             hideAlertViewWithAnimation()
-//            self.reusableView.darkView?.removeFromSuperview()
         case .camera:
             hideAlertViewWithAnimation()
-//            self.reusableView.darkView?.removeFromSuperview()
             
             AVCaptureDevice.requestAccess(for: AVMediaType.video) { [unowned self] response in
                 if response{
@@ -266,8 +264,8 @@ extension HeartRateViewController: AlertViewDelegate {
         }
     }
     
-    func finalDefinitionType(types: AnalyzeTypes) {
-        heartViewModel?.handleAnalyzeType(type: types)
+    func finalDefinitionType(type: AnalyzeTypes) {
+        heartViewModel?.handleAnalyzeType(type: type)
         heartViewModel?.showResultView(heartController: self)
     }
     
