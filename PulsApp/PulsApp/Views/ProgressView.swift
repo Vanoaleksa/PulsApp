@@ -17,6 +17,7 @@ class ProgressView: UIView {
         var label = UILabel()
         label.text = "00"
         label.font = .systemFont(ofSize: 60, weight: .medium)
+        label.textColor = .black
         
         self.addSubview(label)
         
@@ -27,6 +28,7 @@ class ProgressView: UIView {
         var label = UILabel()
         label.text = "bpm"
         label.font = .systemFont(ofSize: 16)
+        label.textColor = .black
         
         self.addSubview(label)
         

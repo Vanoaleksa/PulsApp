@@ -6,9 +6,10 @@ import RealmSwift
 
 class HeartRateViewController: UIViewController {
     
-    var progressView = ProgressView(frame: CGRect(x: 0, y: 0, width: 214.adjusted, height: 214.adjusted))
+    var progressView = ProgressView(frame: CGRect(x: 0, y: 0, width: 210.adjusted, height: 210.adjusted))
     var heartViewModel: BindWithHeartControllerProtocol?
     var reusableView = ReusableAlertView(alertType: .camera)
+    var privacyView = ReusableAlertView(alertType: .preview)
     var heartRateManager: HeartRateManager!
     var bpmForCalculating: [Int] = []
     var validFrameCounter = 0
@@ -16,7 +17,9 @@ class HeartRateViewController: UIViewController {
     var timerTwo = Timer()
     var measurementStartedFlag = false
     var darkView: UIVisualEffectView?
-
+    public weak var typesDelegate: TypesDelegate?
+    
+    
     // detection alghoritm
     var pulseDetector = PulseDetector()
     var inputs: [CGFloat] = []
@@ -27,6 +30,7 @@ class HeartRateViewController: UIViewController {
         label.text = "Heart rate"
         let customFont = UIFont(name: "SFProDisplay-Bold", size: 28.adjusted)
         label.font = customFont
+        label.textColor = .black
         
         view.addSubview(label)
         
@@ -45,6 +49,7 @@ class HeartRateViewController: UIViewController {
     lazy var fingersLabel: UILabel = {
         var label = UILabel()
         label.text = "No fingers"
+        label.textColor = .black
         
         view.addSubview(label)
         
@@ -147,15 +152,12 @@ class HeartRateViewController: UIViewController {
         bpmImage.isHidden = false
         leftNumbersImage.isHidden = true
         scheduleLineImage.isHidden = true
+        tabBarController?.tabBar.isHidden = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         deinitCaptureSession()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
     }
     
     //MARK: - Setup UI
@@ -171,12 +173,17 @@ class HeartRateViewController: UIViewController {
         view.addSubview(progressView)
         progressView.createCircleShape()
         
+        if UserManager.getUser() == nil {
+//            tabBarController?.tabBar.isHidden = true
+            showWelcomeView()
+        }
+        
     }
     
     @objc func startPulsHeartRate() {
         
-        if UserManager.getUser()?.aboutMeWasShow == false {
-                        heartViewModel?.showAboutMeViewController(heartController: self)
+        if UserManager.getUser() == nil {
+            heartViewModel?.showAboutMeViewController(heartController: self)
         }
         
         if AVCaptureDevice.authorizationStatus(for: AVMediaType.video) == AVAuthorizationStatus.authorized{
@@ -223,15 +230,16 @@ class HeartRateViewController: UIViewController {
     }
 }
 
-extension HeartRateViewController: AlertViewDelegate, TypesDelegate {
+extension HeartRateViewController: AlertViewDelegate, TypesDelegate, ResultViewDelegate {
     
     func tappedActionInPrivacyView(forType type: ALertType) {
-        print("tappedActionInPrivacyView")
         switch type {
         case .preview:
             hideAlertViewWithAnimation()
+            self.darkView?.removeFromSuperview()
         case .camera:
             hideAlertViewWithAnimation()
+            self.darkView?.removeFromSuperview()
             
             AVCaptureDevice.requestAccess(for: AVMediaType.video) { [unowned self] response in
                 if response{
@@ -250,7 +258,6 @@ extension HeartRateViewController: AlertViewDelegate, TypesDelegate {
     func completedAboutMeStage() {
         let userInfo = UserModel()
         
-
         if userInfo.showCameraAccess != true {
             showCameraAccessView()
         } else {
@@ -269,8 +276,8 @@ extension HeartRateViewController: AlertViewDelegate, TypesDelegate {
         heartViewModel?.showResultView(heartController: self)
     }
     
-    func closeResultViewAndSaveToDB() {
+    func saveToDBAndCloseResultView() {
         heartViewModel?.saveBPMSettingsToDB()
-        tabBarController?.tabBar.isHidden = false
+        
     }
 }

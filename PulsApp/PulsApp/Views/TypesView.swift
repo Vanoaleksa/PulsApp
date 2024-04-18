@@ -1,5 +1,6 @@
 
 import UIKit
+import SnapKit
 
 class TypesView: UIView{
     
@@ -25,35 +26,17 @@ class TypesView: UIView{
     private func setupView(typesText: String){
         imageView = UIImageView(image: UIImage(named: "RectangleWithBorder"))
         imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         typesLabel = UILabel()
         typesLabel.font = .systemFont(ofSize: 16.adjusted)
         typesLabel.textColor = .black
         typesLabel.text = typesText
-        typesLabel.translatesAutoresizingMaskIntoConstraints = false
         
         image.contentMode = .scaleAspectFit
-        image.translatesAutoresizingMaskIntoConstraints = false
         
         self.addSubview(imageView)
         self.addSubview(typesLabel)
         self.addSubview(image)
-    }
-    
-    private func setupLayout(){
-        NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            imageView.topAnchor.constraint(equalTo: self.topAnchor),
-            imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            
-            typesLabel.topAnchor.constraint(equalTo: imageView.topAnchor, constant: 100),
-            typesLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            
-            image.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
-            image.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
-        ])
     }
     
     private func tapGesture(){
@@ -71,3 +54,22 @@ class TypesView: UIView{
         typesDelegate?.finalDefinitionType(type: type)
     }
 }
+
+extension TypesView {
+    func setupLayout() {
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        typesLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.top).offset(100.adjusted)
+            make.centerX.equalToSuperview()
+        }
+        
+        image.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+    }
+}
+
+

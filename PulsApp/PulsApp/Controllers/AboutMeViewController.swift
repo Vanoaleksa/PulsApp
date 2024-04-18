@@ -38,7 +38,7 @@ class AboutMeViewController: UIViewController {
     lazy var titleLabel: UILabel = {
         var label = UILabel()
         label.text = "About me"
-        let customFont = UIFont(name: "SFProDisplay-Bold", size: 28)
+        let customFont = UIFont(name: "SFProDisplay-Bold", size: 28.adjusted)
         label.font = customFont
         
         view.addSubview(label)
@@ -133,14 +133,12 @@ class AboutMeViewController: UIViewController {
         }
         
         if allCellsFilled.isEmpty {
-            print("allfilled")
             
-            let user = UserModel()
-            print("user - ", user)
-            
+            let user = UserModel()            
             let visibleCells = tableViewController.tableView.visibleCells
             
             // Начало записи в базу данных Realm
+            UserManager.createUser()
             
             let realm = try! Realm()
 
@@ -166,7 +164,8 @@ class AboutMeViewController: UIViewController {
                 }
                 
                 user.units = unitsIsSelected
-                user.aboutMeWasShow = false
+                user.aboutMeWasShow = true
+                user.isFirstLogin = true
 
                 realm.add(user)
             })
@@ -236,27 +235,27 @@ extension AboutMeViewController {
     func setupLayout() {
         
         titleLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(18)
-            make.top.equalToSuperview().offset(74)
+            make.left.equalToSuperview().offset(18.adjusted)
+            make.top.equalToSuperview().offset(74.adjusted)
         }
         
         stackView.snp.makeConstraints { make in
-            make.bottom.equalTo(tableViewController.tableView.snp.top).offset(-20)
+            make.bottom.equalTo(tableViewController.tableView.snp.top).offset(-20.adjusted)
             make.centerX.equalToSuperview()
         }
         
         tableViewController.tableView.snp.makeConstraints { make in
-            make.top.equalTo(187)
-            make.left.equalTo(18)
-            make.right.equalTo(-18)
-            make.bottom.equalToSuperview().offset(-200)
+            make.top.equalTo(187.adjusted)
+            make.left.equalTo(18.adjusted)
+            make.right.equalTo(-18.adjusted)
+            make.bottom.equalToSuperview().offset(-200.adjusted)
         }
         
         continueButton.snp.makeConstraints { make in
-            make.top.equalTo(tableViewController.tableView.snp.bottom).offset(50)
-            make.height.equalTo(75)
-            make.left.equalToSuperview().offset(40)
-            make.right.equalToSuperview().offset(-40)
+            make.top.equalTo(tableViewController.tableView.snp.bottom).offset(50.adjusted)
+            make.height.equalTo(75.adjusted)
+            make.left.equalToSuperview().offset(40.adjusted)
+            make.right.equalToSuperview().offset(-40.adjusted)
             make.centerX.equalToSuperview()
         }
     }

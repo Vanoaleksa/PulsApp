@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import UserNotifications
 
-protocol BindWithHeartControllerProtocol{
+protocol BindWithHeartControllerProtocol {
     func showAboutMeViewController(heartController: HeartRateViewController)
     func calculateAndSaveBPMDataToDB(pulse: [Int])
     func showAnalyzeVC(heartController: HeartRateViewController)
@@ -19,7 +19,7 @@ protocol BindWithHeartControllerProtocol{
     func saveBPMSettingsToDB()
 }
 
-class HeartRateViewModel: BindWithHeartControllerProtocol{
+class HeartRateViewModel: BindWithHeartControllerProtocol {
     var userBPMSettings: BPMUserSettings = BPMUserSettings()
     let realm = try! Realm()
     
@@ -27,13 +27,6 @@ class HeartRateViewModel: BindWithHeartControllerProtocol{
         let aboutMeVC = AboutMeViewController()
         aboutMeVC.modalPresentationStyle = .fullScreen
         heartController.present(aboutMeVC, animated: true)
-        
-        if let user = UserManager.getUser(){
-            print("heartviewmodel")
-            try! realm.write {
-                user.aboutMeWasShow = true
-            }
-        }
     }
     
     func calculateAndSaveBPMDataToDB(pulse: [Int]) {
@@ -47,7 +40,7 @@ class HeartRateViewModel: BindWithHeartControllerProtocol{
     
     func showAnalyzeVC(heartController: HeartRateViewController) {
         let analyzVC = AnalyzViewController()
-//        analyzVC.delegate = heartController
+        analyzVC.delegate = heartController
         analyzVC.modalPresentationStyle = .fullScreen
         heartController.present(analyzVC, animated: true)
     }
@@ -61,11 +54,11 @@ class HeartRateViewModel: BindWithHeartControllerProtocol{
     }
     
     func showResultView(heartController: HeartRateViewController) {
-//        let resultView = ResultScreen()
-//        resultView.showWithAnimation(in: heartController.view)
-//        resultView.delegate = heartController
-//        resultView.updateLabelsValues(bpm: userBPMSettings.bpm, date: userBPMSettings.date, analyzeType: userBPMSettings.analyzeResult, pulsType: userBPMSettings.pulseType)
-//        heartController.tabBarController?.view.addSubview(resultView)
+        let resultView = ResultScreenView()
+        
+        resultView.delegate = heartController
+        resultView.updateLabelsValues(bpm: userBPMSettings.bpm, date: userBPMSettings.date, analyzType: userBPMSettings.analyzeResult, typePulse: userBPMSettings.pulseType)
+        heartController.tabBarController?.view.addSubview(resultView)
     }
     
     func saveBPMSettingsToDB() {

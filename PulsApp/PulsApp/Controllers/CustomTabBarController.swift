@@ -3,21 +3,21 @@ import UIKit
 import SnapKit
 
 class CustomTabBarController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         createTabBar()
-        setupLayout()
+        //        setupTabBarConstraints()
     }
-
+    
     private func createTabBar() {
         
         let mainVC = HeartRateViewController()
-        let historyVC = HeartRateViewController()
-        let dietVC = HeartRateViewController()
-        let testVC = HeartRateViewController()
-        let profileVC = HeartRateViewController()
+        let historyVC = AboutMeViewController()
+        let dietVC = AboutMeViewController()
+        let testVC = AboutMeViewController()
+        let profileVC = AboutMeViewController()
         
         self.viewControllers = [
             mainVC,
@@ -61,13 +61,24 @@ class CustomTabBarController: UITabBarController {
         self.tabBar.isTranslucent = true
         self.tabBar.backgroundColor = .white
         self.tabBar.tintColor = UIColor(red: 255/255, green: 134/255, blue: 56/255, alpha: 1)
-        self.tabBar.layer.cornerRadius = 10.adjusted
+        self.tabBar.layer.cornerRadius = 25.adjusted
+        
+        
+    }
+  
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        //         Adjust the height of the tab bar
+        if let tabBarFrame = tabBar.superview?.frame {
+            tabBar.frame = CGRect(x: tabBarFrame.origin.x,
+                                  y: tabBarFrame.origin.y + tabBarFrame.height - 70.adjusted,
+                                  width: tabBarFrame.width,
+                                  height: 87.adjusted)
+        }
+        
+        
     }
 }
 
-extension CustomTabBarController {
-    
-    private func setupLayout() {
-    }
-}
+
 

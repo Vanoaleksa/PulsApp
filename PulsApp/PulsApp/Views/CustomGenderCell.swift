@@ -1,9 +1,3 @@
-//
-//  CustomGenderCell.swift
-//  PulsApp
-//
-//  Created by MacBook on 25.02.24.
-//
 
 import UIKit
 import SnapKit

@@ -155,9 +155,10 @@ extension HeartRateViewController{
         }
     }
     
-    func showWelcomeView(){
+    func showWelcomeView() {
         setupDarkView()
         reusableView = ReusableAlertView(alertType: .preview)
+        reusableView.delegate = self
         self.tabBarController?.view.addSubview(reusableView)
         
         let height = 335
@@ -169,7 +170,7 @@ extension HeartRateViewController{
         })
     }
     
-    func showCameraAccessView(){
+    func showCameraAccessView() {
         setupDarkView()
         reusableView = ReusableAlertView(alertType: .camera)
         reusableView.delegate = self
@@ -207,8 +208,8 @@ extension HeartRateViewController{
     //MARK: - Constraints
     func setupLayout() {
         titleLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(18)
-            make.top.equalTo(view.snp.topMargin).offset(20)
+            make.left.equalToSuperview().offset(18.adjusted)
+            make.top.equalTo(view.snp.topMargin).offset(20.adjusted)
         }
         
         infoButton.snp.makeConstraints { make in
@@ -219,18 +220,19 @@ extension HeartRateViewController{
         fingersLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(progressView.snp.top).offset(-50)
-            make.height.equalTo(20)
+            make.height.equalTo(20.adjusted)
         }
         
         progressView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.width.equalTo(214.adjusted)
-            make.height.equalTo(214.adjusted)
-            make.bottom.equalTo(view.snp.centerY).offset(13)
+            make.width.equalTo(210.adjusted)
+            make.height.equalTo(210.adjusted)
+            make.bottom.equalTo(view.snp.centerY).offset(13.adjusted)
         }
         
         bpmImage.snp.makeConstraints { make in
             make.top.equalTo(progressView.snp.bottom).offset(30.adjusted)
+            make.height.equalTo(95.adjusted)
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }

@@ -9,14 +9,18 @@
 /* Begin PBXBuildFile section */
 		A3BCC3DA6FF7EA701C999121 /* Pods_PulsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7E8E08117A48842EEB6361 /* Pods_PulsApp.framework */; };
 		FA22B6582B88E0350071E256 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA22B6572B88E0350071E256 /* SFProDisplay-Bold.ttf */; };
+		FA34448F2BC16D1B002E7D6A /* ResultScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34448E2BC16D1B002E7D6A /* ResultScreenView.swift */; };
+		FA3444912BC1704E002E7D6A /* ResultWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3444902BC1704E002E7D6A /* ResultWindow.swift */; };
 		FA9227C12B99F4290065408B /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9227C02B99F4290065408B /* ProgressView.swift */; };
 		FA9709BD2B877CB90060BFBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9709BC2B877CB90060BFBA /* AppDelegate.swift */; };
 		FA9709BF2B877CB90060BFBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9709BE2B877CB90060BFBA /* SceneDelegate.swift */; };
 		FA9709C12B877CB90060BFBA /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9709C02B877CB90060BFBA /* AboutMeViewController.swift */; };
 		FA9709C62B877CBA0060BFBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9709C52B877CBA0060BFBA /* Assets.xcassets */; };
 		FA9709C92B877CBA0060BFBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9709C72B877CBA0060BFBA /* LaunchScreen.storyboard */; };
+		FA9B1BFC2BC98D4300983977 /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9B1BFB2BC98D4300983977 /* ResultType.swift */; };
 		FA9C7F882B9C870F002CC469 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9C7F872B9C870F002CC469 /* CustomTabBarController.swift */; };
 		FAA031362B8DE7F400DBBA63 /* CustomParametersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA031352B8DE7F400DBBA63 /* CustomParametersCell.swift */; };
+		FAA33AAA2BCAA9DD002DA98B /* PulseTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33AA92BCAA9DD002DA98B /* PulseTypeView.swift */; };
 		FAA64F472BAC73E700DE40CA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA64F462BAC73E700DE40CA /* Extension.swift */; };
 		FAABD57C2B8B5DE6008CB3D4 /* CustomGenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABD57B2B8B5DE6008CB3D4 /* CustomGenderCell.swift */; };
 		FAB777502BB060FD00EE193E /* SizeFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7774F2BB060FD00EE193E /* SizeFactor.swift */; };
@@ -48,6 +52,8 @@
 		CD7E8E08117A48842EEB6361 /* Pods_PulsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PulsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F312A057ED68AA723BFC2FEB /* Pods-PulsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PulsApp.debug.xcconfig"; path = "Target Support Files/Pods-PulsApp/Pods-PulsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		FA22B6572B88E0350071E256 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		FA34448E2BC16D1B002E7D6A /* ResultScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScreenView.swift; sourceTree = "<group>"; };
+		FA3444902BC1704E002E7D6A /* ResultWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWindow.swift; sourceTree = "<group>"; };
 		FA9227C02B99F4290065408B /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		FA9709B92B877CB90060BFBA /* PulsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9709BC2B877CB90060BFBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,8 +62,10 @@
 		FA9709C52B877CBA0060BFBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA9709C82B877CBA0060BFBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA9709CA2B877CBA0060BFBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = PulsApp/Other/Info.plist; sourceTree = SOURCE_ROOT; };
+		FA9B1BFB2BC98D4300983977 /* ResultType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultType.swift; sourceTree = "<group>"; };
 		FA9C7F872B9C870F002CC469 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		FAA031352B8DE7F400DBBA63 /* CustomParametersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomParametersCell.swift; sourceTree = "<group>"; };
+		FAA33AA92BCAA9DD002DA98B /* PulseTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseTypeView.swift; sourceTree = "<group>"; };
 		FAA64F462BAC73E700DE40CA /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		FAABD57B2B8B5DE6008CB3D4 /* CustomGenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGenderCell.swift; sourceTree = "<group>"; };
 		FAB7774F2BB060FD00EE193E /* SizeFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeFactor.swift; sourceTree = "<group>"; };
@@ -194,6 +202,10 @@
 				FAE661A52BB43C84000890D3 /* UnitsView.swift */,
 				FAFD914D2BB85EE200A5B651 /* TypesView.swift */,
 				FAE661A72BB44A0E000890D3 /* GenderFieldView.swift */,
+				FA34448E2BC16D1B002E7D6A /* ResultScreenView.swift */,
+				FA3444902BC1704E002E7D6A /* ResultWindow.swift */,
+				FA9B1BFB2BC98D4300983977 /* ResultType.swift */,
+				FAA33AA92BCAA9DD002DA98B /* PulseTypeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -432,6 +444,7 @@
 				FA9709C12B877CB90060BFBA /* AboutMeViewController.swift in Sources */,
 				FAC0A6142BA862B0001F82C4 /* ManagerHeartRate.swift in Sources */,
 				FAC0A6172BA862B0001F82C4 /* AVDeviceCapture.swift in Sources */,
+				FA3444912BC1704E002E7D6A /* ResultWindow.swift in Sources */,
 				FAA031362B8DE7F400DBBA63 /* CustomParametersCell.swift in Sources */,
 				FAC0A6182BA862B0001F82C4 /* ColorUtilitesHeart.swift in Sources */,
 				FAE507E52BA5FF0D007EEA18 /* BPMUserManager.swift in Sources */,
@@ -447,12 +460,15 @@
 				FAC0A6162BA862B0001F82C4 /* PulseDetectorHeart.swift in Sources */,
 				FA9227C12B99F4290065408B /* ProgressView.swift in Sources */,
 				FAA64F472BAC73E700DE40CA /* Extension.swift in Sources */,
+				FAA33AAA2BCAA9DD002DA98B /* PulseTypeView.swift in Sources */,
 				FA9709BD2B877CB90060BFBA /* AppDelegate.swift in Sources */,
+				FA34448F2BC16D1B002E7D6A /* ResultScreenView.swift in Sources */,
 				FAE507DF2BA5FEFB007EEA18 /* UserManager.swift in Sources */,
 				FABB5EC62BA9D3CE0037A41C /* ReusableAlertView.swift in Sources */,
 				FAFD914E2BB85EE200A5B651 /* TypesView.swift in Sources */,
 				FAFD914C2BB850DB00A5B651 /* AnalyzViewController.swift in Sources */,
 				FA9709BF2B877CB90060BFBA /* SceneDelegate.swift in Sources */,
+				FA9B1BFC2BC98D4300983977 /* ResultType.swift in Sources */,
 				FAF376DB2BADB13F00F311E8 /* GlobalButton.swift in Sources */,
 				FAE507E02BA5FEFB007EEA18 /* UserModel.swift in Sources */,
 				FAE507E42BA5FF0D007EEA18 /* BPMUserSettings.swift in Sources */,

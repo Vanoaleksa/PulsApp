@@ -8,8 +8,8 @@ protocol TypesDelegate: AnyObject {
 
 class AnalyzViewController: UIViewController {
     
-    let heartVC = HeartRateViewController()
-        
+    weak var delegate: TypesDelegate?
+            
     var restingTypeButton = TypesView.init(type: .coffee,
                                      image: UIImageView(image: UIImage(named: "Resting-image")))
     let sleepTypeButton = TypesView.init(type: .sleep,
@@ -40,6 +40,7 @@ class AnalyzViewController: UIViewController {
         label.text = "Analyzing"
         let customFont = UIFont(name: "SFProDisplay-Bold", size: 28.adjusted)
         label.font = customFont
+        label.textColor = .black
         
         view.addSubview(label)
         
@@ -51,6 +52,7 @@ class AnalyzViewController: UIViewController {
         label.text = "People have different heart rates in different states. Selecting the current state will effectively provide you with heart rate assessment analysis"
         let customFont = UIFont(name: "SFProDisplay", size: 16.adjusted)
         label.font = customFont
+        label.textColor = .black
         label.numberOfLines = 0
         label.textAlignment = .left
         
@@ -80,8 +82,6 @@ class AnalyzViewController: UIViewController {
         activeTypeButton.typesDelegate = self
         
         typeIsSelected = .coffee
-        
-        self.tabBarController?.tabBar.isHidden = true
     }
     
     //MARK: - Setup UI
@@ -101,8 +101,8 @@ class AnalyzViewController: UIViewController {
     
     @objc func continueButtonAction() {
         self.dismiss(animated: true)
-        heartVC.viewDidLoad()
-        heartVC.finalDefinitionType(type: typeIsSelected)
+        
+        delegate?.finalDefinitionType(type: typeIsSelected)
     }
     
     //MARK: - Setup layout
