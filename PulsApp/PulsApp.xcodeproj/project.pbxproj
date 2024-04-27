@@ -11,6 +11,7 @@
 		FA22B6582B88E0350071E256 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA22B6572B88E0350071E256 /* SFProDisplay-Bold.ttf */; };
 		FA34448F2BC16D1B002E7D6A /* ResultScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA34448E2BC16D1B002E7D6A /* ResultScreenView.swift */; };
 		FA3444912BC1704E002E7D6A /* ResultWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3444902BC1704E002E7D6A /* ResultWindow.swift */; };
+		FA6FE92A2BD81A740030F14D /* TypeFilterButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FE9292BD81A740030F14D /* TypeFilterButtonView.swift */; };
 		FA9227C12B99F4290065408B /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9227C02B99F4290065408B /* ProgressView.swift */; };
 		FA9709BD2B877CB90060BFBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9709BC2B877CB90060BFBA /* AppDelegate.swift */; };
 		FA9709BF2B877CB90060BFBA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9709BE2B877CB90060BFBA /* SceneDelegate.swift */; };
@@ -21,8 +22,13 @@
 		FA9C7F882B9C870F002CC469 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9C7F872B9C870F002CC469 /* CustomTabBarController.swift */; };
 		FAA031362B8DE7F400DBBA63 /* CustomParametersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA031352B8DE7F400DBBA63 /* CustomParametersCell.swift */; };
 		FAA33AAA2BCAA9DD002DA98B /* PulseTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33AA92BCAA9DD002DA98B /* PulseTypeView.swift */; };
+		FAA4CD5E2BDAA850002E8790 /* CustomableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4CD5D2BDAA850002E8790 /* CustomableViewCell.swift */; };
+		FAA4CD602BDC06C7002E8790 /* BackgroundHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4CD5F2BDC06C7002E8790 /* BackgroundHistoryView.swift */; };
 		FAA64F472BAC73E700DE40CA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA64F462BAC73E700DE40CA /* Extension.swift */; };
+		FAA7DB072BD1768D00846FDE /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7DB062BD1768D00846FDE /* HistoryViewController.swift */; };
+		FAA7DB092BD178A500846FDE /* PeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7DB082BD178A500846FDE /* PeriodView.swift */; };
 		FAABD57C2B8B5DE6008CB3D4 /* CustomGenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABD57B2B8B5DE6008CB3D4 /* CustomGenderCell.swift */; };
+		FAB28C562BD580D4008F8A1D /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB28C552BD580D4008F8A1D /* HistoryModel.swift */; };
 		FAB777502BB060FD00EE193E /* SizeFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7774F2BB060FD00EE193E /* SizeFactor.swift */; };
 		FABB5EC62BA9D3CE0037A41C /* ReusableAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB5EC52BA9D3CE0037A41C /* ReusableAlertView.swift */; };
 		FAC0A6142BA862B0001F82C4 /* ManagerHeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0A60C2BA862B0001F82C4 /* ManagerHeartRate.swift */; };
@@ -54,6 +60,7 @@
 		FA22B6572B88E0350071E256 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		FA34448E2BC16D1B002E7D6A /* ResultScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultScreenView.swift; sourceTree = "<group>"; };
 		FA3444902BC1704E002E7D6A /* ResultWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWindow.swift; sourceTree = "<group>"; };
+		FA6FE9292BD81A740030F14D /* TypeFilterButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeFilterButtonView.swift; sourceTree = "<group>"; };
 		FA9227C02B99F4290065408B /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		FA9709B92B877CB90060BFBA /* PulsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PulsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9709BC2B877CB90060BFBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,8 +73,13 @@
 		FA9C7F872B9C870F002CC469 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		FAA031352B8DE7F400DBBA63 /* CustomParametersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomParametersCell.swift; sourceTree = "<group>"; };
 		FAA33AA92BCAA9DD002DA98B /* PulseTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseTypeView.swift; sourceTree = "<group>"; };
+		FAA4CD5D2BDAA850002E8790 /* CustomableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomableViewCell.swift; sourceTree = "<group>"; };
+		FAA4CD5F2BDC06C7002E8790 /* BackgroundHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundHistoryView.swift; sourceTree = "<group>"; };
 		FAA64F462BAC73E700DE40CA /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		FAA7DB062BD1768D00846FDE /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		FAA7DB082BD178A500846FDE /* PeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodView.swift; sourceTree = "<group>"; };
 		FAABD57B2B8B5DE6008CB3D4 /* CustomGenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGenderCell.swift; sourceTree = "<group>"; };
+		FAB28C552BD580D4008F8A1D /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 		FAB7774F2BB060FD00EE193E /* SizeFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeFactor.swift; sourceTree = "<group>"; };
 		FABB5EC52BA9D3CE0037A41C /* ReusableAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableAlertView.swift; sourceTree = "<group>"; };
 		FAC0A60C2BA862B0001F82C4 /* ManagerHeartRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerHeartRate.swift; sourceTree = "<group>"; };
@@ -187,6 +199,7 @@
 				FA9709C02B877CB90060BFBA /* AboutMeViewController.swift */,
 				FA9C7F872B9C870F002CC469 /* CustomTabBarController.swift */,
 				FAFD914B2BB850DB00A5B651 /* AnalyzViewController.swift */,
+				FAA7DB062BD1768D00846FDE /* HistoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -206,6 +219,10 @@
 				FA3444902BC1704E002E7D6A /* ResultWindow.swift */,
 				FA9B1BFB2BC98D4300983977 /* ResultType.swift */,
 				FAA33AA92BCAA9DD002DA98B /* PulseTypeView.swift */,
+				FAA7DB082BD178A500846FDE /* PeriodView.swift */,
+				FA6FE9292BD81A740030F14D /* TypeFilterButtonView.swift */,
+				FAA4CD5D2BDAA850002E8790 /* CustomableViewCell.swift */,
+				FAA4CD5F2BDC06C7002E8790 /* BackgroundHistoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				FAC0A6212BA87219001F82C4 /* HeartRateViewModel.swift */,
+				FAB28C552BD580D4008F8A1D /* HistoryModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -440,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA4CD5E2BDAA850002E8790 /* CustomableViewCell.swift in Sources */,
 				FAE507DA2BA5FC47007EEA18 /* QueueManager.swift in Sources */,
 				FA9709C12B877CB90060BFBA /* AboutMeViewController.swift in Sources */,
 				FAC0A6142BA862B0001F82C4 /* ManagerHeartRate.swift in Sources */,
@@ -456,10 +475,13 @@
 				FAE661A82BB44A0E000890D3 /* GenderFieldView.swift in Sources */,
 				FAC0A6222BA87219001F82C4 /* HeartRateViewModel.swift in Sources */,
 				FAE136652B91E960006861A4 /* HeartRateViewController.swift in Sources */,
+				FA6FE92A2BD81A740030F14D /* TypeFilterButtonView.swift in Sources */,
+				FAA7DB092BD178A500846FDE /* PeriodView.swift in Sources */,
 				FAB777502BB060FD00EE193E /* SizeFactor.swift in Sources */,
 				FAC0A6162BA862B0001F82C4 /* PulseDetectorHeart.swift in Sources */,
 				FA9227C12B99F4290065408B /* ProgressView.swift in Sources */,
 				FAA64F472BAC73E700DE40CA /* Extension.swift in Sources */,
+				FAA4CD602BDC06C7002E8790 /* BackgroundHistoryView.swift in Sources */,
 				FAA33AAA2BCAA9DD002DA98B /* PulseTypeView.swift in Sources */,
 				FA9709BD2B877CB90060BFBA /* AppDelegate.swift in Sources */,
 				FA34448F2BC16D1B002E7D6A /* ResultScreenView.swift in Sources */,
@@ -467,7 +489,9 @@
 				FABB5EC62BA9D3CE0037A41C /* ReusableAlertView.swift in Sources */,
 				FAFD914E2BB85EE200A5B651 /* TypesView.swift in Sources */,
 				FAFD914C2BB850DB00A5B651 /* AnalyzViewController.swift in Sources */,
+				FAA7DB072BD1768D00846FDE /* HistoryViewController.swift in Sources */,
 				FA9709BF2B877CB90060BFBA /* SceneDelegate.swift in Sources */,
+				FAB28C562BD580D4008F8A1D /* HistoryModel.swift in Sources */,
 				FA9B1BFC2BC98D4300983977 /* ResultType.swift in Sources */,
 				FAF376DB2BADB13F00F311E8 /* GlobalButton.swift in Sources */,
 				FAE507E02BA5FEFB007EEA18 /* UserModel.swift in Sources */,

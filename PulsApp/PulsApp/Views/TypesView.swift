@@ -29,7 +29,7 @@ class TypesView: UIView{
         
         typesLabel = UILabel()
         typesLabel.font = .systemFont(ofSize: 16.adjusted)
-        typesLabel.textColor = .black
+        typesLabel.textColor = .gray
         typesLabel.text = typesText
         
         image.contentMode = .scaleAspectFit
@@ -47,6 +47,7 @@ class TypesView: UIView{
     public func typesChangeStateSelected(isSelected: Bool){
         DispatchQueue.main.async {
             self.imageView.image = UIImage(named: isSelected == true ? "RectangleWithBorder" : "RectangleWithoutBorder")
+            self.typesLabel.textColor = isSelected == true ? .black : .gray
         }
     }
     

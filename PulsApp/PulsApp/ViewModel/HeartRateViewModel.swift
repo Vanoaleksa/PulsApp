@@ -1,11 +1,4 @@
-//
-//  HeartRateViewModel.swift
-//  PulseApp
-//
-//  Created by Bogdan Monid on 19.11.23.
-//
 
-import Foundation
 import UIKit
 import RealmSwift
 import UserNotifications
@@ -35,7 +28,6 @@ class HeartRateViewModel: BindWithHeartControllerProtocol {
         _ = pulse.map {sumPulse += $0}
         let averagePulse = sumPulse / pulse.count
         userBPMSettings.bpm = averagePulse
-        print("After save bpm ----------- ", userBPMSettings.bpm)
     }
     
     func showAnalyzeVC(heartController: HeartRateViewController) {
@@ -47,8 +39,7 @@ class HeartRateViewModel: BindWithHeartControllerProtocol {
     
     func handleAnalyzeType(type: AnalyzeTypes) {
         self.userBPMSettings.analyzeResult = type
-        print("handleAnalyzeType --- ", type)
-        print("analyzeResult -----",self.userBPMSettings.analyzeResult.typesString)
+
         let dateInterval = Date().timeIntervalSince1970
         self.userBPMSettings.date = dateInterval
     }

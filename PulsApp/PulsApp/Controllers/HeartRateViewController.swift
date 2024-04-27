@@ -19,7 +19,6 @@ class HeartRateViewController: UIViewController {
     var darkView: UIVisualEffectView?
     public weak var typesDelegate: TypesDelegate?
     
-    
     // detection alghoritm
     var pulseDetector = PulseDetector()
     var inputs: [CGFloat] = []
@@ -173,10 +172,9 @@ class HeartRateViewController: UIViewController {
         view.addSubview(progressView)
         progressView.createCircleShape()
         
-        if UserManager.getUser() == nil {
-//            tabBarController?.tabBar.isHidden = true
-            showWelcomeView()
-        }
+//        if UserManager.getUser() == nil {
+//            showWelcomeView()
+//        }
         
     }
     

@@ -2,7 +2,7 @@
 import UIKit
 import SnapKit
 
-class UnitsView: UIView{
+class UnitsView: UIView {
     
     public weak var unitsDelegate: UnitsDelegate?
     private var units: Units
@@ -21,7 +21,7 @@ class UnitsView: UIView{
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupView(unitsText: String){
+    private func setupView(unitsText: String) {
         
         imageView = UIImageView(image: UIImage(named: "FullRectangle"))
         imageView.contentMode = .scaleAspectFit

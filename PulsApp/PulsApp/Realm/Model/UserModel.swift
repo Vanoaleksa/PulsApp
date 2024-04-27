@@ -7,7 +7,7 @@ enum Gender: String, PersistableEnum{
     case female
     case none
     
-    var genderString: String{
+    var genderString: String {
         switch self {
         case .male:
             return NSLocalizedString("Male", comment: "")
@@ -23,7 +23,7 @@ enum Units: String, PersistableEnum {
     case cmKg
     case inLbs
     
-    var unitsString: String{
+    var unitsString: String {
         switch self{
         case .cmKg:
             return NSLocalizedString("Cm, Kg", comment: "")
@@ -33,13 +33,13 @@ enum Units: String, PersistableEnum {
     }
 }
 
-public enum AboutMeFieldModel: String, PersistableEnum{
+public enum AboutMeFieldModel: String, PersistableEnum {
     case gender
     case height
     case weight
     case age
     
-    public  var titleText: String{
+    public  var titleText: String {
         switch self{
         case .gender:
             return "Gender"
@@ -54,7 +54,7 @@ public enum AboutMeFieldModel: String, PersistableEnum{
 }
 
 @objcMembers
-class UserModel: Object{
+class UserModel: Object {
     
     @Persisted var id: String = UUID().uuidString
     @Persisted var gender: Gender = .none

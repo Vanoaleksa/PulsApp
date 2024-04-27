@@ -10,7 +10,7 @@ class AnalyzViewController: UIViewController {
     
     weak var delegate: TypesDelegate?
             
-    var restingTypeButton = TypesView.init(type: .coffee,
+    let restingTypeButton = TypesView.init(type: .coffee,
                                      image: UIImageView(image: UIImage(named: "Resting-image")))
     let sleepTypeButton = TypesView.init(type: .sleep,
                                      image: UIImageView(image: UIImage(named: "Sleep-image")))

@@ -69,7 +69,6 @@ class AboutMeViewController: UIViewController {
         stackView.axis = .horizontal
         stackView.spacing = 10
         stackView.distribution = .fillEqually
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         
         cmKgView = UnitsView(units: .cmKg)
         inLbsView = UnitsView(units: .inLbs)
@@ -252,7 +251,7 @@ extension AboutMeViewController {
         }
         
         continueButton.snp.makeConstraints { make in
-            make.top.equalTo(tableViewController.tableView.snp.bottom).offset(50.adjusted)
+            make.top.equalTo(tableViewController.tableView.snp.bottom).offset(30.adjusted)
             make.height.equalTo(75.adjusted)
             make.left.equalToSuperview().offset(40.adjusted)
             make.right.equalToSuperview().offset(-40.adjusted)
