@@ -12,6 +12,8 @@ protocol SortingTypesDelegate: AnyObject {
 
 final class HistoryViewController: UIViewController {
     
+    var backgroundImage = BackgroundHistoryView() // Cиняя вьюшка
+    
     let resultsBPM = BPMUserManager.getAllResultsBPM()
         
     //MARK: Настройка выбора периода
@@ -25,23 +27,23 @@ final class HistoryViewController: UIViewController {
                 dayPeriod.periodChangedStateSelected(isSelected: true)
                 weekPeriod.periodChangedStateSelected(isSelected: false)
                 monthPeriod.periodChangedStateSelected(isSelected: false)
-                dayTimeLapseImage.isHidden = false
-                weekTimeLapseImage.isHidden = true
-                monthTimeLapseImage.isHidden = true
+                backgroundImage.dayTimeLapseImage.isHidden = false
+                backgroundImage.weekTimeLapseImage.isHidden = true
+                backgroundImage.monthTimeLapseImage.isHidden = true
             } else if periodIsSelected == .week {
                 dayPeriod.periodChangedStateSelected(isSelected: false)
                 weekPeriod.periodChangedStateSelected(isSelected: true)
                 monthPeriod.periodChangedStateSelected(isSelected: false)
-                dayTimeLapseImage.isHidden = true
-                weekTimeLapseImage.isHidden = false
-                monthTimeLapseImage.isHidden = true
+                backgroundImage.dayTimeLapseImage.isHidden = true
+                backgroundImage.weekTimeLapseImage.isHidden = false
+                backgroundImage.monthTimeLapseImage.isHidden = true
             } else {
                 dayPeriod.periodChangedStateSelected(isSelected: false)
                 weekPeriod.periodChangedStateSelected(isSelected: false)
                 monthPeriod.periodChangedStateSelected(isSelected: true)
-                dayTimeLapseImage.isHidden = true
-                weekTimeLapseImage.isHidden = true
-                monthTimeLapseImage.isHidden = false
+                backgroundImage.dayTimeLapseImage.isHidden = true
+                backgroundImage.weekTimeLapseImage.isHidden = true
+                backgroundImage.monthTimeLapseImage.isHidden = false
             }
         }
     }
@@ -92,15 +94,6 @@ final class HistoryViewController: UIViewController {
         
     }()
     
-    lazy var backgroundImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "backgroundHistoryVC")
-        
-        view.addSubview(imageView)
-        
-        return imageView
-    }()
-    
     lazy var titleLabel: UILabel = {
         var label = UILabel()
         label.text = "Statistical data"
@@ -113,76 +106,10 @@ final class HistoryViewController: UIViewController {
         return label
     }()
     
-    lazy var leftArrowImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "leftArrow")
-        
-        view.addSubview(imageView)
-        
-        return imageView
-    }()
-    
-    lazy var rightArrowImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "rightArrow")
-        
-        view.addSubview(imageView)
-        
-        return imageView
-    }()
-    
-    lazy var dateLabel: UILabel = {
-        var label = UILabel()
-        label.text = "February 15"
-        label.font = .systemFont(ofSize: 14.adjusted, weight: .regular)
-        label.textColor = .white
-        
-        view.addSubview(label)
-        
-        return label
-    }()
-    
-    lazy var pulseStatisticalImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "pulseStatisticalImage")
-        
-        view.addSubview(imageView)
-        
-        return imageView
-    }()
-    
-    lazy var dayTimeLapseImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "dayTimeLapseImage")
-        
-        view.addSubview(imageView)
-        
-        return imageView
-    }()
-    
-    lazy var weekTimeLapseImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "weekTimeLapseImage")
-        imageView.isHidden = true
-        
-        view.addSubview(imageView)
-        
-        return imageView
-    }()
-    
-    lazy var monthTimeLapseImage: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "monthTimeLapseImage")
-        imageView.isHidden = true
-        
-        view.addSubview(imageView)
-        
-        return imageView
-    }()
-    
     lazy var averageAndMaxPulseImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "averageAndMaxPulseImage")
+        imageView.contentMode = .scaleAspectFill
         
         view.addSubview(imageView)
         
@@ -206,7 +133,7 @@ final class HistoryViewController: UIViewController {
         setup()
         setupLayout()
         
-        print("resultsbpm -------------",resultsBPM)
+//        print("resultsbpm -------------",resultsBPM)
     }
     
     private func setup() {
@@ -214,15 +141,15 @@ final class HistoryViewController: UIViewController {
         view.addSubview(backgroundImage)
         //Config UI
         view.backgroundColor = #colorLiteral(red: 0.9197916389, green: 0.9297400713, blue: 0.9338695407, alpha: 1)
-        backgroundImage.layer.cornerRadius = 20.adjusted
+//        backgroundImage.layer.cornerRadius = 20.adjusted
         
         dayPeriod.periodDelegate = self
         weekPeriod.periodDelegate = self
         monthPeriod.periodDelegate = self
-        
+
         periodIsSelected = .day
         
-        view.addSubview(stackView)
+        self.backgroundImage.addSubview(stackView)
         
         stackView.axis = .horizontal
         stackView.spacing = 10
@@ -238,7 +165,6 @@ final class HistoryViewController: UIViewController {
         view.addSubview(sleepTypeButton)
         
         typeIsSelected = .all
-        
     }
 }
 
@@ -248,85 +174,26 @@ extension HistoryViewController {
         backgroundImage.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(-10.adjusted)
             make.leading.trailing.equalToSuperview()
-//            make.height.equalTo(UIScreen.main.bounds.width == 375 ? 380 : 460)
-//            make.height.equalToSuperview().multipliedBy(0.55)
-//            make.bottom.equalTo(view.snp.centerY).offset(40.adjusted)
-            make.height.equalTo(493.adjustedHeight)
-            
+            make.height.equalToSuperview().multipliedBy(0.65)
         }
-        
-        titleLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(18.adjusted)
-            make.top.equalTo(view.snp.topMargin).offset(20.adjusted)
-        }
-        
+      
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(15.adjusted)
+            make.top.equalTo(backgroundImage.titleLabel.snp.bottom).offset(20.adjusted)
+            make.height.equalToSuperview().dividedBy(15.9)
             make.centerX.equalToSuperview()
         }
-        
-        leftArrowImage.snp.makeConstraints { make in
-            make.top.equalTo(stackView.snp.bottom).offset(10.adjusted)
-            make.leading.equalTo(35.adjusted)
-            make.width.equalTo(8.adjusted)
-            make.height.equalTo(12.adjusted)
-        }
-        
-        rightArrowImage.snp.makeConstraints { make in
-            make.top.equalTo(stackView.snp.bottom).offset(10.adjusted)
-            make.trailing.equalTo(-35.adjusted)
-            make.width.equalTo(8.adjusted)
-            make.height.equalTo(12.adjusted)
-        }
-        
-        dateLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalTo(rightArrowImage)
-        }
-        
-        pulseStatisticalImage.snp.makeConstraints { make in
-            make.top.equalTo(dateLabel.snp.bottom).offset(20.adjusted)
-//            make.leading.equalTo(20.adjusted)
-//            make.trailing.equalTo(-20.adjusted)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(344.adjusted)
-            make.height.equalTo(166.adjustedHeight)
-//            make.height.equalTo(backgroundImage).multipliedBy(0.3)
-        }
-        
-        dayTimeLapseImage.snp.makeConstraints { make in
-            make.top.equalTo(pulseStatisticalImage.snp.bottom).offset(8.adjusted)
-            make.trailing.equalTo(pulseStatisticalImage.snp.trailing)
-            make.width.equalTo(312.adjusted)
-            make.height.equalTo(25.adjustedHeight)
-        }
-        
-        weekTimeLapseImage.snp.makeConstraints { make in
-            make.top.equalTo(pulseStatisticalImage.snp.bottom).offset(8.adjusted)
-            make.trailing.equalTo(pulseStatisticalImage.snp.trailing)
-            make.width.equalTo(305.adjusted)
-            make.height.equalTo(25.adjustedHeight)
-        }
-        
-        monthTimeLapseImage.snp.makeConstraints { make in
-            make.top.equalTo(pulseStatisticalImage.snp.bottom).offset(10.adjusted)
-            make.trailing.equalTo(pulseStatisticalImage.snp.trailing)
-            make.width.equalTo(298.adjusted)
-            make.height.equalTo(14.adjustedHeight)
-        }
-        
+
         averageAndMaxPulseImage.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(backgroundImage.snp.bottom).offset(-20.adjusted)
-            make.height.equalTo(55.adjustedHeight)
-//            make.width.equalTo(278.adjusted)
+            make.centerY.equalTo(backgroundImage.snp.bottom)
+            make.height.equalToSuperview().dividedBy(15.7)
             make.width.equalToSuperview().multipliedBy(0.66)
         }
-        
-        historyLabel.snp.makeConstraints { make in
-            make.leading.equalTo(18.adjusted)
-            make.top.equalTo(averageAndMaxPulseImage.snp.bottom).offset(15.adjusted)
-        }
+//        
+//        historyLabel.snp.makeConstraints { make in
+//            make.leading.equalTo(18.adjusted)
+//            make.top.equalTo(averageAndMaxPulseImage.snp.bottom).offset(15.adjusted)
+//        }
         
 //        allTypeButton.snp.makeConstraints { make in
 //            make.top.equalTo(historyLabel.snp.bottom).offset(10.adjusted)
@@ -359,13 +226,12 @@ extension HistoryViewController {
 }
 
 //MARK: - PerodsDelegate
-extension HistoryViewController: PeriodsDelegate, SortingTypesDelegate {
-    func chooseType(type: SortingTypes) {
-        self.typeIsSelected = type
-    }
-    
+extension HistoryViewController:  SortingTypesDelegate, PeriodsDelegate {
     func choosePeriod(period: Periods) {
         self.periodIsSelected = period
     }
     
+    func chooseType(type: SortingTypes) {
+        self.typeIsSelected = type
+    }
 }

@@ -25,20 +25,74 @@ final class BackgroundHistoryView: UIView {
         return label
     }()
     
-    lazy var pulseStatisticalImage: UIImageView = {
+    lazy var leftArrowImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "pulseStatisticalImage")
+        imageView.image = UIImage(named: "leftArrow")
         
         self.addSubview(imageView)
         
         return imageView
     }()
     
-    private var stackView = UIStackView()
-    private var dayPeriod = PeriodView(periods: .day)
-    private var weekPeriod = PeriodView(periods: .week)
-    private var monthPeriod = PeriodView(periods: .month)
-
+    lazy var rightArrowImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "rightArrow")
+        
+        self.addSubview(imageView)
+        
+        return imageView
+    }()
+    
+    lazy var dateLabel: UILabel = {
+        var label = UILabel()
+        label.text = "February 15"
+        label.font = .systemFont(ofSize: 14.adjusted, weight: .regular)
+        label.textColor = .white
+        
+        self.addSubview(label)
+        
+        return label
+    }()
+    
+    lazy var pulseStatisticalImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "pulseStatisticalImage")
+        //        imageView.clipsToBounds = true
+        
+        self.addSubview(imageView)
+        
+        return imageView
+    }()
+    
+    lazy var dayTimeLapseImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "dayTimeLapseImage")
+        
+        self.addSubview(imageView)
+        
+        return imageView
+    }()
+    
+    lazy var weekTimeLapseImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "weekTimeLapseImage")
+        imageView.isHidden = true
+        
+        self.addSubview(imageView)
+        
+        return imageView
+    }()
+    
+    lazy var monthTimeLapseImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "monthTimeLapseImage")
+        imageView.isHidden = true
+        
+        self.addSubview(imageView)
+        
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -50,48 +104,76 @@ final class BackgroundHistoryView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     private func setup() {
-//        self.image.image = UIImage(named: "backgroundHistoryVC")
         self.layer.cornerRadius = 20.adjusted
-        
-        //config stackView
-        self.addSubview(stackView)
-        
-        stackView.axis = .horizontal
-        stackView.spacing = 10
-        stackView.distribution = .fillEqually
-    
-        stackView.addArrangedSubview(dayPeriod)
-        stackView.addArrangedSubview(weekPeriod)
-        stackView.addArrangedSubview(monthPeriod)
-
     }
     
     private func setupLayout() {
+        
+//        self.snp.makeConstraints { make in
+//            make.height.equalTo(493)
+//        }
+        
         backgroundImage.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(18.adjusted)
-//            make.top.equalTo(view.snp.topMargin).offset(20.adjusted)
-            make.top.equalToSuperview().offset(20.adjusted)
+            make.leading.equalToSuperview().offset(18)
+            make.top.equalToSuperview().offset(60)
         }
         
-        stackView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(15.adjusted)
+        leftArrowImage.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(75)
+            make.leading.equalTo(35)
+            make.width.equalToSuperview().dividedBy(47)
+            make.height.equalToSuperview().dividedBy(27)
+            
+        }
+        
+        rightArrowImage.snp.makeConstraints { make in
+            make.top.equalTo(leftArrowImage)
+            make.trailing.equalTo(-35)
+            make.width.equalTo(leftArrowImage)
+            make.height.equalTo(leftArrowImage)
+            
+        }
+        
+        dateLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
+            make.centerY.equalTo(rightArrowImage)
+            make.height.equalToSuperview().dividedBy(27)
+            
         }
         
         pulseStatisticalImage.snp.makeConstraints { make in
-            make.top.equalTo(stackView.snp.bottom).offset(40.adjusted)
-            make.leading.equalTo(20.adjusted)
-            make.trailing.equalTo(-20.adjusted)
-//            make.height.equalTo(UIScreen.main.bounds.width == 375 ? 115 : 140)
-//            make.height.equalTo(140.adjusted)
-            make.height.equalToSuperview().dividedBy(3)
-//            make.height.equalToSuperview().multipliedBy(0.2)
+            make.top.equalTo(rightArrowImage.snp.bottom).offset(20)
+            make.leading.equalTo(15)
+            make.trailing.equalTo(-15)
+            make.height.equalToSuperview().dividedBy(2.8)
         }
+        
+        dayTimeLapseImage.snp.makeConstraints { make in
+            make.top.equalTo(pulseStatisticalImage.snp.bottom).offset(10)
+            make.trailing.equalTo(pulseStatisticalImage.snp.trailing)
+            make.leading.equalTo(pulseStatisticalImage.snp.leading).offset(35)
+            make.height.equalToSuperview().dividedBy(20)
+        }
+        
+        weekTimeLapseImage.snp.makeConstraints { make in
+            make.top.equalTo(dayTimeLapseImage)
+            make.trailing.equalTo(pulseStatisticalImage.snp.trailing)
+            make.leading.equalTo(pulseStatisticalImage.snp.leading).offset(35)
+            make.height.equalToSuperview().dividedBy(20)
+        }
+        
+        monthTimeLapseImage.snp.makeConstraints { make in
+            make.top.equalTo(dayTimeLapseImage)
+            make.trailing.equalTo(pulseStatisticalImage.snp.trailing)
+            make.leading.equalTo(pulseStatisticalImage.snp.leading).offset(40)
+            make.height.equalToSuperview().dividedBy(45)
+        }
+        
     }
 }
+

@@ -22,6 +22,7 @@ final class PeriodView: UIView {
     }
     
     private func setupView(periodText: String) {
+        
         imageView.image = UIImage(named: "FullPeriodsRectangle")
         imageView.contentMode = .scaleAspectFit
         
@@ -51,7 +52,7 @@ final class PeriodView: UIView {
     private func setupLayout() {
         
         imageView.snp.makeConstraints { make in
-            make.edges.equalTo(self.snp_margins)
+            make.edges.equalToSuperview()
         }
         
         periodsLabel.snp.makeConstraints { make in
