@@ -14,7 +14,7 @@ class CustomTabBarController: UITabBarController {
         
         let mainVC = HeartRateViewController()
         let historyVC = HistoryViewController()
-        let dietVC = AboutMeViewController()
+        let dietVC = DietViewController()
         let testVC = AboutMeViewController()
         let profileVC = AboutMeViewController()
         
@@ -62,17 +62,6 @@ class CustomTabBarController: UITabBarController {
         self.tabBar.tintColor = UIColor(red: 255/255, green: 134/255, blue: 56/255, alpha: 1)
         self.tabBar.layer.cornerRadius = 20.adjusted
     }
-    
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        // Adjust the height of the tab bar
-//        if let tabBarFrame = tabBar.superview?.frame {
-//            tabBar.frame = CGRect(x: tabBarFrame.origin.x,
-//                                  y: tabBarFrame.origin.y + tabBarFrame.height - 60.adjusted,
-//                                  width: tabBarFrame.width,
-//                                  height: 77.adjusted)
-//        }
-//    }
 }
 
 

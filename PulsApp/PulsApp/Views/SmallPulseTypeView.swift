@@ -2,13 +2,13 @@
 import UIKit
 import SnapKit
 
-class PulseTypeView: UIView {
+class SmallPulseTypeView: UIView {
     
     var updateType:((PulseType) -> ())?
     
     lazy var textLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
+        label.font = .systemFont(ofSize: 12)
         
         self.addSubview(label)
         
@@ -33,7 +33,7 @@ class PulseTypeView: UIView {
     }
     
     private func setup() {
-        self.layer.cornerRadius = 15
+        self.layer.cornerRadius = 13
     }
     
     private func setupLayout() {
@@ -47,15 +47,15 @@ class PulseTypeView: UIView {
         case .fast:
             self.backgroundColor = UIColor(red: 226/255, green: 42/255, blue: 70/255, alpha: 0.2)
             self.textLabel.textColor = UIColor(red: 226/255, green: 42/255, blue: 70/255, alpha: 1)
-            textLabel.text = "Fast pulse"
+            textLabel.text = "Fast"
         case .normal:
             self.backgroundColor = UIColor(red: 33/255, green: 208/255, blue: 151/255, alpha: 0.2)
             self.textLabel.textColor = UIColor(red: 33/255, green: 208/255, blue: 151/255, alpha: 1)
-            textLabel.text = "Normal pulse"
+            textLabel.text = "Normal"
         case .slow:
             self.backgroundColor = UIColor(red: 47/255, green: 199/255, blue: 255/255, alpha: 0.2)
             self.textLabel.textColor = UIColor(red: 47/255, green: 199/255, blue: 255/255, alpha: 1)
-            textLabel.text = "Slow pulse"
+            textLabel.text = "Slow"
         }
     }
 }

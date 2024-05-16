@@ -11,13 +11,20 @@ protocol SortingTypesDelegate: AnyObject {
 }
 
 final class HistoryViewController: UIViewController {
+
     
-    var backgroundImage = BackgroundHistoryView() // Cиняя вьюшка
+    var backgroundImage = BackgroundHistoryView() // Cиняя вью
     
     let resultsBPM = BPMUserManager.getAllResultsBPM()
-        
+    
+    var tableViewController = UITableViewController(style: .plain)
+
+    let dataPickerView = DatePickerView()
+    
+    var darkView: UIVisualEffectView?
+    
     //MARK: Настройка выбора периода
-    private var stackView = UIStackView()
+    private var periodsStackView = UIStackView()
     private var dayPeriod = PeriodView(periods: .day)
     private var weekPeriod = PeriodView(periods: .week)
     private var monthPeriod = PeriodView(periods: .month)
@@ -27,84 +34,71 @@ final class HistoryViewController: UIViewController {
                 dayPeriod.periodChangedStateSelected(isSelected: true)
                 weekPeriod.periodChangedStateSelected(isSelected: false)
                 monthPeriod.periodChangedStateSelected(isSelected: false)
-                backgroundImage.dayTimeLapseImage.isHidden = false
-                backgroundImage.weekTimeLapseImage.isHidden = true
-                backgroundImage.monthTimeLapseImage.isHidden = true
+                backgroundImage.dayStackView.isHidden = false
+                backgroundImage.weekStackView.isHidden = true
+                backgroundImage.monthStackView.isHidden = true
             } else if periodIsSelected == .week {
                 dayPeriod.periodChangedStateSelected(isSelected: false)
                 weekPeriod.periodChangedStateSelected(isSelected: true)
                 monthPeriod.periodChangedStateSelected(isSelected: false)
-                backgroundImage.dayTimeLapseImage.isHidden = true
-                backgroundImage.weekTimeLapseImage.isHidden = false
-                backgroundImage.monthTimeLapseImage.isHidden = true
+                backgroundImage.dayStackView.isHidden = true
+                backgroundImage.weekStackView.isHidden = false
+                backgroundImage.monthStackView.isHidden = true
             } else {
                 dayPeriod.periodChangedStateSelected(isSelected: false)
                 weekPeriod.periodChangedStateSelected(isSelected: false)
                 monthPeriod.periodChangedStateSelected(isSelected: true)
-                backgroundImage.dayTimeLapseImage.isHidden = true
-                backgroundImage.weekTimeLapseImage.isHidden = true
-                backgroundImage.monthTimeLapseImage.isHidden = false
+                backgroundImage.dayStackView.isHidden = true
+                backgroundImage.weekStackView.isHidden = true
+                backgroundImage.monthStackView.isHidden = false
             }
         }
     }
     
     //MARK: Настройка фильтрации
-    let allTypeButton = TypeFilterButtonView(type: .all,
-                                             image: UIImageView(image: UIImage(named: "Alltype-image")))
+    lazy var filterStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        
+        return stackView
+    }()
     
-    let restingTypeButton = TypeFilterButtonView(type: .coffee,
-                                                      image: UIImageView(image: UIImage(named: "Resting-image")))
-    let sleepTypeButton = TypeFilterButtonView(type: .sleep,
-                                                    image: UIImageView(image: UIImage(named: "Sleep-image")))
-    let activeTypeButton = TypeFilterButtonView(type: .active,
-                                                     image: UIImageView(image: UIImage(named: "Active-image")))
+    let allTypeView = TypeFilterButtonView(type: .all,
+                                           image: UIImageView(image: UIImage(named: "Alltype-image")))
+    
+    let restingTypeView = TypeFilterButtonView(type: .coffee,
+                                               image: UIImageView(image: UIImage(named: "Resting-image")))
+    let sleepTypeView = TypeFilterButtonView(type: .sleep,
+                                             image: UIImageView(image: UIImage(named: "Sleep-image")))
+    let activeTypeView = TypeFilterButtonView(type: .active,
+                                              image: UIImageView(image: UIImage(named: "Active-image")))
     
     private var typeIsSelected: SortingTypes = .all {
         didSet{
             if typeIsSelected == .all {
-                allTypeButton.typesChangeStateSelected(isSelected: true)
-                restingTypeButton.typesChangeStateSelected(isSelected: false)
-                sleepTypeButton.typesChangeStateSelected(isSelected: false)
-                activeTypeButton.typesChangeStateSelected(isSelected: false)
+                allTypeView.typesChangeStateSelected(isSelected: true)
+                restingTypeView.typesChangeStateSelected(isSelected: false)
+                sleepTypeView.typesChangeStateSelected(isSelected: false)
+                activeTypeView.typesChangeStateSelected(isSelected: false)
             } else if typeIsSelected == .coffee {
-                allTypeButton.typesChangeStateSelected(isSelected: false)
-                restingTypeButton.typesChangeStateSelected(isSelected: true)
-                sleepTypeButton.typesChangeStateSelected(isSelected: false)
-                activeTypeButton.typesChangeStateSelected(isSelected: false)
+                allTypeView.typesChangeStateSelected(isSelected: false)
+                restingTypeView.typesChangeStateSelected(isSelected: true)
+                sleepTypeView.typesChangeStateSelected(isSelected: false)
+                activeTypeView.typesChangeStateSelected(isSelected: false)
             } else if typeIsSelected == .sleep {
-                allTypeButton.typesChangeStateSelected(isSelected: false)
-                restingTypeButton.typesChangeStateSelected(isSelected: false)
-                sleepTypeButton.typesChangeStateSelected(isSelected: true)
-                activeTypeButton.typesChangeStateSelected(isSelected: false)
+                allTypeView.typesChangeStateSelected(isSelected: false)
+                restingTypeView.typesChangeStateSelected(isSelected: false)
+                sleepTypeView.typesChangeStateSelected(isSelected: true)
+                activeTypeView.typesChangeStateSelected(isSelected: false)
             } else {
-                allTypeButton.typesChangeStateSelected(isSelected: false)
-                restingTypeButton.typesChangeStateSelected(isSelected: false)
-                sleepTypeButton.typesChangeStateSelected(isSelected: false)
-                activeTypeButton.typesChangeStateSelected(isSelected: true)
+                allTypeView.typesChangeStateSelected(isSelected: false)
+                restingTypeView.typesChangeStateSelected(isSelected: false)
+                sleepTypeView.typesChangeStateSelected(isSelected: false)
+                activeTypeView.typesChangeStateSelected(isSelected: true)
             }
         }
     }
-    
-    lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        
-        view.addSubview(tableView)
-        
-        return tableView
-        
-    }()
-    
-    lazy var titleLabel: UILabel = {
-        var label = UILabel()
-        label.text = "Statistical data"
-        let customFont = UIFont(name: "SFProDisplay-Bold", size: 28.adjusted)
-        label.font = customFont
-        label.textColor = .white
-        
-        view.addSubview(label)
-        
-        return label
-    }()
     
     lazy var averageAndMaxPulseImage: UIImageView = {
         let imageView = UIImageView()
@@ -119,7 +113,7 @@ final class HistoryViewController: UIViewController {
     lazy var historyLabel: UILabel = {
         var label = UILabel()
         label.text = "History"
-        label.font = .systemFont(ofSize: 18.adjusted, weight: .regular)
+        label.font = .systemFont(ofSize: 18, weight: .regular)
         label.textColor = .black
         
         view.addSubview(label)
@@ -131,40 +125,96 @@ final class HistoryViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
+        configTableView()
         setupLayout()
-        
-//        print("resultsbpm -------------",resultsBPM)
     }
     
     private func setup() {
         
-        view.addSubview(backgroundImage)
         //Config UI
+        view.addSubview(backgroundImage)
         view.backgroundColor = #colorLiteral(red: 0.9197916389, green: 0.9297400713, blue: 0.9338695407, alpha: 1)
-//        backgroundImage.layer.cornerRadius = 20.adjusted
         
+        //Config Periods
         dayPeriod.periodDelegate = self
         weekPeriod.periodDelegate = self
         monthPeriod.periodDelegate = self
-
+        
         periodIsSelected = .day
         
-        self.backgroundImage.addSubview(stackView)
+        self.view.addSubview(periodsStackView)
         
-        stackView.axis = .horizontal
-        stackView.spacing = 10
-        stackView.distribution = .fillEqually
-    
-        stackView.addArrangedSubview(dayPeriod)
-        stackView.addArrangedSubview(weekPeriod)
-        stackView.addArrangedSubview(monthPeriod)
+        periodsStackView.axis = .horizontal
+        periodsStackView.spacing = 10
+        periodsStackView.distribution = .fillEqually
         
-        view.addSubview(allTypeButton)
-        view.addSubview(restingTypeButton)
-        view.addSubview(activeTypeButton)
-        view.addSubview(sleepTypeButton)
+        periodsStackView.addArrangedSubview(dayPeriod)
+        periodsStackView.addArrangedSubview(weekPeriod)
+        periodsStackView.addArrangedSubview(monthPeriod)
+        
+        //Config Filter types
+        
+        view.addSubview(filterStackView)
+        
+        allTypeView.typesDelegate = self
+        restingTypeView.typesDelegate = self
+        sleepTypeView.typesDelegate = self
+        activeTypeView.typesDelegate = self
+        
+        filterStackView.addArrangedSubview(allTypeView)
+        filterStackView.addArrangedSubview(restingTypeView)
+        filterStackView.addArrangedSubview(sleepTypeView)
+        filterStackView.addArrangedSubview(activeTypeView)
         
         typeIsSelected = .all
+        
+        backgroundImage.datePickerButton.addTarget(self, action: #selector(showDatePickerView), for: .touchUpInside)
+        
+    }
+    
+    //MARK: Создание tableView
+    private func configTableView() {
+        tableViewController.tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: "HistoryTableViewCell")
+        
+        tableViewController.tableView.delegate = self
+        tableViewController.tableView.dataSource = self
+        
+        tableViewController.tableView.backgroundColor = #colorLiteral(red: 0.9197916389, green: 0.9297400713, blue: 0.9338695407, alpha: 1)
+        tableViewController.tableView.separatorStyle = .none
+        
+        view.addSubview(tableViewController.tableView)
+    }
+    
+
+}
+
+
+//MARK: - UITableViewDataSource
+extension HistoryViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        resultsBPM != nil ? resultsBPM!.count : 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as! HistoryTableViewCell
+        
+        if let result = resultsBPM?[indexPath.row] {
+            cell.pulseLabel.text = result.bpm.description
+            cell.dateLabel.text = result.date.description
+            cell.pulseType.updateType!(result.pulseType)
+            cell.typeResult.updateAnalyze!(result.analyzeResult)
+            cell.selectionStyle = .none
+            
+        }
+        
+        return cell
+    }
+}
+
+//MARK: - UITableViewDelegate
+extension HistoryViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 }
 
@@ -172,60 +222,46 @@ final class HistoryViewController: UIViewController {
 extension HistoryViewController {
     private func setupLayout() {
         backgroundImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(-10.adjusted)
+            make.top.equalToSuperview().offset(-10)
             make.leading.trailing.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.65)
+            make.height.equalToSuperview().dividedBy(1.85)
         }
-      
-        stackView.snp.makeConstraints { make in
-            make.top.equalTo(backgroundImage.titleLabel.snp.bottom).offset(20.adjusted)
+        
+        periodsStackView.snp.makeConstraints { make in
+            make.top.equalTo(backgroundImage.titleLabel.snp.bottom).offset(20)
             make.height.equalToSuperview().dividedBy(15.9)
             make.centerX.equalToSuperview()
         }
-
+        
         averageAndMaxPulseImage.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalTo(backgroundImage.snp.bottom)
-            make.height.equalToSuperview().dividedBy(15.7)
+            make.height.equalTo(backgroundImage).dividedBy(8.5)
             make.width.equalToSuperview().multipliedBy(0.66)
         }
-//        
-//        historyLabel.snp.makeConstraints { make in
-//            make.leading.equalTo(18.adjusted)
-//            make.top.equalTo(averageAndMaxPulseImage.snp.bottom).offset(15.adjusted)
-//        }
         
-//        allTypeButton.snp.makeConstraints { make in
-//            make.top.equalTo(historyLabel.snp.bottom).offset(10.adjusted)
-//            make.leading.equalTo(18.adjusted)
-//            make.width.equalTo(50.adjusted)
-//            make.height.equalTo(50.adjusted)
-//        }
+        historyLabel.snp.makeConstraints { make in
+            make.leading.equalTo(18)
+            make.top.equalTo(averageAndMaxPulseImage.snp.bottom).offset(15)
+        }
         
-//        restingTypeButton.snp.makeConstraints { make in
-//            make.top.equalTo(historyLabel.snp.bottom).offset(10.adjusted)
-//            make.leading.equalTo(114.adjusted)
-//            make.width.equalTo(50.adjusted)
-//            make.height.equalTo(50.adjusted)
-//        }
+        filterStackView.snp.makeConstraints { make in
+            make.top.equalTo(historyLabel.snp.bottom).offset(15)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.bottom.equalTo(historyLabel.snp.bottom).offset(60)
+        }
         
-//        sleepTypeButton.snp.makeConstraints { make in
-//            make.top.equalTo(historyLabel.snp.bottom).offset(10.adjusted)
-//            make.leading.equalTo(206.adjusted)
-//            make.width.equalTo(50.adjusted)
-//            make.height.equalTo(50.adjusted)
-//        }
-        
-//        activeTypeButton.snp.makeConstraints { make in
-//            make.top.equalTo(historyLabel.snp.bottom).offset(10.adjusted)
-//            make.leading.equalTo(296.adjusted)
-//            make.width.equalTo(50.adjusted)
-//            make.height.equalTo(50.adjusted)
-//        }
+        tableViewController.tableView.snp.makeConstraints { make in
+            make.top.equalTo(filterStackView.snp.bottom).offset(35)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
     }
 }
 
-//MARK: - PerodsDelegate
+//MARK: - SortingTypesDelegate, PeriodsDelegate
 extension HistoryViewController:  SortingTypesDelegate, PeriodsDelegate {
     func choosePeriod(period: Periods) {
         self.periodIsSelected = period
@@ -233,5 +269,50 @@ extension HistoryViewController:  SortingTypesDelegate, PeriodsDelegate {
     
     func chooseType(type: SortingTypes) {
         self.typeIsSelected = type
+    }
+}
+
+//MARK: - Configure Date Picker
+extension HistoryViewController: DatePickerViewDelegate {
+    
+    @objc private func showDatePickerView() {
+        setupDarkView()
+        dataPickerView.delegate = self
+        self.tabBarController?.view.addSubview(dataPickerView)
+        
+        let height = 335
+        
+        dataPickerView.frame = CGRect(x: 0, y: self.tabBarController!.view.frame.height, width: self.tabBarController!.view.frame.width, height: CGFloat(height))
+        self.tabBarController?.view.layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+            self.dataPickerView.frame.origin.y -= CGFloat(height)
+        })
+    }
+    
+    private func setupDarkView() {
+        let blurEffect = UIBlurEffect(style: .regular)
+        
+        darkView = UIVisualEffectView(effect: blurEffect)
+        darkView?.frame = view.bounds
+        darkView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        if let darkView = darkView{
+            view.addSubview(darkView)
+        }
+    }
+    
+    func hideAlertViewWithAnimation(){
+        let height = 335
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+            self.dataPickerView.frame.origin.y += CGFloat(height)
+        }) { _ in
+            self.dataPickerView.removeFromSuperview()
+        }
+    }
+    
+    func tappedActionInPrivacyView() {
+        hideAlertViewWithAnimation()
+        self.darkView?.removeFromSuperview()
     }
 }

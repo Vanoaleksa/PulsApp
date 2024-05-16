@@ -2,9 +2,9 @@
 import UIKit
 import SnapKit
 
-class TypeFilterButtonView: UIView{
+class TypeFilterButtonView: UIView {
     
-    public weak var typesDelegate: TypesDelegate?
+    public weak var typesDelegate: SortingTypesDelegate?
     private var type: SortingTypes
     private var imageView: UIImageView!
     private var typesLabel: UILabel!
@@ -28,7 +28,7 @@ class TypeFilterButtonView: UIView{
         imageView.contentMode = .scaleAspectFit
         
         typesLabel = UILabel()
-        typesLabel.font = .systemFont(ofSize: 16.adjusted)
+        typesLabel.font = .systemFont(ofSize: 16)
         typesLabel.textColor = .gray
         typesLabel.text = typesText
         
@@ -39,7 +39,7 @@ class TypeFilterButtonView: UIView{
         self.addSubview(image)
     }
     
-    private func tapGesture(){
+    private func tapGesture() {
         self.isUserInteractionEnabled = true
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAndChooseTypes)))
     }
@@ -52,7 +52,7 @@ class TypeFilterButtonView: UIView{
     }
     
     @objc private func tapAndChooseTypes(){
-//        typesDelegate?.finalDefinitionType(type: type)
+        typesDelegate?.chooseType(type: type)
     }
 }
 
@@ -63,14 +63,14 @@ extension TypeFilterButtonView {
         }
         
         typesLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(5.adjusted)
+            make.top.equalTo(imageView.snp.bottom).offset(5)
             make.centerX.equalToSuperview()
         }
         
         image.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.equalTo(25.adjusted)
-            make.width.equalTo(25.adjusted)
+            make.height.equalToSuperview().dividedBy(1.86)
+            make.width.equalToSuperview().dividedBy(1.86)
         }
     }
 }

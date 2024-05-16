@@ -39,7 +39,7 @@ class TypesView: UIView{
         self.addSubview(image)
     }
     
-    private func tapGesture(){
+    private func tapGesture() {
         self.isUserInteractionEnabled = true
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapAndChooseTypes)))
     }
