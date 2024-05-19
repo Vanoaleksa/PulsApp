@@ -1,9 +1,3 @@
-//
-//  SceneDelegate.swift
-//  PulsApp
-//
-//  Created by MacBook on 22.02.24.
-//
 
 import UIKit
 

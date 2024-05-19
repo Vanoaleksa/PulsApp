@@ -24,7 +24,22 @@ struct DishModel {
                                   kkal: "130 kkal",
                                   cookingTime: "7 min")
         
-        return [firstItem, secondItem, thirdItem]
+        let fiveItem = DishModel(mainImage: UIImage(named: "Bacon and eggs  - image")!,
+                                  dishName: "Avocado Toast",
+                                  kkal: "130 kkal",
+                                  cookingTime: "7 min")
+        
+        let sixItem = DishModel(mainImage: UIImage(named: "Bacon and eggs  - image")!,
+                                  dishName: "Avocado Toast",
+                                  kkal: "130 kkal",
+                                  cookingTime: "7 min")
+        
+        let sevenItem = DishModel(mainImage: UIImage(named: "Bacon and eggs  - image")!,
+                                  dishName: "Avocado Toast",
+                                  kkal: "130 kkal",
+                                  cookingTime: "7 min")
+        
+        return [firstItem, secondItem, thirdItem, fiveItem, sixItem, sevenItem]
     }
     
     static func fetchLunchDishes() -> [DishModel] {

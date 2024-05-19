@@ -1,9 +1,3 @@
-//
-//  ProgressView.swift
-//  PulsApp
-//
-//  Created by MacBook on 7.03.24.
-//
 
 import UIKit
 import SnapKit
@@ -47,16 +41,12 @@ class ProgressView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        configUI()
         setupLayout()
         createCircleShape()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func configUI() {
     }
     
     func createCircleShape() {

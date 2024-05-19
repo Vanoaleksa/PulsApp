@@ -2,8 +2,13 @@
 import UIKit
 import SnapKit
 
+protocol MealsCollectionViewCellDelegate: AnyObject {
+    func didTapSeeAllButton(with dishes: [DishModel])
+}
+
 final class MealsCollectionViewCell: UICollectionViewCell {
     
+    weak var delegate: MealsCollectionViewCellDelegate?
     var dishesArr: [DishModel]?
     
     lazy var titleLabel: UILabel = {
@@ -19,6 +24,7 @@ final class MealsCollectionViewCell: UICollectionViewCell {
         button.setTitle("See All", for: .normal)
         button.setTitleColor(UIColor(red: 255/255, green: 134/255, blue: 56/255, alpha: 1), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        button.addTarget(self, action: #selector(openMealsVC), for: .touchUpInside)
         
         return button
     }()
@@ -68,6 +74,12 @@ final class MealsCollectionViewCell: UICollectionViewCell {
         let middleIndex = IndexPath(item: collectionView.numberOfItems(inSection: 0) / 2, section: 0)
         collectionView.scrollToItem(at: middleIndex, at: .centeredHorizontally, animated: false)
     }
+    
+    @objc func openMealsVC() {
+        if let dishesArr = dishesArr {
+            delegate?.didTapSeeAllButton(with: dishesArr)
+        }
+    }
 }
 
 extension MealsCollectionViewCell: UICollectionViewDataSource {
@@ -78,9 +90,9 @@ extension MealsCollectionViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(DishesCollectionViewCell.self)", for: indexPath) as! DishesCollectionViewCell
         
-//        guard dishesArr != nil else {return cell}
+        guard dishesArr != nil else {return cell}
         
-        var item = dishesArr![indexPath.row]
+        let item = dishesArr![indexPath.row]
         
         cell.mainImage.image = item.mainImage
         cell.dishNameLabel.text = item.dishName

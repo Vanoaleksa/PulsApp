@@ -25,6 +25,7 @@
 		FA9C7F882B9C870F002CC469 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9C7F872B9C870F002CC469 /* CustomTabBarController.swift */; };
 		FAA031362B8DE7F400DBBA63 /* CustomParametersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA031352B8DE7F400DBBA63 /* CustomParametersCell.swift */; };
 		FAA33AAA2BCAA9DD002DA98B /* PulseTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33AA92BCAA9DD002DA98B /* PulseTypeView.swift */; };
+		FAA33DD22BFA0C3000291B37 /* IngridientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DD12BFA0C3000291B37 /* IngridientsView.swift */; };
 		FAA4CD5E2BDAA850002E8790 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4CD5D2BDAA850002E8790 /* HistoryTableViewCell.swift */; };
 		FAA4CD602BDC06C7002E8790 /* BackgroundHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4CD5F2BDC06C7002E8790 /* BackgroundHistoryView.swift */; };
 		FAA64F472BAC73E700DE40CA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA64F462BAC73E700DE40CA /* Extension.swift */; };
@@ -33,10 +34,16 @@
 		FAA973792BF4ADFB0065E947 /* DishesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA973782BF4ADFB0065E947 /* DishesCollectionViewCell.swift */; };
 		FAA974262BEFCA140039F548 /* DietViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA974252BEFCA140039F548 /* DietViewController.swift */; };
 		FAABD57C2B8B5DE6008CB3D4 /* CustomGenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABD57B2B8B5DE6008CB3D4 /* CustomGenderCell.swift */; };
+		FAABF3312BF617BE0025089A /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABF3302BF617BE0025089A /* MealsViewController.swift */; };
+		FAABF3332BF77A5E0025089A /* DishRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABF3322BF77A5E0025089A /* DishRecipeViewController.swift */; };
+		FAABF3352BF781180025089A /* MainInfoAboutDishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAABF3342BF781180025089A /* MainInfoAboutDishView.swift */; };
 		FAAD1EB62BEA6A4400FFC0BB /* SmallPulseTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAD1EB52BEA6A4400FFC0BB /* SmallPulseTypeView.swift */; };
 		FAB28C562BD580D4008F8A1D /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB28C552BD580D4008F8A1D /* HistoryModel.swift */; };
 		FAB777502BB060FD00EE193E /* SizeFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7774F2BB060FD00EE193E /* SizeFactor.swift */; };
 		FABB5EC62BA9D3CE0037A41C /* ReusableAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABB5EC52BA9D3CE0037A41C /* ReusableAlertView.swift */; };
+		FABCDE312BF8AF0400550DD5 /* ProgressCirclesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCDE302BF8AF0400550DD5 /* ProgressCirclesView.swift */; };
+		FABCDE332BF8EC3D00550DD5 /* DotFilledIngridientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCDE322BF8EC3D00550DD5 /* DotFilledIngridientsView.swift */; };
+		FABCDE352BF8F49000550DD5 /* CookingInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABCDE342BF8F49000550DD5 /* CookingInstructionsView.swift */; };
 		FAC0A6142BA862B0001F82C4 /* ManagerHeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0A60C2BA862B0001F82C4 /* ManagerHeartRate.swift */; };
 		FAC0A6152BA862B0001F82C4 /* FilterHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0A60E2BA862B0001F82C4 /* FilterHeart.swift */; };
 		FAC0A6162BA862B0001F82C4 /* PulseDetectorHeart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0A60F2BA862B0001F82C4 /* PulseDetectorHeart.swift */; };
@@ -82,6 +89,7 @@
 		FA9C7F872B9C870F002CC469 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		FAA031352B8DE7F400DBBA63 /* CustomParametersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomParametersCell.swift; sourceTree = "<group>"; };
 		FAA33AA92BCAA9DD002DA98B /* PulseTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseTypeView.swift; sourceTree = "<group>"; };
+		FAA33DD12BFA0C3000291B37 /* IngridientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientsView.swift; sourceTree = "<group>"; };
 		FAA4CD5D2BDAA850002E8790 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		FAA4CD5F2BDC06C7002E8790 /* BackgroundHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundHistoryView.swift; sourceTree = "<group>"; };
 		FAA64F462BAC73E700DE40CA /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -90,10 +98,16 @@
 		FAA973782BF4ADFB0065E947 /* DishesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAA974252BEFCA140039F548 /* DietViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietViewController.swift; sourceTree = "<group>"; };
 		FAABD57B2B8B5DE6008CB3D4 /* CustomGenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGenderCell.swift; sourceTree = "<group>"; };
+		FAABF3302BF617BE0025089A /* MealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewController.swift; sourceTree = "<group>"; };
+		FAABF3322BF77A5E0025089A /* DishRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishRecipeViewController.swift; sourceTree = "<group>"; };
+		FAABF3342BF781180025089A /* MainInfoAboutDishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInfoAboutDishView.swift; sourceTree = "<group>"; };
 		FAAD1EB52BEA6A4400FFC0BB /* SmallPulseTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallPulseTypeView.swift; sourceTree = "<group>"; };
 		FAB28C552BD580D4008F8A1D /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 		FAB7774F2BB060FD00EE193E /* SizeFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeFactor.swift; sourceTree = "<group>"; };
 		FABB5EC52BA9D3CE0037A41C /* ReusableAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableAlertView.swift; sourceTree = "<group>"; };
+		FABCDE302BF8AF0400550DD5 /* ProgressCirclesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCirclesView.swift; sourceTree = "<group>"; };
+		FABCDE322BF8EC3D00550DD5 /* DotFilledIngridientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotFilledIngridientsView.swift; sourceTree = "<group>"; };
+		FABCDE342BF8F49000550DD5 /* CookingInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookingInstructionsView.swift; sourceTree = "<group>"; };
 		FAC0A60C2BA862B0001F82C4 /* ManagerHeartRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerHeartRate.swift; sourceTree = "<group>"; };
 		FAC0A60E2BA862B0001F82C4 /* FilterHeart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterHeart.swift; sourceTree = "<group>"; };
 		FAC0A60F2BA862B0001F82C4 /* PulseDetectorHeart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulseDetectorHeart.swift; sourceTree = "<group>"; };
@@ -213,6 +227,8 @@
 				FAFD914B2BB850DB00A5B651 /* AnalyzViewController.swift */,
 				FAA7DB062BD1768D00846FDE /* HistoryViewController.swift */,
 				FAA974252BEFCA140039F548 /* DietViewController.swift */,
+				FAABF3302BF617BE0025089A /* MealsViewController.swift */,
+				FAABF3322BF77A5E0025089A /* DishRecipeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -240,6 +256,11 @@
 				FA9C3A732BED0085007EEE06 /* DatePickerView.swift */,
 				FA960B022BF1167B00453512 /* MealsCollectionViewCell.swift */,
 				FAA973782BF4ADFB0065E947 /* DishesCollectionViewCell.swift */,
+				FAABF3342BF781180025089A /* MainInfoAboutDishView.swift */,
+				FABCDE302BF8AF0400550DD5 /* ProgressCirclesView.swift */,
+				FABCDE322BF8EC3D00550DD5 /* DotFilledIngridientsView.swift */,
+				FABCDE342BF8F49000550DD5 /* CookingInstructionsView.swift */,
+				FAA33DD12BFA0C3000291B37 /* IngridientsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -483,13 +504,16 @@
 				FAA974262BEFCA140039F548 /* DietViewController.swift in Sources */,
 				FAC0A6172BA862B0001F82C4 /* AVDeviceCapture.swift in Sources */,
 				FA3444912BC1704E002E7D6A /* ResultWindow.swift in Sources */,
+				FAABF3312BF617BE0025089A /* MealsViewController.swift in Sources */,
 				FA9C3A742BED0085007EEE06 /* DatePickerView.swift in Sources */,
 				FA960B032BF1167B00453512 /* MealsCollectionViewCell.swift in Sources */,
 				FAA031362B8DE7F400DBBA63 /* CustomParametersCell.swift in Sources */,
 				FAC0A6182BA862B0001F82C4 /* ColorUtilitesHeart.swift in Sources */,
+				FABCDE332BF8EC3D00550DD5 /* DotFilledIngridientsView.swift in Sources */,
 				FAE507E52BA5FF0D007EEA18 /* BPMUserManager.swift in Sources */,
 				FAE661A62BB43C84000890D3 /* UnitsView.swift in Sources */,
 				FA9C7F882B9C870F002CC469 /* CustomTabBarController.swift in Sources */,
+				FAA33DD22BFA0C3000291B37 /* IngridientsView.swift in Sources */,
 				FAC0A6152BA862B0001F82C4 /* FilterHeart.swift in Sources */,
 				FAE507E82BA60201007EEA18 /* DefiningPulseType.swift in Sources */,
 				FAABD57C2B8B5DE6008CB3D4 /* CustomGenderCell.swift in Sources */,
@@ -498,6 +522,7 @@
 				FAE136652B91E960006861A4 /* HeartRateViewController.swift in Sources */,
 				FAAD1EB62BEA6A4400FFC0BB /* SmallPulseTypeView.swift in Sources */,
 				FA6FE92A2BD81A740030F14D /* TypeFilterButtonView.swift in Sources */,
+				FAABF3352BF781180025089A /* MainInfoAboutDishView.swift in Sources */,
 				FAA7DB092BD178A500846FDE /* PeriodView.swift in Sources */,
 				FAB777502BB060FD00EE193E /* SizeFactor.swift in Sources */,
 				FAC0A6162BA862B0001F82C4 /* PulseDetectorHeart.swift in Sources */,
@@ -507,6 +532,7 @@
 				FAA4CD602BDC06C7002E8790 /* BackgroundHistoryView.swift in Sources */,
 				FAA33AAA2BCAA9DD002DA98B /* PulseTypeView.swift in Sources */,
 				FA9709BD2B877CB90060BFBA /* AppDelegate.swift in Sources */,
+				FABCDE352BF8F49000550DD5 /* CookingInstructionsView.swift in Sources */,
 				FA34448F2BC16D1B002E7D6A /* ResultScreenView.swift in Sources */,
 				FAE507DF2BA5FEFB007EEA18 /* UserManager.swift in Sources */,
 				FABB5EC62BA9D3CE0037A41C /* ReusableAlertView.swift in Sources */,
@@ -515,8 +541,10 @@
 				FAA973792BF4ADFB0065E947 /* DishesCollectionViewCell.swift in Sources */,
 				FAA7DB072BD1768D00846FDE /* HistoryViewController.swift in Sources */,
 				FA9709BF2B877CB90060BFBA /* SceneDelegate.swift in Sources */,
+				FABCDE312BF8AF0400550DD5 /* ProgressCirclesView.swift in Sources */,
 				FAB28C562BD580D4008F8A1D /* HistoryModel.swift in Sources */,
 				FA9B1BFC2BC98D4300983977 /* ResultType.swift in Sources */,
+				FAABF3332BF77A5E0025089A /* DishRecipeViewController.swift in Sources */,
 				FAF376DB2BADB13F00F311E8 /* GlobalButton.swift in Sources */,
 				FAE507E02BA5FEFB007EEA18 /* UserModel.swift in Sources */,
 				FAE507E42BA5FF0D007EEA18 /* BPMUserSettings.swift in Sources */,

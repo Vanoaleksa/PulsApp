@@ -62,7 +62,8 @@ extension DietViewController: UICollectionViewDataSource {
         
         cell.titleLabel.text = item.description
         cell.dishesArr = mealsArr[indexPath.row]
-        
+        cell.delegate = self
+                
         return cell
     }
 }
@@ -78,6 +79,16 @@ extension DietViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height / 3.6)
+    }
+}
+
+//MARK: - MealsCollectionViewCellDelegate
+extension DietViewController: MealsCollectionViewCellDelegate {
+    func didTapSeeAllButton(with dishes: [DishModel]) {
+        let mealsVC = MealsViewController()
+        mealsVC.modalPresentationStyle = .fullScreen
+        mealsVC.currentsDishes = dishes
+        self.present(mealsVC, animated: true)
     }
 }
 
