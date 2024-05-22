@@ -26,6 +26,14 @@
 		FAA031362B8DE7F400DBBA63 /* CustomParametersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA031352B8DE7F400DBBA63 /* CustomParametersCell.swift */; };
 		FAA33AAA2BCAA9DD002DA98B /* PulseTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33AA92BCAA9DD002DA98B /* PulseTypeView.swift */; };
 		FAA33DD22BFA0C3000291B37 /* IngridientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DD12BFA0C3000291B37 /* IngridientsView.swift */; };
+		FAA33DD42BFA2AF400291B37 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DD32BFA2AF400291B37 /* TestViewController.swift */; };
+		FAA33DD62BFA2CB900291B37 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DD52BFA2CB900291B37 /* TestCollectionViewCell.swift */; };
+		FAA33DD82BFA335F00291B37 /* QuickTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DD72BFA335F00291B37 /* QuickTestViewController.swift */; };
+		FAA33DDA2BFA3D8800291B37 /* TestsQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DD92BFA3D8800291B37 /* TestsQuestionsViewController.swift */; };
+		FAA33DDC2BFA42ED00291B37 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DDB2BFA42ED00291B37 /* QuestionTableViewCell.swift */; };
+		FAA33DDE2BFCAF4600291B37 /* TestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DDD2BFCAF4600291B37 /* TestResultViewController.swift */; };
+		FAA33DE02BFCD7A100291B37 /* StateAfterTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DDF2BFCD7A100291B37 /* StateAfterTestView.swift */; };
+		FAA33DE22BFE2D4500291B37 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DE12BFE2D4500291B37 /* ProfileViewController.swift */; };
 		FAA4CD5E2BDAA850002E8790 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4CD5D2BDAA850002E8790 /* HistoryTableViewCell.swift */; };
 		FAA4CD602BDC06C7002E8790 /* BackgroundHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4CD5F2BDC06C7002E8790 /* BackgroundHistoryView.swift */; };
 		FAA64F472BAC73E700DE40CA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA64F462BAC73E700DE40CA /* Extension.swift */; };
@@ -90,6 +98,14 @@
 		FAA031352B8DE7F400DBBA63 /* CustomParametersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomParametersCell.swift; sourceTree = "<group>"; };
 		FAA33AA92BCAA9DD002DA98B /* PulseTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseTypeView.swift; sourceTree = "<group>"; };
 		FAA33DD12BFA0C3000291B37 /* IngridientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientsView.swift; sourceTree = "<group>"; };
+		FAA33DD32BFA2AF400291B37 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		FAA33DD52BFA2CB900291B37 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
+		FAA33DD72BFA335F00291B37 /* QuickTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickTestViewController.swift; sourceTree = "<group>"; };
+		FAA33DD92BFA3D8800291B37 /* TestsQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsQuestionsViewController.swift; sourceTree = "<group>"; };
+		FAA33DDB2BFA42ED00291B37 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		FAA33DDD2BFCAF4600291B37 /* TestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultViewController.swift; sourceTree = "<group>"; };
+		FAA33DDF2BFCD7A100291B37 /* StateAfterTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateAfterTestView.swift; sourceTree = "<group>"; };
+		FAA33DE12BFE2D4500291B37 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FAA4CD5D2BDAA850002E8790 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		FAA4CD5F2BDC06C7002E8790 /* BackgroundHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundHistoryView.swift; sourceTree = "<group>"; };
 		FAA64F462BAC73E700DE40CA /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -229,6 +245,11 @@
 				FAA974252BEFCA140039F548 /* DietViewController.swift */,
 				FAABF3302BF617BE0025089A /* MealsViewController.swift */,
 				FAABF3322BF77A5E0025089A /* DishRecipeViewController.swift */,
+				FAA33DD32BFA2AF400291B37 /* TestViewController.swift */,
+				FAA33DD72BFA335F00291B37 /* QuickTestViewController.swift */,
+				FAA33DD92BFA3D8800291B37 /* TestsQuestionsViewController.swift */,
+				FAA33DDD2BFCAF4600291B37 /* TestResultViewController.swift */,
+				FAA33DE12BFE2D4500291B37 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -261,6 +282,9 @@
 				FABCDE322BF8EC3D00550DD5 /* DotFilledIngridientsView.swift */,
 				FABCDE342BF8F49000550DD5 /* CookingInstructionsView.swift */,
 				FAA33DD12BFA0C3000291B37 /* IngridientsView.swift */,
+				FAA33DD52BFA2CB900291B37 /* TestCollectionViewCell.swift */,
+				FAA33DDB2BFA42ED00291B37 /* QuestionTableViewCell.swift */,
+				FAA33DDF2BFCD7A100291B37 /* StateAfterTestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -497,6 +521,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA33DD82BFA335F00291B37 /* QuickTestViewController.swift in Sources */,
 				FAA4CD5E2BDAA850002E8790 /* HistoryTableViewCell.swift in Sources */,
 				FAE507DA2BA5FC47007EEA18 /* QueueManager.swift in Sources */,
 				FA9709C12B877CB90060BFBA /* AboutMeViewController.swift in Sources */,
@@ -508,6 +533,8 @@
 				FA9C3A742BED0085007EEE06 /* DatePickerView.swift in Sources */,
 				FA960B032BF1167B00453512 /* MealsCollectionViewCell.swift in Sources */,
 				FAA031362B8DE7F400DBBA63 /* CustomParametersCell.swift in Sources */,
+				FAA33DDE2BFCAF4600291B37 /* TestResultViewController.swift in Sources */,
+				FAA33DE22BFE2D4500291B37 /* ProfileViewController.swift in Sources */,
 				FAC0A6182BA862B0001F82C4 /* ColorUtilitesHeart.swift in Sources */,
 				FABCDE332BF8EC3D00550DD5 /* DotFilledIngridientsView.swift in Sources */,
 				FAE507E52BA5FF0D007EEA18 /* BPMUserManager.swift in Sources */,
@@ -515,12 +542,14 @@
 				FA9C7F882B9C870F002CC469 /* CustomTabBarController.swift in Sources */,
 				FAA33DD22BFA0C3000291B37 /* IngridientsView.swift in Sources */,
 				FAC0A6152BA862B0001F82C4 /* FilterHeart.swift in Sources */,
+				FAA33DD42BFA2AF400291B37 /* TestViewController.swift in Sources */,
 				FAE507E82BA60201007EEA18 /* DefiningPulseType.swift in Sources */,
 				FAABD57C2B8B5DE6008CB3D4 /* CustomGenderCell.swift in Sources */,
 				FAE661A82BB44A0E000890D3 /* GenderFieldView.swift in Sources */,
 				FAC0A6222BA87219001F82C4 /* HeartRateViewModel.swift in Sources */,
 				FAE136652B91E960006861A4 /* HeartRateViewController.swift in Sources */,
 				FAAD1EB62BEA6A4400FFC0BB /* SmallPulseTypeView.swift in Sources */,
+				FAA33DD62BFA2CB900291B37 /* TestCollectionViewCell.swift in Sources */,
 				FA6FE92A2BD81A740030F14D /* TypeFilterButtonView.swift in Sources */,
 				FAABF3352BF781180025089A /* MainInfoAboutDishView.swift in Sources */,
 				FAA7DB092BD178A500846FDE /* PeriodView.swift in Sources */,
@@ -528,6 +557,7 @@
 				FAC0A6162BA862B0001F82C4 /* PulseDetectorHeart.swift in Sources */,
 				FA9227C12B99F4290065408B /* ProgressView.swift in Sources */,
 				FA960B012BF10BD800453512 /* DishModel.swift in Sources */,
+				FAA33DE02BFCD7A100291B37 /* StateAfterTestView.swift in Sources */,
 				FAA64F472BAC73E700DE40CA /* Extension.swift in Sources */,
 				FAA4CD602BDC06C7002E8790 /* BackgroundHistoryView.swift in Sources */,
 				FAA33AAA2BCAA9DD002DA98B /* PulseTypeView.swift in Sources */,
@@ -535,6 +565,7 @@
 				FABCDE352BF8F49000550DD5 /* CookingInstructionsView.swift in Sources */,
 				FA34448F2BC16D1B002E7D6A /* ResultScreenView.swift in Sources */,
 				FAE507DF2BA5FEFB007EEA18 /* UserManager.swift in Sources */,
+				FAA33DDC2BFA42ED00291B37 /* QuestionTableViewCell.swift in Sources */,
 				FABB5EC62BA9D3CE0037A41C /* ReusableAlertView.swift in Sources */,
 				FAFD914E2BB85EE200A5B651 /* TypesView.swift in Sources */,
 				FAFD914C2BB850DB00A5B651 /* AnalyzViewController.swift in Sources */,
@@ -544,6 +575,7 @@
 				FABCDE312BF8AF0400550DD5 /* ProgressCirclesView.swift in Sources */,
 				FAB28C562BD580D4008F8A1D /* HistoryModel.swift in Sources */,
 				FA9B1BFC2BC98D4300983977 /* ResultType.swift in Sources */,
+				FAA33DDA2BFA3D8800291B37 /* TestsQuestionsViewController.swift in Sources */,
 				FAABF3332BF77A5E0025089A /* DishRecipeViewController.swift in Sources */,
 				FAF376DB2BADB13F00F311E8 /* GlobalButton.swift in Sources */,
 				FAE507E02BA5FEFB007EEA18 /* UserModel.swift in Sources */,

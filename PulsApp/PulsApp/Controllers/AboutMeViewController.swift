@@ -1,9 +1,3 @@
-//
-//  ViewController.swift
-//  PulsApp
-//
-//  Created by MacBook on 22.02.24.
-//
 
 import UIKit
 import SnapKit
@@ -94,9 +88,6 @@ class AboutMeViewController: UIViewController {
         
         tableViewController.tableView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
     }
-    
-
-
     
     //MARK: - Создание tableView
     private func createTableView() {
@@ -221,7 +212,7 @@ extension AboutMeViewController: UITableViewDataSource {
 extension AboutMeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 61
+        return 71
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

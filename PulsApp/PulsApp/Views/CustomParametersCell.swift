@@ -1,9 +1,3 @@
-//
-//  CustomParametersCell.swift
-//  PulsApp
-//
-//  Created by MacBook on 27.02.24.
-//
 
 import UIKit
 import SnapKit
@@ -124,7 +118,6 @@ class CustomParametersCell: UITableViewCell {
             self.layoutIfNeeded()
             self.warningLabel.isHidden = true
         }
-        
     }
 }
 

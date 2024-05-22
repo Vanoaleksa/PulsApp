@@ -113,7 +113,6 @@ final class DishesCollectionViewCell: UICollectionViewCell {
         kkalStackView.addArrangedSubview(kkalLabel)
         timeStackView.addArrangedSubview(alarmImage)
         timeStackView.addArrangedSubview(cookingTimeLabel)
-        
     }
     
     private func setupLayout() {

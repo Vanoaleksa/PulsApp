@@ -22,7 +22,7 @@ class GlobalButton: UIButton {
     
     private func setupButton() {
         self.setTitleColor(.white, for: .normal)
-        self.layer.cornerRadius = 34.adjusted
+        self.layer.cornerRadius = 30
         self.titleLabel?.font = .systemFont(ofSize: 18)
         self.backgroundColor = UIColor(red: 102/255, green: 118/255, blue: 250/255, alpha: 1)
         
@@ -30,7 +30,7 @@ class GlobalButton: UIButton {
     
     private func setupLayout() {
         self.snp.makeConstraints { make in
-            make.height.equalTo(68.adjusted)
+            make.height.equalTo(68)
         }
     }
 }

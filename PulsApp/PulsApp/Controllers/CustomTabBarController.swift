@@ -15,8 +15,8 @@ class CustomTabBarController: UITabBarController {
         let mainVC = HeartRateViewController()
         let historyVC = HistoryViewController()
         let dietVC = DietViewController()
-        let testVC = DishRecipeViewController()
-        let profileVC = AboutMeViewController()
+        let testVC = TestViewController()
+        let profileVC = TestResultViewController()
         
         self.viewControllers = [
             mainVC,
@@ -60,7 +60,7 @@ class CustomTabBarController: UITabBarController {
         self.tabBar.isTranslucent = true
         self.tabBar.backgroundColor = .white
         self.tabBar.tintColor = UIColor(red: 255/255, green: 134/255, blue: 56/255, alpha: 1)
-        self.tabBar.layer.cornerRadius = 20.adjusted
+        self.tabBar.layer.cornerRadius = 20
     }
 }
 
