@@ -34,6 +34,7 @@ class AboutMeViewController: UIViewController {
         label.text = "About me"
         let customFont = UIFont(name: "SFProDisplay-Bold", size: 28.adjusted)
         label.font = customFont
+        label.textColor = .black
         
         view.addSubview(label)
         
