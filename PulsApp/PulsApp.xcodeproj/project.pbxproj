@@ -34,6 +34,12 @@
 		FAA33DDE2BFCAF4600291B37 /* TestResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DDD2BFCAF4600291B37 /* TestResultViewController.swift */; };
 		FAA33DE02BFCD7A100291B37 /* StateAfterTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DDF2BFCD7A100291B37 /* StateAfterTestView.swift */; };
 		FAA33DE22BFE2D4500291B37 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DE12BFE2D4500291B37 /* ProfileViewController.swift */; };
+		FAA33DE42BFE38A700291B37 /* AdProAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DE32BFE38A700291B37 /* AdProAccountView.swift */; };
+		FAA33DE62BFF6A9200291B37 /* ProfileGenderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DE52BFF6A9200291B37 /* ProfileGenderTableViewCell.swift */; };
+		FAA33DE82BFF862300291B37 /* ProfileParametrsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DE72BFF862300291B37 /* ProfileParametrsTableViewCell.swift */; };
+		FAA33DEA2BFF906100291B37 /* ProfileSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DE92BFF906100291B37 /* ProfileSettingsCell.swift */; };
+		FAA33DEC2BFF9BBE00291B37 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DEB2BFF9BBE00291B37 /* SettingsViewController.swift */; };
+		FAA33DEE2C00AD3A00291B37 /* CustomSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA33DED2C00AD3A00291B37 /* CustomSettingsCell.swift */; };
 		FAA4CD5E2BDAA850002E8790 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4CD5D2BDAA850002E8790 /* HistoryTableViewCell.swift */; };
 		FAA4CD602BDC06C7002E8790 /* BackgroundHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4CD5F2BDC06C7002E8790 /* BackgroundHistoryView.swift */; };
 		FAA64F472BAC73E700DE40CA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA64F462BAC73E700DE40CA /* Extension.swift */; };
@@ -106,6 +112,12 @@
 		FAA33DDD2BFCAF4600291B37 /* TestResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResultViewController.swift; sourceTree = "<group>"; };
 		FAA33DDF2BFCD7A100291B37 /* StateAfterTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateAfterTestView.swift; sourceTree = "<group>"; };
 		FAA33DE12BFE2D4500291B37 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FAA33DE32BFE38A700291B37 /* AdProAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdProAccountView.swift; sourceTree = "<group>"; };
+		FAA33DE52BFF6A9200291B37 /* ProfileGenderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileGenderTableViewCell.swift; sourceTree = "<group>"; };
+		FAA33DE72BFF862300291B37 /* ProfileParametrsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileParametrsTableViewCell.swift; sourceTree = "<group>"; };
+		FAA33DE92BFF906100291B37 /* ProfileSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsCell.swift; sourceTree = "<group>"; };
+		FAA33DEB2BFF9BBE00291B37 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FAA33DED2C00AD3A00291B37 /* CustomSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSettingsCell.swift; sourceTree = "<group>"; };
 		FAA4CD5D2BDAA850002E8790 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		FAA4CD5F2BDC06C7002E8790 /* BackgroundHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundHistoryView.swift; sourceTree = "<group>"; };
 		FAA64F462BAC73E700DE40CA /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -250,6 +262,7 @@
 				FAA33DD92BFA3D8800291B37 /* TestsQuestionsViewController.swift */,
 				FAA33DDD2BFCAF4600291B37 /* TestResultViewController.swift */,
 				FAA33DE12BFE2D4500291B37 /* ProfileViewController.swift */,
+				FAA33DEB2BFF9BBE00291B37 /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -285,6 +298,11 @@
 				FAA33DD52BFA2CB900291B37 /* TestCollectionViewCell.swift */,
 				FAA33DDB2BFA42ED00291B37 /* QuestionTableViewCell.swift */,
 				FAA33DDF2BFCD7A100291B37 /* StateAfterTestView.swift */,
+				FAA33DE32BFE38A700291B37 /* AdProAccountView.swift */,
+				FAA33DE52BFF6A9200291B37 /* ProfileGenderTableViewCell.swift */,
+				FAA33DE72BFF862300291B37 /* ProfileParametrsTableViewCell.swift */,
+				FAA33DE92BFF906100291B37 /* ProfileSettingsCell.swift */,
+				FAA33DED2C00AD3A00291B37 /* CustomSettingsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -528,6 +546,7 @@
 				FAC0A6142BA862B0001F82C4 /* ManagerHeartRate.swift in Sources */,
 				FAA974262BEFCA140039F548 /* DietViewController.swift in Sources */,
 				FAC0A6172BA862B0001F82C4 /* AVDeviceCapture.swift in Sources */,
+				FAA33DEC2BFF9BBE00291B37 /* SettingsViewController.swift in Sources */,
 				FA3444912BC1704E002E7D6A /* ResultWindow.swift in Sources */,
 				FAABF3312BF617BE0025089A /* MealsViewController.swift in Sources */,
 				FA9C3A742BED0085007EEE06 /* DatePickerView.swift in Sources */,
@@ -556,6 +575,7 @@
 				FAB777502BB060FD00EE193E /* SizeFactor.swift in Sources */,
 				FAC0A6162BA862B0001F82C4 /* PulseDetectorHeart.swift in Sources */,
 				FA9227C12B99F4290065408B /* ProgressView.swift in Sources */,
+				FAA33DE42BFE38A700291B37 /* AdProAccountView.swift in Sources */,
 				FA960B012BF10BD800453512 /* DishModel.swift in Sources */,
 				FAA33DE02BFCD7A100291B37 /* StateAfterTestView.swift in Sources */,
 				FAA64F472BAC73E700DE40CA /* Extension.swift in Sources */,
@@ -569,13 +589,17 @@
 				FABB5EC62BA9D3CE0037A41C /* ReusableAlertView.swift in Sources */,
 				FAFD914E2BB85EE200A5B651 /* TypesView.swift in Sources */,
 				FAFD914C2BB850DB00A5B651 /* AnalyzViewController.swift in Sources */,
+				FAA33DE82BFF862300291B37 /* ProfileParametrsTableViewCell.swift in Sources */,
 				FAA973792BF4ADFB0065E947 /* DishesCollectionViewCell.swift in Sources */,
+				FAA33DE62BFF6A9200291B37 /* ProfileGenderTableViewCell.swift in Sources */,
 				FAA7DB072BD1768D00846FDE /* HistoryViewController.swift in Sources */,
+				FAA33DEE2C00AD3A00291B37 /* CustomSettingsCell.swift in Sources */,
 				FA9709BF2B877CB90060BFBA /* SceneDelegate.swift in Sources */,
 				FABCDE312BF8AF0400550DD5 /* ProgressCirclesView.swift in Sources */,
 				FAB28C562BD580D4008F8A1D /* HistoryModel.swift in Sources */,
 				FA9B1BFC2BC98D4300983977 /* ResultType.swift in Sources */,
 				FAA33DDA2BFA3D8800291B37 /* TestsQuestionsViewController.swift in Sources */,
+				FAA33DEA2BFF906100291B37 /* ProfileSettingsCell.swift in Sources */,
 				FAABF3332BF77A5E0025089A /* DishRecipeViewController.swift in Sources */,
 				FAF376DB2BADB13F00F311E8 /* GlobalButton.swift in Sources */,
 				FAE507E02BA5FEFB007EEA18 /* UserModel.swift in Sources */,

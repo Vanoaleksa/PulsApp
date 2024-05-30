@@ -62,7 +62,10 @@ final class QuestionTableViewCell: UITableViewCell {
         mainView.layer.borderWidth = 2
         mainView.layer.borderColor = CGColor(red: 226/255, green: 224/255, blue: 232/255, alpha: 1)
         mainView.layer.cornerRadius = 12
+        
     }
+    
+
 }
 
 extension QuestionTableViewCell {

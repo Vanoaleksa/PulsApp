@@ -4,9 +4,10 @@ import SnapKit
 
 final class TestResultViewController: UIViewController {
     
-    let stateView = StateAfterTestView()
+    private let stateView = StateAfterTestView()
+    var distanceForTriangle = 0
     
-    lazy var titleLabel: UILabel = {
+    private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 28, weight: .bold)
         label.textColor = .black
@@ -18,7 +19,7 @@ final class TestResultViewController: UIViewController {
         return label
     }()
     
-    lazy var backButton: UIButton = {
+    private lazy var backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "left-black-arrow-image"), for: .normal)
         button.addTarget(self, action: #selector(goBackAction), for: .touchUpInside)
@@ -58,6 +59,7 @@ final class TestResultViewController: UIViewController {
         
         configUI()
         setupLayout()
+        stateView.setDistanceForTriangle(distanceForTriangle)
     }
     
     private func configUI() {

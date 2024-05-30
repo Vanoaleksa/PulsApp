@@ -5,6 +5,7 @@ final class ProgressCirclesView: UIView {
     
     private let progressLayer = CAShapeLayer()
     private let backgroundLayer = CAShapeLayer()
+    private var initialProgress: CGFloat = 0.0
 
     let procentsLabel = UILabel()
     let nameLabel = UILabel()
@@ -14,7 +15,8 @@ final class ProgressCirclesView: UIView {
     init(frame: CGRect, progress: CGFloat, procentsLabelText: String, nameLabelText: String, gramsLabelText: String ) {
         super.init(frame: frame)
         setupView()
-        setProgress(progress)
+//        setProgress(progress)
+        self.initialProgress = progress
         setupLabels(procentsLabelText: procentsLabelText, nameLabelText: nameLabelText, gramsLabelText: gramsLabelText)
         setupLayout()
     }
@@ -22,7 +24,7 @@ final class ProgressCirclesView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupView()
-        setProgress(0.0) 
+        setProgress(0.0)
     }
     
     private func setupView() {
@@ -56,7 +58,18 @@ final class ProgressCirclesView: UIView {
         addSubview(gramsLabel)
     }
     
-    func setProgress(_ progress: CGFloat) {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setProgress(initialProgress)
+    }
+    
+    private func setProgress(_ progress: CGFloat) {
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.duration = 1
+        animation.fromValue = progressLayer.strokeEnd
+        animation.toValue = progress
+        progressLayer.add(animation, forKey: "animateProgress")
+                
         progressLayer.strokeEnd = progress
     }
     
@@ -77,6 +90,7 @@ final class ProgressCirclesView: UIView {
         gramsLabel.font = .systemFont(ofSize: 14, weight: .light)
         gramsLabel.textColor = .black
     }
+
     
     private func setupLayout() {
         

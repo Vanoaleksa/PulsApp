@@ -85,8 +85,6 @@ class AboutMeViewController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         view.addSubview(imageView)
         view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.9)
-        
-        tableViewController.tableView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
     }
     
     //MARK: - Создание tableView
@@ -95,6 +93,7 @@ class AboutMeViewController: UIViewController {
         tableViewController.tableView.register(CustomParametersCell.self, forCellReuseIdentifier: "CustomParametersCell")
         tableViewController.tableView.delegate = self
         tableViewController.tableView.dataSource = self
+        tableViewController.tableView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
         tableViewController.tableView.separatorStyle = .none
         
         view.addSubview(tableViewController.tableView)
@@ -102,7 +101,6 @@ class AboutMeViewController: UIViewController {
     
     @objc func continueButtonAction() {
         // Меняем состояние кнопок, если они пустые
-        
         for row in 1...3 {
             if let cell = tableViewController.tableView.cellForRow(at: IndexPath(row: row, section: 0)) as? CustomParametersCell {
                 if cell.paramTextField.text?.isEmpty == true {
@@ -112,7 +110,6 @@ class AboutMeViewController: UIViewController {
         }
         
         // Проверяем на заполненность ячейки
-        
         let cells = tableViewController.tableView.visibleCells.filter { currentCell in
             return currentCell.isKind(of: CustomParametersCell.self)
         }

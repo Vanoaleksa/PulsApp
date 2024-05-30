@@ -4,6 +4,12 @@ import SnapKit
 
 final class StateAfterTestView: UIView {
     
+    private var distanceForTriangle: Int = 0 {
+        didSet {
+            updateTrianglePosition()
+        }
+    }
+    
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20, weight: .medium)
@@ -62,7 +68,7 @@ final class StateAfterTestView: UIView {
         super.init(frame: frame)
         
         createMulticolorLabels()
-        setupLayout()
+        setupLayout()        
     }
     
     required init?(coder: NSCoder) {
@@ -82,7 +88,7 @@ final class StateAfterTestView: UIView {
             
             gradientStackView.addArrangedSubview(label)
         }
-    
+        
         self.addSubview(gradientStackView)
     }
     
@@ -111,8 +117,21 @@ final class StateAfterTestView: UIView {
         }
         
         triangleImageView.snp.makeConstraints { make in
-            make.leading.equalTo(100)
+            //            make.leading.equalTo(100)
+            make.leading.equalTo(distanceForTriangle)
             make.top.equalTo(gradientStackView.snp.bottom).offset(10)
         }
+    }
+    
+    func setDistanceForTriangle(_ distance: Int) {
+        self.distanceForTriangle = distance
+    }
+    
+    private func updateTrianglePosition() {
+        triangleImageView.snp.updateConstraints { make in
+            make.leading.equalTo(distanceForTriangle)
+        }
+        
+        layoutIfNeeded()
     }
 }

@@ -16,7 +16,7 @@ class CustomTabBarController: UITabBarController {
         let historyVC = HistoryViewController()
         let dietVC = DietViewController()
         let testVC = TestViewController()
-        let profileVC = TestResultViewController()
+        let profileVC = ProfileViewController()
         
         self.viewControllers = [
             mainVC,

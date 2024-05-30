@@ -16,6 +16,8 @@ final class DishesCollectionViewCell: UICollectionViewCell {
     lazy var dishNameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.numberOfLines = 0
+        label.textAlignment = .left
         label.textColor = .black
         
         self.addSubview(label)
@@ -133,6 +135,7 @@ final class DishesCollectionViewCell: UICollectionViewCell {
         dishNameLabel.snp.makeConstraints { make in
             make.top.equalTo(mainImage.snp.bottom).offset(12)
             make.leading.equalToSuperview().offset(8)
+            make.trailing.equalTo(proLabel.snp.leading)
         }
         
         kkalStackView.snp.makeConstraints { make in

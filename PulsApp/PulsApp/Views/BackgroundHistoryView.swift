@@ -4,7 +4,6 @@ import SnapKit
 
 final class BackgroundHistoryView: UIView {
     
-    
     lazy var backgroundImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "backgroundHistoryVC")
@@ -116,7 +115,6 @@ final class BackgroundHistoryView: UIView {
     lazy var datePickerButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "down-row-image"), for: .normal)
-//        button.addTarget(self, action: #selector(showDatePicker), for: .touchUpInside)
         
         self.addSubview(button)
         
@@ -156,9 +154,6 @@ final class BackgroundHistoryView: UIView {
         createPeriodsStack(numberOfStacks: 7, selectedPeriod: 3)
     }
 }
-
-
-
 
 //MARK: - Create Stacks
 extension BackgroundHistoryView {
@@ -375,7 +370,6 @@ extension BackgroundHistoryView {
                 
                 leftStackView.addArrangedSubview(firstLabel)
             }
-            
             n += 1
         }
     }

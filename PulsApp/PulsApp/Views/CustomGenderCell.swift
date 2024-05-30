@@ -11,12 +11,12 @@ class CustomGenderCell: UITableViewCell {
     private var gendersStack: UIStackView!
     private var maleView: GenderFieldView!
     private var femaleView: GenderFieldView!
-    public var genderIsSelected: Gender = .male{
+    public var genderIsSelected: Gender = .male {
         didSet{
-            if genderIsSelected == .male{
+            if genderIsSelected == .male {
                 maleView.changeStateSelected(isSelected: true)
                 femaleView.changeStateSelected(isSelected: false)
-            }else{
+            } else{
                 maleView.changeStateSelected(isSelected: false)
                 femaleView.changeStateSelected(isSelected: true)
             }
@@ -64,7 +64,6 @@ class CustomGenderCell: UITableViewCell {
         
         gendersStack = UIStackView()
         gendersStack.spacing = 14
-        gendersStack.translatesAutoresizingMaskIntoConstraints = false
         
         maleView = GenderFieldView(gender: .male)
         femaleView = GenderFieldView(gender: .female)
@@ -77,7 +76,6 @@ class CustomGenderCell: UITableViewCell {
         mainView.addSubview(gendersStack)
         gendersStack.addArrangedSubview(maleView)
         gendersStack.addArrangedSubview(femaleView)
-        
     }
 }
 
@@ -108,6 +106,5 @@ extension CustomGenderCell: GenderCellDelegate{
     
     func tapOnChooseGenderField(gender: Gender) {
         self.genderIsSelected = gender
-        print(gender.rawValue)
     }
 }
