@@ -8,6 +8,7 @@ class MainInfoAboutDishView: UIView {
         let label = UILabel()
         label.text = "Bacon and aggs"
         label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.textColor = .black
         
         self.addSubview(label)
         
@@ -20,6 +21,7 @@ class MainInfoAboutDishView: UIView {
         label.font = .systemFont(ofSize: 14)
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.textColor = .black
         
         self.addSubview(label)
         

@@ -8,6 +8,7 @@ final class CookingInstructionsView: UIView {
         let label = UILabel()
         label.text = "Cooking Instructions"
         label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.textColor = .black
         
         self.addSubview(label)
         
@@ -40,7 +41,6 @@ final class CookingInstructionsView: UIView {
     
     private func setupView() {
         stackView.axis = .vertical
-//        stackView.spacing = 10
         stackView.distribution = .fillEqually
         addSubview(stackView)
         
@@ -49,6 +49,7 @@ final class CookingInstructionsView: UIView {
             label.text = text
             label.textAlignment = .left
             label.font = .systemFont(ofSize: 14, weight: .light)
+            label.textColor = .black
             stackView.addArrangedSubview(label)
             labelsArr.append(label)
         }

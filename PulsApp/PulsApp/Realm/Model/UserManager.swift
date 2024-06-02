@@ -2,7 +2,7 @@
 import Foundation
 import RealmSwift
 
-let userID = "UserID"
+var userID = "UserID"
 
 class UserManager{
     static func createUser(){
@@ -15,6 +15,7 @@ class UserManager{
                     user.id = userID
                     user.timeWhenAppWasInstall = Date().timeIntervalSince1970
                     realm.add(user)
+//                    NotificationCenter.default.post(name: .userDidCreate, object: nil)
                 }
             }
         }
@@ -23,7 +24,7 @@ class UserManager{
     static func getUser() -> UserModel?{
         let realm = try! Realm()
         
-        if let user = realm.object(ofType: UserModel.self, forPrimaryKey: userID){
+        if let user = realm.object(ofType: UserModel.self, forPrimaryKey: "1"){
             return user
         }
         return nil

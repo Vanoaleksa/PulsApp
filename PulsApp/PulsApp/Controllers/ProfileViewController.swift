@@ -1,10 +1,10 @@
 
 import UIKit
+import SnapKit
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     
-    private let user = UserManager.getUser()
-//    private let user = GetUserSettings()
+    private var user: UserModel?
     private let tableViewController = UITableViewController(style: .plain)
     private let adProView = AdProAccountView()
     private let unitsStackView = UIStackView()
@@ -43,7 +43,7 @@ class ProfileViewController: UIViewController {
         
         configUI()
         setupLayout()
-        print("USER __________", user)
+        user = UserManager.getUser()
     }
     
     private func configUI() {
@@ -51,8 +51,9 @@ class ProfileViewController: UIViewController {
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "bg")
         imageView.contentMode = .scaleAspectFill
+        imageView.alpha = 0.9
         view.addSubview(imageView)
-        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.9)
+        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         
         view.addSubview(adProView)
         
@@ -87,6 +88,7 @@ class ProfileViewController: UIViewController {
         tableViewController.tableView.dataSource = self
         tableViewController.tableView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0)
         tableViewController.tableView.separatorStyle = .none
+        tableViewController.tableView.showsVerticalScrollIndicator = false
         
         view.addSubview(tableViewController.tableView)
     }
@@ -114,7 +116,7 @@ extension ProfileViewController: UITableViewDataSource {
                 cell.paramTextField.text = user.age.description
                 
             } else {
-                cell.paramTextField.text = "24"
+                cell.paramTextField.text = "0"
             }
 
             cell.cellImage.image = UIImage(named: "age-image")
@@ -126,9 +128,9 @@ extension ProfileViewController: UITableViewDataSource {
             cell.typeLabel.text = "Height"
             
             if let user = user {
-                cell.paramTextField.text = user.height.description
+                cell.paramTextField.text = "\(Int(user.height)) cm"
             } else {
-                cell.paramTextField.text = "184 cm"
+                cell.paramTextField.text = "0 cm"
             }
             cell.cellImage.image = UIImage(named: "height-image")
 
@@ -138,9 +140,9 @@ extension ProfileViewController: UITableViewDataSource {
             cell.selectionStyle = .none
             cell.typeLabel.text = "Weight"
             if let user = user {
-                cell.paramTextField.text = user.weight.description
+                cell.paramTextField.text = "\(Int(user.weight)) kg"
             } else {
-                cell.paramTextField.text = "94 kg"
+                cell.paramTextField.text = "0 kg"
             }
             cell.cellImage.image = UIImage(named: "weight-image")
 

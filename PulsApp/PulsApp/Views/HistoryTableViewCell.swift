@@ -97,7 +97,6 @@ class HistoryTableViewCell: UITableViewCell {
             make.leading.equalTo(bpmLabel.snp.trailing).offset(8)
             make.width.equalToSuperview().dividedBy(31.25)
             make.height.equalTo(11)
-//            make.bottom.equalTo(bpmLabel.snp.centerY)
         }
         
         dateLabel.snp.makeConstraints { make in

@@ -15,7 +15,7 @@ final class HistoryViewController: UIViewController {
     
     var backgroundImage = BackgroundHistoryView() // Cиняя вью
     
-    let resultsBPM = BPMUserManager.getAllResultsBPM()
+    var resultsBPM: Array<BPMUserSettings>?
     
     var tableViewController = UITableViewController(style: .plain)
 
@@ -127,6 +127,7 @@ final class HistoryViewController: UIViewController {
         setup()
         configTableView()
         setupLayout()
+        resultsBPM = BPMUserManager.getAllResultsBPM()
     }
     
     private func setup() {
@@ -184,10 +185,7 @@ final class HistoryViewController: UIViewController {
         
         view.addSubview(tableViewController.tableView)
     }
-    
-
 }
-
 
 //MARK: - UITableViewDataSource
 extension HistoryViewController: UITableViewDataSource {
@@ -204,7 +202,6 @@ extension HistoryViewController: UITableViewDataSource {
             cell.pulseType.updateType!(result.pulseType)
             cell.typeResult.updateAnalyze!(result.analyzeResult)
             cell.selectionStyle = .none
-            
         }
         
         return cell

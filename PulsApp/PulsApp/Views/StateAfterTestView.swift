@@ -117,8 +117,7 @@ final class StateAfterTestView: UIView {
         }
         
         triangleImageView.snp.makeConstraints { make in
-            //            make.leading.equalTo(100)
-            make.leading.equalTo(distanceForTriangle)
+            make.leading.equalToSuperview().offset(distanceForTriangle)
             make.top.equalTo(gradientStackView.snp.bottom).offset(10)
         }
     }

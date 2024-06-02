@@ -138,6 +138,7 @@ class HeartRateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        checkingIsFirstLaunch()
         configUI()
         setupLayout()
         heartViewModel = HeartRateViewModel()
@@ -165,33 +166,44 @@ class HeartRateViewController: UIViewController {
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "bg")
         imageView.contentMode = .scaleAspectFill
+        imageView.alpha = 0.9
         view.addSubview(imageView)
-        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.9)
+        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         
         //Настройка progressView
         view.addSubview(progressView)
         progressView.createCircleShape()
+    }
+    
+    private func checkingIsFirstLaunch() {
+        // Проверяем, был ли уже выполнен первый вход
+        let isFirstLaunch = UserDefaults.standard.bool(forKey: "isFirstLaunch")
         
-//        if UserManager.getUser() == nil {
-//            showWelcomeView()
-//        }
-        
+        if !isFirstLaunch {
+            // Если это первый вход, показываем welcome View
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.showWelcomeView()
+            }
+            
+            // Устанавливаем флаг, что первый вход уже выполнен
+            UserDefaults.standard.set(true, forKey: "isFirstLaunch")
+        }
     }
     
     @objc func startPulsHeartRate() {
         
         if UserManager.getUser() == nil {
             heartViewModel?.showAboutMeViewController(heartController: self)
-        }
-        
-        if AVCaptureDevice.authorizationStatus(for: AVMediaType.video) == AVAuthorizationStatus.authorized{
-            DispatchQueue.main.async {[weak self] in
-                guard let self = self else {return}
-                
-                initStartPulse()
+        } else {
+            if AVCaptureDevice.authorizationStatus(for: AVMediaType.video) == AVAuthorizationStatus.authorized{
+                DispatchQueue.main.async {[weak self] in
+                    guard let self = self else {return}
+                    
+                    initStartPulse()
+                }
+            } else {
+                completedAboutMeStage()
             }
-        }else{
-            completedAboutMeStage()
         }
     }
     
@@ -239,16 +251,44 @@ extension HeartRateViewController: AlertViewDelegate, TypesDelegate, ResultViewD
             hideAlertViewWithAnimation()
             self.darkView?.removeFromSuperview()
             
-            AVCaptureDevice.requestAccess(for: AVMediaType.video) { [unowned self] response in
-                if response{
-                    DispatchQueue.main.async {
-                        self.fingersLabel.isHidden = false
-                        self.startButton.isHidden = true
-                        self.tutorialImage.isHidden = false
-                        self.clueLabel.isHidden = false
+            //Получаем доступ к камере
+            let authorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+            switch authorizationStatus {
+            case .authorized:
+                initStartPulse()
+            case .notDetermined:
+                let cameraAccessGranted = UserDefaults.standard.bool(forKey: "cameraAccessGranted")
+                // Пользователь еще не принял решение по поводу доступа к камере
+                AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] granted in
+                    if granted {
+                        // Доступ к камере был предоставлен
+                        UserDefaults.standard.set(true, forKey: "cameraAccessGranted")
+                        DispatchQueue.main.async {
+                            self?.fingersLabel.isHidden = false
+                            self?.startButton.isHidden = true
+                            self?.tutorialImage.isHidden = false
+                            self?.clueLabel.isHidden = false
+                        }
+                        self?.initStartPulse()
                     }
-                    self.initStartPulse()
                 }
+                
+            case .denied, .restricted:
+                //Повторный зарос к пользователю, в случае отказа доступа к камере
+                let alert = UIAlertController(title: "Error", message: "Camera access required to...", preferredStyle: UIAlertController.Style.alert)
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: .default))
+                alert.addAction(UIAlertAction(title: "Settings", style: .cancel) { (alert) -> Void in
+                    if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                        if UIApplication.shared.canOpenURL(settingsURL) {
+                            UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+                        }
+                    }
+                })
+                
+                present(alert, animated: true)
+                
+            default: break
             }
         }
     }

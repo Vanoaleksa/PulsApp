@@ -46,6 +46,7 @@ final class DotFilledLabelView: UIView {
         dotsLabel.text = "" // Начальное значение
         dotsLabel.textAlignment = .right
         dotsLabel.font = .systemFont(ofSize: 14, weight: .light)
+        dotsLabel.textColor = .black
         fillDots()
     }
     

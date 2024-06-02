@@ -8,5 +8,6 @@ target 'PulsApp' do
   # Pods for PulsApp
 
 pod 'SnapKit'
+pod 'IQKeyboardManagerSwift'
 
 end

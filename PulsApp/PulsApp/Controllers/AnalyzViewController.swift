@@ -6,7 +6,7 @@ protocol TypesDelegate: AnyObject {
     func finalDefinitionType(type: AnalyzeTypes)
 }
 
-class AnalyzViewController: UIViewController {
+final class AnalyzViewController: UIViewController {
     
     weak var delegate: TypesDelegate?
             
@@ -90,13 +90,13 @@ class AnalyzViewController: UIViewController {
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "bg")
         imageView.contentMode = .scaleAspectFill
+        imageView.alpha = 0.9
         view.addSubview(imageView)
-        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.9)
+        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         
         view.addSubview(restingTypeButton)
         view.addSubview(activeTypeButton)
         view.addSubview(sleepTypeButton)
-        
     }
     
     @objc func continueButtonAction() {

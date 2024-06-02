@@ -40,8 +40,9 @@ final class DietViewController: UIViewController {
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "bg")
         imageView.contentMode = .scaleAspectFill
+        imageView.alpha = 0.9
         view.addSubview(imageView)
-        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.9)
+        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         
         collectionView.register(MealsCollectionViewCell.self,
                                 forCellWithReuseIdentifier: "\(MealsCollectionViewCell.self)")
@@ -63,6 +64,7 @@ extension DietViewController: UICollectionViewDataSource {
         cell.titleLabel.text = item.description
         cell.dishesArr = mealsArr[indexPath.row]
         cell.delegate = self
+        cell.dishDelegate = self
                 
         return cell
     }
@@ -78,7 +80,7 @@ extension DietViewController: UICollectionViewDelegateFlowLayout {
     //Setup a height to cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height / 3.6)
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height / 3.5)
     }
 }
 
@@ -92,11 +94,20 @@ extension DietViewController: MealsCollectionViewCellDelegate {
     }
 }
 
+extension DietViewController: DidTappedDishDelegate {
+    func didTappedDish(dish: DishModel) {
+        let nextVC = DishRecipeViewController()
+        nextVC.modalPresentationStyle = .fullScreen
+        nextVC.currentDish = dish
+        self.present(nextVC, animated: true)
+    }
+}
+
 //MARK: - Constraints
 extension DietViewController {
     private func setupLayout() {
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.topMargin).offset(20)
+            make.top.equalTo(view.snp.topMargin)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }

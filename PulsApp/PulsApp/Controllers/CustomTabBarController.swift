@@ -2,7 +2,7 @@
 import UIKit
 import SnapKit
 
-class CustomTabBarController: UITabBarController {
+final class CustomTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,6 @@ class CustomTabBarController: UITabBarController {
             image: UIImage(named: "Heart"),
             tag: 0
         )
-        
         
         historyVC.tabBarItem = UITabBarItem(
             title: "",

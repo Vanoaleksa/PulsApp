@@ -84,8 +84,9 @@ class AboutMeViewController: UIViewController {
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "bg")
         imageView.contentMode = .scaleAspectFill
+        imageView.alpha = 0.9
         view.addSubview(imageView)
-        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.9)
+        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
     }
     
     //MARK: - Создание tableView

@@ -2,10 +2,11 @@
 import UIKit
 import SnapKit
 
-class ProgressView: UIView {
-        
+final class ProgressView: UIView {
+    
     var shapeLayer = CAShapeLayer()
     var trackLayer = CAShapeLayer()
+    var movingCircleLayer = CAShapeLayer()
     
     lazy var pulseLabel: UILabel = {
         var label = UILabel()
@@ -37,7 +38,7 @@ class ProgressView: UIView {
         
         return imageView
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -73,20 +74,46 @@ class ProgressView: UIView {
         shapeLayer.lineCap = .round
         
         self.layer.addSublayer(shapeLayer)
+        
+        // Настройка движущегося круга
+        movingCircleLayer.path = UIBezierPath(ovalIn: CGRect(x: -10, y: -10, width: 18, height: 18)).cgPath
+        movingCircleLayer.fillColor = UIColor.white.cgColor
+        movingCircleLayer.isHidden = true
+        
+        // Устанавливаем начальную позицию движущегося круга
+        let initialPosition = CGPoint(x: center.x, y: center.y - radius)
+        movingCircleLayer.position = initialPosition
+        
+        self.layer.addSublayer(movingCircleLayer)
     }
-    
+
     func startAniamation() {
+        movingCircleLayer.isHidden = false
+        
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.toValue = 1
-        basicAnimation.duration = 25
+        basicAnimation.duration = 27
         basicAnimation.fillMode = CAMediaTimingFillMode.forwards
         basicAnimation.isRemovedOnCompletion = true
         self.shapeLayer.add(basicAnimation, forKey: "animation")
+        
+        // Анимация для движущегося круга
+        let path = shapeLayer.path!
+        let followPathAnimation = CAKeyframeAnimation(keyPath: "position")
+        followPathAnimation.path = path
+        followPathAnimation.duration = 27
+        followPathAnimation.timingFunction = CAMediaTimingFunction(name: .linear)
+        followPathAnimation.calculationMode = .paced
+        followPathAnimation.fillMode = .forwards
+        followPathAnimation.isRemovedOnCompletion = true
+        movingCircleLayer.add(followPathAnimation, forKey: "followPathAnimation")
     }
     
     func deleteAnimations() {
         shapeLayer.removeAllAnimations()
         trackLayer.removeAllAnimations()
+        movingCircleLayer.removeAllAnimations()
+        movingCircleLayer.isHidden = true
     }
 }
 

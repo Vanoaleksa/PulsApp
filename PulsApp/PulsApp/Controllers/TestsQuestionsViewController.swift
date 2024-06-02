@@ -22,7 +22,7 @@ final class TestsQuestionsViewController: UIViewController {
     private var currentQuestionIndex = 0
     
     //Сохраняем вычесленное расстояние для перемещения треугольника
-    private var distanceForTriangle = 0
+    private var distanceForTriangle = 10
 
     private lazy var countPagesLabel: UILabel = {
         let label = UILabel()
@@ -69,9 +69,9 @@ final class TestsQuestionsViewController: UIViewController {
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "bg")
         imageView.contentMode = .scaleAspectFill
+        imageView.alpha = 0.9
         view.addSubview(imageView)
-        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.9)
-        
+        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         createTableView()
     }
     
@@ -123,7 +123,7 @@ extension TestsQuestionsViewController: UITableViewDelegate {
         guard tableView.cellForRow(at: indexPath) is QuestionTableViewCell else { return }
         
         //Создаем расстояние для перемещения треугольника результата
-        distanceForTriangle += indexPath.row * 12
+        distanceForTriangle += indexPath.row * 10
         
         if currentQuestionIndex < questionsArr.count - 1 {
             currentQuestionIndex += 1
@@ -136,8 +136,7 @@ extension TestsQuestionsViewController: UITableViewDelegate {
 
         } else {
             let nextVC = TestResultViewController()
-            nextVC.distanceForTriangle = distanceForTriangle
-            
+            nextVC.distanceForTriangle = distanceForTriangle            
             nextVC.modalPresentationStyle = .fullScreen
             self.present(nextVC, animated: true)
         }

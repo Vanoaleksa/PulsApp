@@ -24,7 +24,7 @@ class CustomParametersCell: UITableViewCell {
         label.font = .systemFont(ofSize: 16)
         label.textColor = UIColor(red: 29/255, green: 29/255, blue: 37/255, alpha: 1)
         
-        contentView.addSubview(label)
+        mainView.addSubview(label)
         
         return label
     }()
@@ -99,12 +99,11 @@ class CustomParametersCell: UITableViewCell {
         if self.isEmpty == true {
             UIView.animate(withDuration: 1) {
                 self.typeLabel.snp.updateConstraints { make in
-                    make.top.equalTo(7)
+                    make.centerY.equalToSuperview().offset(-7)
                 }
                 self.layoutIfNeeded()
                 self.warningLabel.isHidden = false
                 self.addParamButton.isSelected = true
-
             }
         }
         perform(#selector(self.updateConstraintsBack), with: (Any).self , afterDelay: 3)
@@ -113,7 +112,7 @@ class CustomParametersCell: UITableViewCell {
     @objc func updateConstraintsBack() {
         UIView.animate(withDuration: 1) {
             self.typeLabel.snp.updateConstraints { make in
-                make.top.equalTo(15)
+                make.centerY.equalToSuperview()
             }
             self.layoutIfNeeded()
             self.warningLabel.isHidden = true
@@ -133,6 +132,15 @@ extension CustomParametersCell: UITextFieldDelegate {
         let newText = text.replacingCharacters(in: range, with: string)
         
         return newText.count <= 3
+    }
+    
+    //MARK: - Когда редактирование текстового поля закончено, показываем кнопку снова
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        // Если текстовое поле пустое, показываем кнопку
+        if paramTextField.text?.isEmpty == true {
+            paramTextField.isHidden = true
+            addParamButton.isHidden = false
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -158,7 +166,7 @@ extension CustomParametersCell {
         
         typeLabel.snp.makeConstraints { make in
             make.left.equalTo(20)
-            make.top.equalTo(15)
+            make.centerY.equalToSuperview()
         }
         
         warningLabel.snp.makeConstraints { make in

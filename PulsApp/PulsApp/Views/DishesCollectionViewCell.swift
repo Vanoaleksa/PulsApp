@@ -108,6 +108,7 @@ final class DishesCollectionViewCell: UICollectionViewCell {
     private func configUI() {
         self.layer.cornerRadius = 16
         self.backgroundColor = .white
+        self.clipsToBounds = true
         
         self.addSubview(kkalStackView)
         self.addSubview(timeStackView)

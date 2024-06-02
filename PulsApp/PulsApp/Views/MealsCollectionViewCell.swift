@@ -6,9 +6,14 @@ protocol MealsCollectionViewCellDelegate: AnyObject {
     func didTapSeeAllButton(with dishes: [DishModel])
 }
 
+protocol DidTappedDishDelegate: AnyObject {
+    func didTappedDish(dish: DishModel)
+}
+
 final class MealsCollectionViewCell: UICollectionViewCell {
     
     weak var delegate: MealsCollectionViewCellDelegate?
+    weak var dishDelegate: DidTappedDishDelegate?
     var dishesArr: [DishModel]?
     
     lazy var titleLabel: UILabel = {
@@ -103,9 +108,14 @@ extension MealsCollectionViewCell: UICollectionViewDataSource {
     }
 }
 
-
+//MAKR: - UICollectionViewDelegate
 extension MealsCollectionViewCell: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("test ----", dishesArr![indexPath.row])
+        
+        dishDelegate?.didTappedDish(dish: dishesArr![indexPath.row])
+    }
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
@@ -128,7 +138,6 @@ extension MealsCollectionViewCell {
             make.top.equalToSuperview().offset(8)
             make.trailing.equalToSuperview().offset(-15)
             make.height.equalTo(19)
-            make.width.equalToSuperview().dividedBy(8.15)
         }
         
         collectionView.snp.makeConstraints { make in

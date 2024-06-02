@@ -56,7 +56,7 @@ public enum AboutMeFieldModel: String, PersistableEnum {
 @objcMembers
 class UserModel: Object {
     
-    @Persisted var id: String = UUID().uuidString
+    @Persisted var id: String = "1"
     @Persisted var gender: Gender = .none
     @Persisted var units: Units = .cmKg
     @Persisted var height: Double = 0.0

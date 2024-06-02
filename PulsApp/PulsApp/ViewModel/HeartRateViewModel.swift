@@ -34,6 +34,8 @@ class HeartRateViewModel: BindWithHeartControllerProtocol {
         let analyzVC = AnalyzViewController()
         analyzVC.delegate = heartController
         analyzVC.modalPresentationStyle = .fullScreen
+        analyzVC.modalTransitionStyle = .coverVertical
+        
         heartController.present(analyzVC, animated: true)
     }
     

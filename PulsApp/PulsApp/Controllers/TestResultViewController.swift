@@ -67,14 +67,31 @@ final class TestResultViewController: UIViewController {
         let imageView = UIImageView(frame: view.bounds)
         imageView.image = UIImage(named: "bg")
         imageView.contentMode = .scaleAspectFill
+        imageView.alpha = 0.9
         view.addSubview(imageView)
-        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.9)
+        view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         
         view.addSubview(stateView)
     }
     
     @objc func goBackAction() {
-        self.dismiss(animated: true)
+        if let tabBarController = self.presentingViewController as? UITabBarController {
+            self.dismiss(animated: true) {
+                tabBarController.selectedIndex = 3
+            }
+        } else {
+            var viewController = self.presentingViewController
+            while viewController != nil {
+                if let tabBarController = viewController?.presentingViewController as? UITabBarController {
+                    viewController?.dismiss(animated: true) {
+                        tabBarController.selectedIndex = 3
+                    }
+                    break
+                } else {
+                    viewController = viewController?.presentingViewController
+                }
+            }
+        }
     }
 }
 

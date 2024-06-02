@@ -71,16 +71,11 @@ final class DatePickerView: UIView {
         doneButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
             make.trailing.equalToSuperview().offset(-15)
-            make.width.equalToSuperview().dividedBy(10)
             make.height.equalTo(19)
         }
         
         datePicker.snp.makeConstraints { make in
             make.center.equalToSuperview()
-//            make.top.equalToSuperview().offset(50)
-//            make.leading.equalToSuperview()
-//            make.trailing.equalToSuperview()
-//            make.bottom.equalToSuperview().offset(-20)
         }
     }
     

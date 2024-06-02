@@ -2,12 +2,13 @@
 import UIKit
 import SnapKit
 
-class IngridientsView: UIView {
+final class IngridientsView: UIView {
 
     private lazy var ingridientsLabel: UILabel = {
         let label = UILabel()
         label.text = "Ingredient list"
         label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.textColor = .black
         
         self.addSubview(label)
         
@@ -35,7 +36,6 @@ class IngridientsView: UIView {
         //config circlesStackView
         ingridientsStackView.axis = .vertical
         ingridientsStackView.distribution = .fillEqually
-//        ingridientsStackView.spacing = 10
         self.addSubview(ingridientsStackView)
         
         ingridientsStackView.addArrangedSubview(firstIngridientLabel)
