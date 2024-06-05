@@ -96,7 +96,7 @@ class DishRecipeViewController: UIViewController {
 extension DishRecipeViewController {
     private func setupLayout() {
         mainImage.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(-10)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.height.equalToSuperview().dividedBy(2.9)

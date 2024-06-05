@@ -76,12 +76,14 @@ final class ProgressView: UIView {
         self.layer.addSublayer(shapeLayer)
         
         // Настройка движущегося круга
-        movingCircleLayer.path = UIBezierPath(ovalIn: CGRect(x: -10, y: -10, width: 18, height: 18)).cgPath
+        let movingCircleRadius: CGFloat = 6
+
+        movingCircleLayer.path = UIBezierPath(ovalIn: CGRect(x: -movingCircleRadius, y: -movingCircleRadius, width: movingCircleRadius * 2, height: movingCircleRadius * 2)).cgPath
         movingCircleLayer.fillColor = UIColor.white.cgColor
         movingCircleLayer.isHidden = true
         
         // Устанавливаем начальную позицию движущегося круга
-        let initialPosition = CGPoint(x: center.x, y: center.y - radius)
+        let initialPosition = CGPoint(x: center.x + radius * cos(startAngle), y: center.y + radius * sin(startAngle))
         movingCircleLayer.position = initialPosition
         
         self.layer.addSublayer(movingCircleLayer)

@@ -111,9 +111,7 @@ extension MealsCollectionViewCell: UICollectionViewDataSource {
 //MAKR: - UICollectionViewDelegate
 extension MealsCollectionViewCell: UICollectionViewDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("test ----", dishesArr![indexPath.row])
-        
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {        
         dishDelegate?.didTappedDish(dish: dishesArr![indexPath.row])
     }
 }

@@ -47,11 +47,20 @@ class HeartRateViewModel: BindWithHeartControllerProtocol {
     }
     
     func showResultView(heartController: HeartRateViewController) {
+        heartController.setupDarkView()
         let resultView = ResultScreenView()
         
         resultView.delegate = heartController
         resultView.updateLabelsValues(bpm: userBPMSettings.bpm, date: userBPMSettings.date, analyzType: userBPMSettings.analyzeResult, typePulse: userBPMSettings.pulseType)
         heartController.tabBarController?.view.addSubview(resultView)
+        
+        let height = 513
+        resultView.frame = CGRect(x: 0, y: heartController.tabBarController!.view.frame.height, width: heartController.tabBarController!.view.frame.width, height: CGFloat(height))
+        heartController.tabBarController?.view.layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+            resultView.frame.origin.y -= CGFloat(height)
+        })
     }
     
     func saveBPMSettingsToDB() {

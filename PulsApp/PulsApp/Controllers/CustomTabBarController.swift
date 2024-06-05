@@ -18,11 +18,13 @@ final class CustomTabBarController: UITabBarController {
         let testVC = TestViewController()
         let profileVC = ProfileViewController()
         
+        let testNav = UINavigationController(rootViewController: testVC)
+        
         self.viewControllers = [
             mainVC,
             historyVC,
             dietVC,
-            testVC,
+            testNav,
             profileVC
         ]
         

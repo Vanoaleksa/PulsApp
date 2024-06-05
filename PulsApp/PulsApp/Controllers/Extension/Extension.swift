@@ -47,15 +47,13 @@ extension HeartRateViewController{
                     self.fingersLabel.text = "\(count) " + NSLocalizedString("seconds remaining", comment: "")
                     let average = self.pulseDetector.getAverage()
                     let pulse = 60.0 / average
-                    print ("pulse: \(pulse)")
                     
                     if pulse != -60{
                         self.progressView.pulseLabel.text = "\(lroundf(pulse))"
                         self.bpmForCalculating.append(Int(pulse))
                     }
-                }else{
+                } else {
                     if self.bpmForCalculating != [] {
-                        print("if self.bpmForCalculating != []")
                         self.heartViewModel?.calculateAndSaveBPMDataToDB(pulse: self.bpmForCalculating)
                         self.heartViewModel?.showAnalyzeVC(heartController: self)
                     }
@@ -66,7 +64,6 @@ extension HeartRateViewController{
     }
     
     func defaultState(){
-        print("defaultstate")
         fingersLabel.isHidden = true
         fingersLabel.text = "No Fingers"
         tutorialImage.isHidden = true
@@ -194,7 +191,7 @@ extension HeartRateViewController{
         }
     }
     
-    private func setupDarkView(){
+    func setupDarkView(){
         let blurEffect = UIBlurEffect(style: .regular)
         darkView = UIVisualEffectView(effect: blurEffect)
         darkView?.frame = view.bounds

@@ -25,6 +25,7 @@ class TestViewController: UIViewController {
         
         configUI()
         setupLayout()
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     private func configUI() {
@@ -68,7 +69,7 @@ extension TestViewController: UICollectionViewDelegate {
         let nextVC = QuickTestViewController()
         nextVC.modalPresentationStyle = .fullScreen
 
-        self.present(nextVC, animated: true)
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 

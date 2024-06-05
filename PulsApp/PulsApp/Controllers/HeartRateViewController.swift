@@ -257,7 +257,7 @@ extension HeartRateViewController: AlertViewDelegate, TypesDelegate, ResultViewD
             case .authorized:
                 initStartPulse()
             case .notDetermined:
-                let cameraAccessGranted = UserDefaults.standard.bool(forKey: "cameraAccessGranted")
+                _ = UserDefaults.standard.bool(forKey: "cameraAccessGranted")
                 // Пользователь еще не принял решение по поводу доступа к камере
                 AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] granted in
                     if granted {
@@ -311,11 +311,13 @@ extension HeartRateViewController: AlertViewDelegate, TypesDelegate, ResultViewD
     
     func finalDefinitionType(type: AnalyzeTypes) {
         heartViewModel?.handleAnalyzeType(type: type)
-        heartViewModel?.showResultView(heartController: self)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.heartViewModel?.showResultView(heartController: self)
+        }
     }
     
     func saveToDBAndCloseResultView() {
+        self.darkView?.removeFromSuperview()
         heartViewModel?.saveBPMSettingsToDB()
-        
     }
 }

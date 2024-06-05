@@ -35,16 +35,6 @@ final class TestsQuestionsViewController: UIViewController {
         return label
     }()
     
-    private lazy var backButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "left-black-arrow-image"), for: .normal)
-        button.addTarget(self, action: #selector(goBackAction), for: .touchUpInside)
-        
-        view.addSubview(button)
-        
-        return button
-    }()
-    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 19, weight: .medium)
@@ -73,6 +63,15 @@ final class TestsQuestionsViewController: UIViewController {
         view.addSubview(imageView)
         view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         createTableView()
+        
+        // Создание пользовательской кнопки "назад"
+        self.navigationItem.hidesBackButton = true
+        let customBackButton = UIBarButtonItem(image: UIImage(named: "left-black-arrow-image"), style: .plain, target: self, action: #selector(goBackAction))
+        customBackButton.tintColor = .black
+        self.navigationItem.leftBarButtonItem = customBackButton
+        
+        self.tabBarController?.tabBar.isHidden = true
+
     }
     
     //MARK: Создание tableView
@@ -88,7 +87,7 @@ final class TestsQuestionsViewController: UIViewController {
     }
     
     @objc func goBackAction() {
-        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -138,7 +137,7 @@ extension TestsQuestionsViewController: UITableViewDelegate {
             let nextVC = TestResultViewController()
             nextVC.distanceForTriangle = distanceForTriangle            
             nextVC.modalPresentationStyle = .fullScreen
-            self.present(nextVC, animated: true)
+            self.navigationController?.pushViewController(nextVC, animated: true)
         }
     }
 }
@@ -146,13 +145,9 @@ extension TestsQuestionsViewController: UITableViewDelegate {
 //MARK: - Constraints
 extension TestsQuestionsViewController {
     private func setupLayout() {
-        backButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(55)
-            make.leading.equalToSuperview().offset(18)
-        }
         
         countPagesLabel.snp.makeConstraints { make in
-            make.top.equalTo(backButton.snp.bottom).offset(20)
+            make.top.equalTo(95)
             make.centerX.equalToSuperview()
             make.height.equalTo(19)
         }

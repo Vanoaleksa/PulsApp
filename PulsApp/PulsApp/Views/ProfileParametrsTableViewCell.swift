@@ -20,7 +20,6 @@ final class ProfileParametrsTableViewCell: UITableViewCell {
         return imageView
     }()
 
-    
     lazy var typeLabel: UILabel = {
         var label = UILabel()
         label.font = .systemFont(ofSize: 16)
@@ -64,10 +63,6 @@ final class ProfileParametrsTableViewCell: UITableViewCell {
         mainView.layer.borderColor = CGColor(red: 226/255, green: 224/255, blue: 232/255, alpha: 1)
         mainView.layer.cornerRadius = 12
     }
-    
-    @objc func showTextField() {
-        paramTextField.becomeFirstResponder()
-    }
 }
 
 extension ProfileParametrsTableViewCell: UITextFieldDelegate {
@@ -82,13 +77,6 @@ extension ProfileParametrsTableViewCell: UITextFieldDelegate {
         let newText = text.replacingCharacters(in: range, with: string)
         
         return newText.count <= 3
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if paramTextField.text?.isEmpty == true {
-            paramTextField.isHidden = true
-        }
-        self.paramTextField.resignFirstResponder()
     }
 }
 

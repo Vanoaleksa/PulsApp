@@ -12,7 +12,6 @@ protocol SortingTypesDelegate: AnyObject {
 
 final class HistoryViewController: UIViewController {
 
-    
     var backgroundImage = BackgroundHistoryView() // Cиняя вью
     
     var resultsBPM: Array<BPMUserSettings>?
@@ -127,7 +126,14 @@ final class HistoryViewController: UIViewController {
         setup()
         configTableView()
         setupLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         resultsBPM = BPMUserManager.getAllResultsBPM()
+        tableViewController.tableView.reloadData()
+        
     }
     
     private func setup() {
@@ -185,6 +191,15 @@ final class HistoryViewController: UIViewController {
         
         view.addSubview(tableViewController.tableView)
     }
+    
+    private func formatDate(dateInterval:Double) -> String{
+        let date = Date(timeIntervalSince1970: dateInterval)
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = " MMMM dd yyyy h:mm"
+        let dateString = formatter.string(from: date)
+        return dateString
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -198,7 +213,7 @@ extension HistoryViewController: UITableViewDataSource {
         
         if let result = resultsBPM?[indexPath.row] {
             cell.pulseLabel.text = result.bpm.description
-            cell.dateLabel.text = result.date.description
+            cell.dateLabel.text = formatDate(dateInterval: result.date)
             cell.pulseType.updateType!(result.pulseType)
             cell.typeResult.updateAnalyze!(result.analyzeResult)
             cell.selectionStyle = .none

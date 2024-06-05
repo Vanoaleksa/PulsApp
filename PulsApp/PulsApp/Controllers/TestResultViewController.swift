@@ -19,16 +19,6 @@ final class TestResultViewController: UIViewController {
         return label
     }()
     
-    private lazy var backButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "left-black-arrow-image"), for: .normal)
-        button.addTarget(self, action: #selector(goBackAction), for: .touchUpInside)
-        
-        view.addSubview(button)
-        
-        return button
-    }()
-    
     lazy var mainImage: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -72,39 +62,28 @@ final class TestResultViewController: UIViewController {
         view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         
         view.addSubview(stateView)
+        
+        // Создание пользовательской кнопки "назад"
+        self.navigationItem.hidesBackButton = true
+        let customBackButton = UIBarButtonItem(image: UIImage(named: "left-black-arrow-image"), style: .plain, target: self, action: #selector(goBackAction))
+        customBackButton.tintColor = .black
+        self.navigationItem.leftBarButtonItem = customBackButton
+        
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     @objc func goBackAction() {
-        if let tabBarController = self.presentingViewController as? UITabBarController {
-            self.dismiss(animated: true) {
-                tabBarController.selectedIndex = 3
-            }
-        } else {
-            var viewController = self.presentingViewController
-            while viewController != nil {
-                if let tabBarController = viewController?.presentingViewController as? UITabBarController {
-                    viewController?.dismiss(animated: true) {
-                        tabBarController.selectedIndex = 3
-                    }
-                    break
-                } else {
-                    viewController = viewController?.presentingViewController
-                }
-            }
-        }
+        self.navigationController?.popToRootViewController(animated: true)
+        self.tabBarController?.tabBar.isHidden = false
     }
 }
 
 //MARK: - Constraints
 extension TestResultViewController {
     private func setupLayout() {
-        backButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(55)
-            make.leading.equalToSuperview().offset(18)
-        }
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(backButton.snp.bottom).offset(10)
+            make.top.equalToSuperview().offset(95)
             make.leading.equalToSuperview().offset(18)
             make.width.equalToSuperview().dividedBy(1.65)
         }

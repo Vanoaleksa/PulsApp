@@ -11,7 +11,6 @@ final class ProgressCirclesView: UIView {
     let nameLabel = UILabel()
     let gramsLabel = UILabel()
     
-    
     init(frame: CGRect, progress: CGFloat, procentsLabelText: String, nameLabelText: String, gramsLabelText: String ) {
         super.init(frame: frame)
         setupView()
@@ -41,7 +40,7 @@ final class ProgressCirclesView: UIView {
         backgroundLayer.strokeColor = #colorLiteral(red: 0.8618590236, green: 0.8668316007, blue: 0.8882443309, alpha: 1)
         backgroundLayer.lineWidth = 4
         backgroundLayer.strokeEnd = 1.0
-        backgroundLayer.position = CGPoint(x: bounds.midX, y: bounds.midY - bounds.height / 4)
+        backgroundLayer.position = CGPoint(x: bounds.midX - 7, y: bounds.midY - bounds.height / 4)
         layer.addSublayer(backgroundLayer)
         
         // Настройка progressLayer
@@ -50,7 +49,7 @@ final class ProgressCirclesView: UIView {
         progressLayer.strokeColor = UIColor.orange.cgColor
         progressLayer.lineWidth = 4
         progressLayer.strokeEnd = 0.0
-        progressLayer.position = CGPoint(x: bounds.midX, y: bounds.midY - bounds.height / 4)
+        progressLayer.position = CGPoint(x: bounds.midX - 7, y: bounds.midY - bounds.height / 4)
         layer.addSublayer(progressLayer)
         
         addSubview(procentsLabel)
@@ -77,7 +76,7 @@ final class ProgressCirclesView: UIView {
         
         procentsLabel.text = procentsLabelText
         procentsLabel.textAlignment = .center
-        procentsLabel.font = .systemFont(ofSize: 16, weight: .semibold)
+        procentsLabel.font = .systemFont(ofSize: 16, weight: .medium)
         procentsLabel.textColor = .black
         
         nameLabel.text = nameLabelText
@@ -95,7 +94,8 @@ final class ProgressCirclesView: UIView {
     private func setupLayout() {
         
         procentsLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.top.equalTo(40)
         }
         
         nameLabel.snp.makeConstraints { make in

@@ -16,16 +16,6 @@ final class QuickTestViewController: UIViewController {
         return label
     }()
     
-    lazy var backButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "left-black-arrow-image"), for: .normal)
-        button.addTarget(self, action: #selector(goBackAction), for: .touchUpInside)
-        
-        view.addSubview(button)
-        
-        return button
-    }()
-    
     lazy var mainImage: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -76,30 +66,34 @@ final class QuickTestViewController: UIViewController {
         imageView.alpha = 0.9
         view.addSubview(imageView)
         view.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        
+        // Создание пользовательской кнопки "назад"
+        let customBackButton = UIBarButtonItem(image: UIImage(named: "left-black-arrow-image"), style: .plain, target: self, action: #selector(goBackAction))
+        customBackButton.tintColor = .black
+        self.navigationItem.leftBarButtonItem = customBackButton
+        
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     @objc func goBackAction() {
-        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     @objc func startTestAction() {
         let nextVC = TestsQuestionsViewController()
         nextVC.modalPresentationStyle = .fullScreen
         
-        self.present(nextVC, animated: true)
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 
 //MARK: - Constraints
 extension QuickTestViewController {
     private func setupLayout() {
-        backButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(55)
-            make.leading.equalToSuperview().offset(18)
-        }
-        
+
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(backButton.snp.bottom).offset(10)
+            make.top.equalTo(95)
             make.leading.equalToSuperview().offset(18)
             make.width.equalToSuperview().dividedBy(1.65)
         }

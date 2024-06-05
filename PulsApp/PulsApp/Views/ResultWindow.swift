@@ -15,7 +15,7 @@ class ResultWindow: UIView {
     lazy var titleLabel: UILabel = {
         var label = UILabel()
         label.text = "Result"
-        label.font = .systemFont(ofSize: 20.adjusted, weight: .medium)
+        label.font = .systemFont(ofSize: 20, weight: .medium)
         label.textColor = .black
         label.textAlignment = .center
         
@@ -27,7 +27,7 @@ class ResultWindow: UIView {
     lazy var dateLabel: UILabel = {
         var label = UILabel()
         label.text = "February 15 2021, 11:47 AM"
-        label.font = .systemFont(ofSize: 12.adjusted)
+        label.font = .systemFont(ofSize: 12)
         label.textColor = UIColor(red: 0.114, green: 0.114, blue: 0.145, alpha: 0.3)
         label.textAlignment = .left
         
@@ -39,7 +39,7 @@ class ResultWindow: UIView {
     lazy var titleHearth: UILabel = {
         var label = UILabel()
         label.text = "Heart rate Tips"
-        label.font = .systemFont(ofSize: 20.adjusted, weight: .medium)
+        label.font = .systemFont(ofSize: 20, weight: .medium)
         label.textColor = .black
         label.textAlignment = .center
         
@@ -51,7 +51,7 @@ class ResultWindow: UIView {
     lazy var pulseLabel: UILabel = {
         var label = UILabel()
         label.text = "00"
-        label.font = .systemFont(ofSize: 50.adjusted, weight: .medium)
+        label.font = .systemFont(ofSize: 50, weight: .medium)
         label.textColor = .black
         
         self.addSubview(label)
@@ -62,7 +62,7 @@ class ResultWindow: UIView {
     lazy var bpmLabel: UILabel = {
         var label = UILabel()
         label.text = "bpm"
-        label.font = .systemFont(ofSize: 16.adjusted, weight: .medium)
+        label.font = .systemFont(ofSize: 16, weight: .medium)
         label.textColor = .black
         
         self.addSubview(label)
@@ -82,7 +82,7 @@ class ResultWindow: UIView {
     lazy var descriptionHearth: UILabel = {
         var label = UILabel()
         label.text = "Many lifestyle habits can maintain a healthy heart rate, and a healthy diet helps to keep your heart rate slow for a long time. Eat more vegetables and fruits, and eat less foods high in fat and cholesterol."
-        label.font = .systemFont(ofSize: 16.adjusted)
+        label.font = .systemFont(ofSize: 16)
         label.textColor = .black
         label.numberOfLines = 0
         

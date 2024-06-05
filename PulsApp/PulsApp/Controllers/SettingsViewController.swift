@@ -74,8 +74,8 @@ final class SettingsViewController: UIViewController {
         
         present(secondAlertController, animated: true, completion: nil)
     }
-}
-
+    
+    }
 
 extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,7 +97,6 @@ extension SettingsViewController: UITableViewDataSource {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileSettingsCell", for: indexPath) as! ProfileSettingsCell
-            
             
             let imageNamesArr = ["restore-image", "subscription-image"]
             let namesArr = ["Restore", "Cancel Subscription"]

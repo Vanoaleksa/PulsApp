@@ -101,7 +101,7 @@ class HistoryTableViewCell: UITableViewCell {
         
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(pulseLabel.snp.bottom).offset(3)
-            make.leading.equalTo(pulseLabel)
+            make.leading.equalTo(pulseLabel.snp.leading).offset(-3)
         }
         
         pulseType.snp.makeConstraints { make in

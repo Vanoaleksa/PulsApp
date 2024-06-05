@@ -101,8 +101,7 @@ final class AnalyzViewController: UIViewController {
     
     @objc func continueButtonAction() {
         self.dismiss(animated: true)
-        
-        delegate?.finalDefinitionType(type: typeIsSelected)
+        self.delegate?.finalDefinitionType(type: self.typeIsSelected)
     }
     
     //MARK: - Setup layout

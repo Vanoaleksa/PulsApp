@@ -43,7 +43,14 @@ final class ProfileViewController: UIViewController {
         
         configUI()
         setupLayout()
+        setupKeyboardNotifications()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         user = UserManager.getUser()
+        tableViewController.tableView.reloadData()
     }
     
     private func configUI() {
@@ -92,6 +99,30 @@ final class ProfileViewController: UIViewController {
         
         view.addSubview(tableViewController.tableView)
     }
+    
+    private func setupKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func handleKeyboardWillShow(notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+            return
+        }
+        
+        let keyboardHeight = keyboardFrame.height
+        view.frame.origin.y = -keyboardHeight / 2.5
+    }
+    
+    @objc private func handleKeyboardWillHide(notification: Notification) {
+        view.frame.origin.y = 0
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
 }
 
 //MARK: - UITableViewDataSource
@@ -128,9 +159,9 @@ extension ProfileViewController: UITableViewDataSource {
             cell.typeLabel.text = "Height"
             
             if let user = user {
-                cell.paramTextField.text = "\(Int(user.height)) cm"
+                cell.paramTextField.text = "\(Int(user.height))"
             } else {
-                cell.paramTextField.text = "0 cm"
+                cell.paramTextField.text = "0"
             }
             cell.cellImage.image = UIImage(named: "height-image")
 
@@ -140,9 +171,9 @@ extension ProfileViewController: UITableViewDataSource {
             cell.selectionStyle = .none
             cell.typeLabel.text = "Weight"
             if let user = user {
-                cell.paramTextField.text = "\(Int(user.weight)) kg"
+                cell.paramTextField.text = "\(Int(user.weight))"
             } else {
-                cell.paramTextField.text = "0 kg"
+                cell.paramTextField.text = "0"
             }
             cell.cellImage.image = UIImage(named: "weight-image")
 
@@ -173,11 +204,15 @@ extension ProfileViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.endEditing(true)
+        
         if indexPath.row == 4 {
             let nextVC = SettingsViewController()
             nextVC.modalPresentationStyle = .fullScreen
             self.present(nextVC, animated: true)
+        } else if indexPath.row >= 1 && indexPath.row <= 3 {
+              // Показываем клавиатуру только для ячеек с текстовыми полями
+            let cell = tableView.cellForRow(at: indexPath) as? ProfileParametrsTableViewCell
+            cell?.paramTextField.becomeFirstResponder() // Фокусируемся на текстовом поле
         }
     }
 }

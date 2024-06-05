@@ -6,17 +6,9 @@ protocol ResultViewDelegate {
     func saveToDBAndCloseResultView()
 }
 
-class ResultScreenView: UIView {
+final class ResultScreenView: UIView {
     
     var delegate: ResultViewDelegate?
-    
-    let darkView:UIView = {
-        let view = UIView()
-        view.alpha = 0.5
-        view.backgroundColor = .black
-        
-        return view
-    }()
     
     var resultWindow = ResultWindow()
 
@@ -36,7 +28,6 @@ class ResultScreenView: UIView {
         self.backgroundColor = .clear
         resultWindow.delegateResult = self
         
-        self.insertSubview(darkView, at: 0)
         self.addSubview(resultWindow)
     }
     
@@ -45,22 +36,22 @@ class ResultScreenView: UIView {
     }
     
     private func setupLayout() {
-        darkView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
         
         resultWindow.snp.makeConstraints { make in
-            make.bottom.equalTo(20.adjusted)
+            make.bottom.equalTo(20)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.height.equalTo(513.adjusted)
+            make.height.equalTo(513)
         }
     }
 }
 
 extension ResultScreenView: ResultWindowActionsDelegate {
     func tappedButtonOK() {
-        self.removeFromSuperview()
-        delegate?.saveToDBAndCloseResultView()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 , execute: {
+            self.removeFromSuperview()
+            self.delegate?.saveToDBAndCloseResultView()
+        })
     }
 }
