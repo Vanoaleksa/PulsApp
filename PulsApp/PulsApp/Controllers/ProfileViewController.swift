@@ -149,6 +149,8 @@ extension ProfileViewController: UITableViewDataSource {
             } else {
                 cell.paramTextField.text = "0"
             }
+            
+            cell.paramNameLabel.text = ""
 
             cell.cellImage.image = UIImage(named: "age-image")
             
