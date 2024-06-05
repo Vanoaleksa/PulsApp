@@ -163,6 +163,8 @@ extension ProfileViewController: UITableViewDataSource {
             } else {
                 cell.paramTextField.text = "0"
             }
+            
+            cell.paramNameLabel.text = "Cm"
             cell.cellImage.image = UIImage(named: "height-image")
 
             return cell
@@ -175,6 +177,8 @@ extension ProfileViewController: UITableViewDataSource {
             } else {
                 cell.paramTextField.text = "0"
             }
+            
+            cell.paramNameLabel.text = "Kg"
             cell.cellImage.image = UIImage(named: "weight-image")
 
             return cell

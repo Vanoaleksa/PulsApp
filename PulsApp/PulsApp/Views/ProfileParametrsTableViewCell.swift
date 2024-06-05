@@ -43,6 +43,16 @@ final class ProfileParametrsTableViewCell: UITableViewCell {
         return textField
     }()
     
+    lazy var paramNameLabel: UILabel = {
+        var label = UILabel()
+        label.font = .systemFont(ofSize: 16)
+        label.textColor = UIColor(red: 113/255, green: 102/255, blue: 229/255, alpha: 1)
+
+        mainView.addSubview(label)
+        
+        return label
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: "ProfileParametrsTableViewCell")
         
@@ -102,9 +112,16 @@ extension ProfileParametrsTableViewCell {
             make.centerY.equalToSuperview()
         }
         
-        paramTextField.snp.makeConstraints { make in
+        paramNameLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.trailing.equalTo(-10)
+            make.height.equalTo(16)
+//            make.width.equalToSuperview().dividedBy(6)
+        }
+        
+        paramTextField.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalTo(paramNameLabel.snp.leading).offset(-7)
             make.height.equalTo(16)
             make.width.equalToSuperview().dividedBy(5.3)
         }
