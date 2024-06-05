@@ -146,7 +146,6 @@ final class AnalyzViewController: UIViewController {
             make.height.equalTo(80.adjusted)
         }
     }
-
 }
 
 extension AnalyzViewController: TypesDelegate {

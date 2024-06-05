@@ -44,14 +44,20 @@ final class ResultScreenView: UIView {
             make.height.equalTo(513)
         }
     }
+    
+    private func hideViewWithAnimation(){
+        let height = 513
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+            self.frame.origin.y += CGFloat(height)
+        }) { _ in
+            self.removeFromSuperview()
+        }
+    }
 }
 
 extension ResultScreenView: ResultWindowActionsDelegate {
     func tappedButtonOK() {
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3 , execute: {
-            self.removeFromSuperview()
-            self.delegate?.saveToDBAndCloseResultView()
-        })
+        hideViewWithAnimation()
+        self.delegate?.saveToDBAndCloseResultView()
     }
 }
