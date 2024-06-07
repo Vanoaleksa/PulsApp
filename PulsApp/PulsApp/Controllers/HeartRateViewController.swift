@@ -246,10 +246,8 @@ extension HeartRateViewController: AlertViewDelegate, TypesDelegate, ResultViewD
         switch type {
         case .preview:
             hideAlertViewWithAnimation()
-            self.darkView?.removeFromSuperview()
         case .camera:
             hideAlertViewWithAnimation()
-            self.darkView?.removeFromSuperview()
             
             //Получаем доступ к камере
             let authorizationStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
@@ -311,13 +309,20 @@ extension HeartRateViewController: AlertViewDelegate, TypesDelegate, ResultViewD
     
     func finalDefinitionType(type: AnalyzeTypes) {
         heartViewModel?.handleAnalyzeType(type: type)
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.heartViewModel?.showResultView(heartController: self)
         }
     }
     
     func saveToDBAndCloseResultView() {
-        self.darkView?.removeFromSuperview()
+        
+        UIView.animate(withDuration: 0.8, delay: 0.2, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+            self.darkView?.alpha = 0 // Анимированное скрытие
+        }) { _ in
+            self.darkView?.removeFromSuperview()
+        }
+        
         heartViewModel?.saveBPMSettingsToDB()
     }
 }

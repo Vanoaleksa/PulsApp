@@ -4,7 +4,7 @@ import SnapKit
 
 final class ProfileGenderTableViewCell: UITableViewCell {
 
-    private var gendersStack: UIStackView!
+    var gendersStack: UIStackView!
     private var maleView: GenderFieldView!
     private var femaleView: GenderFieldView!
     public var genderIsSelected: Gender = .male {
@@ -36,12 +36,22 @@ final class ProfileGenderTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    private lazy var genderLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         var label = UILabel()
         label.text = "Gender"
         label.font = .systemFont(ofSize: 16)
         label.textColor = UIColor(red: 29/255, green: 29/255, blue: 37/255, alpha: 1)
         
+        mainView.addSubview(label)
+        
+        return label
+    }()
+    
+    lazy var genderLabel: UILabel = {
+        var label = UILabel()
+        label.font = .systemFont(ofSize: 16)
+        label.textColor = UIColor(red: 113/255, green: 102/255, blue: 229/255, alpha: 1)
+
         mainView.addSubview(label)
         
         return label
@@ -74,12 +84,12 @@ final class ProfileGenderTableViewCell: UITableViewCell {
         
         maleView.delegate = self
         femaleView.delegate = self
-        
-        genderIsSelected = .male
-        
+                
         mainView.addSubview(gendersStack)
         gendersStack.addArrangedSubview(maleView)
         gendersStack.addArrangedSubview(femaleView)
+        
+        gendersStack.isHidden = true
     }
 }
 
@@ -100,7 +110,7 @@ extension ProfileGenderTableViewCell {
             make.centerY.equalToSuperview()
         }
         
-        genderLabel.snp.makeConstraints { make in
+        nameLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalTo(cellImage.snp.trailing).offset(12)
         }
@@ -110,7 +120,10 @@ extension ProfileGenderTableViewCell {
             make.trailing.equalTo(-14.adjusted)
         }
         
-        
+        genderLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalTo(-10)
+        }
     }
 }
 
@@ -119,5 +132,6 @@ extension ProfileGenderTableViewCell: GenderCellDelegate{
     
     func tapOnChooseGenderField(gender: Gender) {
         self.genderIsSelected = gender
+        self.genderLabel.text = gender.genderString
     }
 }

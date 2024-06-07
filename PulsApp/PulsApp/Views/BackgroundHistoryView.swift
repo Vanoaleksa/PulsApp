@@ -44,11 +44,10 @@ final class BackgroundHistoryView: UIView {
     }()
     
     lazy var dateLabel: UILabel = {
-        var label = UILabel()
+        let label = UILabel()
         label.text = "February 15"
         label.font = .systemFont(ofSize: 14, weight: .regular)
         label.textColor = .white
-        
         self.addSubview(label)
         
         return label
@@ -152,6 +151,7 @@ final class BackgroundHistoryView: UIView {
         createPeriodsStack(numberOfStacks: 5, selectedPeriod: 1)
         createPeriodsStack(numberOfStacks: 7, selectedPeriod: 2)
         createPeriodsStack(numberOfStacks: 7, selectedPeriod: 3)
+        
     }
 }
 
@@ -427,7 +427,6 @@ extension BackgroundHistoryView {
             make.leading.equalTo(15)
             make.trailing.equalTo(self.snp.leading).offset(40)
             make.height.equalToSuperview().dividedBy(2.95)
-            //            make.bottom.equalToSuperview().offset(-180.adjusted)
         }
         
         rightStackView.snp.makeConstraints { make in
@@ -439,9 +438,7 @@ extension BackgroundHistoryView {
         
         dayStackView.snp.makeConstraints { make in
             make.top.equalTo(rightStackView.snp.bottom).offset(5)
-            //            make.leading.equalTo(rightStackView.snp.leading).offset(10)
             make.leading.equalToSuperview().offset(70)
-            //            make.trailing.equalTo(rightStackView.snp.trailing).offset(-10)
             make.trailing.equalToSuperview().inset(35)
             make.bottom.equalTo(rightStackView.snp.bottom).offset(37)
         }

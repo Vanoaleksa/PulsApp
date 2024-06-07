@@ -165,6 +165,12 @@ extension HeartRateViewController{
         UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
             self.reusableView.frame.origin.y -= CGFloat(height)
         })
+        
+        // Animate the appearance of the darkView with a slight delay
+        darkView?.alpha = 0
+        UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseInOut, animations: {
+            self.darkView?.alpha = 1
+        })
     }
     
     func showCameraAccessView() {
@@ -180,14 +186,22 @@ extension HeartRateViewController{
         UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
             self.reusableView.frame.origin.y -= CGFloat(height)
         })
+        
+        // Animate the appearance of the darkView with a slight delay
+        darkView?.alpha = 0
+        UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseInOut, animations: {
+            self.darkView?.alpha = 1
+        })
     }
     
     func hideAlertViewWithAnimation(){
         let height = 335
         UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
             self.reusableView.frame.origin.y += CGFloat(height)
+            self.darkView?.alpha = 0 // Анимированное скрытие
         }) { _ in
             self.reusableView.removeFromSuperview()
+            self.darkView?.removeFromSuperview()
         }
     }
     

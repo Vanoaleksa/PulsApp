@@ -116,7 +116,6 @@ extension ProfileParametrsTableViewCell {
             make.centerY.equalToSuperview()
             make.trailing.equalTo(-10)
             make.height.equalTo(16)
-//            make.width.equalToSuperview().dividedBy(6)
         }
         
         paramTextField.snp.makeConstraints { make in

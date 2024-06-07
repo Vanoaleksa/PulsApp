@@ -50,6 +50,8 @@ final class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         
         user = UserManager.getUser()
+        unitsIsSelected = user?.units ?? .cmKg
+        
         tableViewController.tableView.reloadData()
     }
     
@@ -79,7 +81,7 @@ final class ProfileViewController: UIViewController {
         cmKgView.unitsDelegate = self
         inLbsView.unitsDelegate = self
         
-        unitsIsSelected = .cmKg
+//        unitsIsSelected = .cmKg
         
         view.addSubview(unitsStackView)
         unitsStackView.addArrangedSubview(cmKgView)
@@ -136,6 +138,8 @@ extension ProfileViewController: UITableViewDataSource {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "GenderCell", for: indexPath) as! ProfileGenderTableViewCell
             cell.selectionStyle = .none
+            cell.genderIsSelected = user?.gender ?? .male
+            cell.genderLabel.text = user?.gender.genderString ?? "Unknown"
             
             return cell
             
@@ -219,6 +223,10 @@ extension ProfileViewController: UITableViewDelegate {
               // Показываем клавиатуру только для ячеек с текстовыми полями
             let cell = tableView.cellForRow(at: indexPath) as? ProfileParametrsTableViewCell
             cell?.paramTextField.becomeFirstResponder() // Фокусируемся на текстовом поле
+        } else if indexPath.row == 0 {
+            let cell = tableView.cellForRow(at: indexPath) as? ProfileGenderTableViewCell
+            cell?.genderLabel.isHidden = true
+            cell?.gendersStack.isHidden = false
         }
     }
 }

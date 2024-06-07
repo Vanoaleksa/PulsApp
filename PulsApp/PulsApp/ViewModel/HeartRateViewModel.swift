@@ -58,8 +58,14 @@ class HeartRateViewModel: BindWithHeartControllerProtocol {
         resultView.frame = CGRect(x: 0, y: heartController.tabBarController!.view.frame.height, width: heartController.tabBarController!.view.frame.width, height: CGFloat(height))
         heartController.tabBarController?.view.layoutIfNeeded()
         
+
         UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
             resultView.frame.origin.y -= CGFloat(height)
+        })
+        
+        heartController.darkView?.alpha = 0
+        UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseInOut, animations: {
+            heartController.darkView?.alpha = 1
         })
     }
     

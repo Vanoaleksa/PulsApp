@@ -176,6 +176,9 @@ final class HistoryViewController: UIViewController {
         typeIsSelected = .all
         
         backgroundImage.datePickerButton.addTarget(self, action: #selector(showDatePickerView), for: .touchUpInside)
+        backgroundImage.datePickerLabel.isUserInteractionEnabled = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showDatePickerView))
+        backgroundImage.datePickerLabel.addGestureRecognizer(tapGestureRecognizer)
         
     }
     
@@ -300,6 +303,12 @@ extension HistoryViewController: DatePickerViewDelegate {
         UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
             self.dataPickerView.frame.origin.y -= CGFloat(height)
         })
+        
+        // Animate the appearance of the darkView with a slight delay
+        darkView?.alpha = 0
+        UIView.animate(withDuration: 0.3, delay: 0.3, options: .curveEaseInOut, animations: {
+            self.darkView?.alpha = 1
+        })
     }
     
     private func setupDarkView() {
@@ -318,13 +327,14 @@ extension HistoryViewController: DatePickerViewDelegate {
         let height = 335
         UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
             self.dataPickerView.frame.origin.y += CGFloat(height)
+            self.darkView?.alpha = 0 // Анимированное скрытие 
         }) { _ in
             self.dataPickerView.removeFromSuperview()
+            self.darkView?.removeFromSuperview()
         }
     }
     
     func tappedActionInPrivacyView() {
         hideAlertViewWithAnimation()
-        self.darkView?.removeFromSuperview()
     }
 }
